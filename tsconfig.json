@@ -1,13 +1,21 @@
 {
   "compilerOptions": {
+    "outDir": "./dist/",
     "noImplicitAny": true,
     "module": "ESNext",
     "target": "es5",
     "allowJs": true,
     "esModuleInterop": true,
+    "checkJs": true,
     "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "./src/*"
+      ]
+    }
   },
   "ts-node": {
     "compilerOptions": {
@@ -15,8 +23,14 @@
     }
   },
   "include": [
-    "src/**/*.ts",
-    "declarations.d.ts"
-],
-  "files": ["src/index.tsx"]
+    "declarations.d.ts",
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*"
+  ],
+  "files": [
+    "src/index.tsx"
+  ],
 }
