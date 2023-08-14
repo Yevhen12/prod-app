@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { AppRoutes } from 'shared/config/routeConfig/routeConfig'
 
-const AboutPage = () => {
+const AboutPage: React.FC = () => {
+  const { t } = useTranslation(AppRoutes.ABOUT)
   return (
     <div>
-      <p>Good Jib!</p>
-      <Link to={'/'}>Main</Link>
-      <Link to={'/about'}>About</Link>
+      {t('about')}
     </div>
   )
 }

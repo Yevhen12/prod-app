@@ -15,7 +15,8 @@
       "*": [
         "./src/*"
       ]
-    }
+    },
+    "strictNullChecks": true
   },
   "ts-node": {
     "compilerOptions": {
@@ -23,8 +24,11 @@
     }
   },
   "include": [
+    "config",
     "declarations.d.ts",
-    "src/**/*"
+    "src/**/*",
+    ".eslintrc.js",
+    "webpack.config.ts",
   ],
   "exclude": [
     "node_modules",

@@ -1,13 +1,13 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
+import { AppRoutes } from 'shared/config/routeConfig/routeConfig'
 
-type Props = {}
+// interface Props {}
 
-const MainPage = () => {
+const MainPage: React.FC = () => {
+  const { t } = useTranslation(AppRoutes.MAIN)
   return (
     <div>
-      <Link to={'/'}>Main</Link>
-      <Link to={'/about'}>About</Link>
+      {t('main')}
     </div>
   )
 }

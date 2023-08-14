@@ -2,17 +2,23 @@ import { useTheme } from './providers/ThemeProvider'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { AppRouter } from 'app/providers/Router'
 import { Navbar } from 'widgets/Navbar'
-
+import { Sidebar } from 'widgets/Sidebar'
+import React, { Suspense } from 'react'
 import './styles/index.scss'
 
+const App: React.FC = () => {
+  const { theme } = useTheme()
 
-const App = () => {
-  const { theme, toggleTheme } = useTheme()
+  const prootectedTheme = theme ?? ''
   return (
-    <div className={classNames('app', {}, [theme])}>
-      <Navbar />
-      <button onClick={toggleTheme}>Toggle</button>
-     <AppRouter />
+    <div className={classNames('app', {}, [prootectedTheme])}>
+      <Suspense fallback="">
+        <Navbar />
+        <div className='content-page'>
+          <Sidebar />
+          <AppRouter />
+        </div>
+      </Suspense>
     </div>
   )
 }
