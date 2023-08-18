@@ -39,7 +39,23 @@ export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
     },
     {
       test: /\.svg$/,
-      use: ['@svgr/webpack']
+      use: [{
+        loader: '@svgr/webpack',
+        options: {
+          svgoConfig: {
+            plugins: [
+              {
+                name: 'preset-default',
+                params: {
+                  overrides: {
+                    removeViewBox: false
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }]
     },
     {
       test: /\.(png|jpe?g|gif|woff2|woff)$/i,

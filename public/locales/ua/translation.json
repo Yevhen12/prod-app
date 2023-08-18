@@ -1,5 +1,8 @@
 {
   "helloWorld": "Привіт світ",
   "translate": "Перевести",
-  "language": "Український"
+  "language": "Український",
+  "notFoundPage": "Сторінка не знайдена",
+  "errorOccurs": "Виникла помилка",
+  "reloadPage": "Перевантажити сторінку"
 }

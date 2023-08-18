@@ -1,5 +1,8 @@
 {
   "helloWorld": "Hello World",
   "translate": "Translate",
-  "language": "English"
+  "language": "English",
+  "notFoundPage": "Page not found",
+  "errorOccurs": "Some error occur",
+  "reloadPage": "Reload Page"
 }

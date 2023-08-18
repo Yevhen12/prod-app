@@ -1,12 +1,10 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
+    jest: true
   },
-  extends: [
-    'standard-with-typescript',
-    'plugin:react/recommended'
-  ],
+  extends: ['standard-with-typescript', 'plugin:react/recommended', 'plugin:storybook/recommended'],
   overrides: [
     {
       env: {
@@ -45,6 +43,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
     '@typescript-eslint/consistent-type-imports': 'off',
-    allowNullableObject: 0
+    allowNullableObject: 0,
+    '@typescript-eslint/explicit-function-return-type': 'off'
   }
 }
