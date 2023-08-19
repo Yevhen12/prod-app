@@ -8,9 +8,9 @@ on:
 jobs:
   pipeline:
     runs-on: ubuntu-latest
-      strategy:
-        matrix:
-          node-version: [17.x]
+    strategy:
+      matrix:
+        node-version: [ 17.x ]
       steps:
       - name: Checkout Commit
         uses: actions/checkout@v2
