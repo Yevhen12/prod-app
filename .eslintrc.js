@@ -44,6 +44,7 @@ module.exports = {
     'no-underscore-dangle': 'off',
     '@typescript-eslint/consistent-type-imports': 'off',
     allowNullableObject: 0,
-    '@typescript-eslint/explicit-function-return-type': 'off'
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/consistent-type-assertions': 'off'
   }
 }
