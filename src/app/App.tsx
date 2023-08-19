@@ -11,6 +11,7 @@ const App: React.FC = () => {
   const { theme } = useTheme()
 
   const prootectedTheme = theme ?? ''
+  
   return (
     <div className={classNames('app', {}, [prootectedTheme])}>
       <Suspense fallback={<PageLoader />}>
