@@ -6,7 +6,6 @@ import { Button, ButtonTheme, ButtonSize } from 'shared/ui/Button/Button'
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher'
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher'
 import HomeIcon from 'shared/assets/icons/home.svg'
-import OutlineListIcon from 'shared/assets/icons/outline-list.svg'
 import cls from './Sidebar.module.scss'
 
 interface SidebarProps {
