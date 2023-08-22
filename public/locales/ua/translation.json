@@ -2,6 +2,7 @@
   "helloWorld": "Привіт світ",
   "translate": "Перевести",
   "language": "Український",
+  "shortLanguage": "UA",
   "notFoundPage": "Сторінка не знайдена",
   "errorOccurs": "Виникла помилка",
   "reloadPage": "Перевантажити сторінку"

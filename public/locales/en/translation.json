@@ -2,6 +2,7 @@
   "helloWorld": "Hello World",
   "translate": "Translate",
   "language": "English",
+  "shortLanguage": "EN",
   "notFoundPage": "Page not found",
   "errorOccurs": "Some error occur",
   "reloadPage": "Reload Page"

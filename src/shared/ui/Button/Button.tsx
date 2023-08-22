@@ -6,18 +6,46 @@ import 'app/styles/index.scss'
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
   theme?: string
+  square?: boolean
+  size?: string
 }
 
 export enum ButtonTheme {
   CLEAR = 'clear',
-  OUTLINE = 'outline'
+  OUTLINE = 'outline',
+  BACKGROUND = 'background',
+  BACKGROUND_INVERTED = 'backgroundInverted'
 }
 
-export const Button: FC<ButtonProps> = ({ className, children, theme = ButtonTheme.CLEAR, ...otherProps }) => {
+export enum ButtonSize {
+  M = 'size_m',
+  L = 'size_l',
+  XL = 'size_xl'
+}
+
+export const Button: FC<ButtonProps> = (props) => {
+  const {
+    className,
+    children,
+    theme = ButtonTheme.CLEAR,
+    square = false,
+    size = ButtonSize.M,
+    ...otherProps
+  } = props
+
+  const additionalClasses: string[] = [
+    className ?? '',
+    cls[theme],
+    cls[size]
+  ]
+  const mods: Record<string, boolean> = {
+    [cls.square]: square
+  }
+
   return (
     <button
       type="button"
-      className={classNames(cls.button, {}, [className ?? '', cls[theme]])}
+      className={classNames(cls.button, mods, additionalClasses)}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...otherProps}
     >
