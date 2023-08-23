@@ -12,7 +12,7 @@ const App: React.FC = () => {
 
   const prootectedTheme = theme ?? ''
   return (
-    <div className={classNames('app', {}, [prootectedTheme])}>
+    <div id='app' className={classNames('app', {}, [prootectedTheme])}>
       <Suspense fallback={<PageLoader />}>
         <Navbar />
         <div className='content-page'>

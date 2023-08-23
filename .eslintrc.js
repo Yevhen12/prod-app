@@ -24,9 +24,12 @@ module.exports = {
     project: './tsconfig.json'
   },
   plugins: [
-    'react'
+    'react',
+    'react-hooks'
   ],
   rules: {
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
     'react/jsx-indent': [2, 2],
     'react/jsx-indent-props': [2, 2],
     indent: [2, 2],
@@ -45,6 +48,7 @@ module.exports = {
     '@typescript-eslint/consistent-type-imports': 'off',
     allowNullableObject: 0,
     '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/consistent-type-assertions': 'off'
+    '@typescript-eslint/consistent-type-assertions': 'off',
+    '@typescript-eslint/strict-boolean-expressions': 'off'
   }
 }

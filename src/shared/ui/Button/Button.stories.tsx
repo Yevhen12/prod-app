@@ -50,6 +50,13 @@ export const BackgroundInvertedTheme: Story = {
   }
 }
 
+export const ClearInvertedTheme: Story = {
+  args: {
+    children: 'Test',
+    theme: ButtonTheme.CLEAR_INVERTED
+  }
+}
+
 export const SquareSmall: Story = {
   args: {
     children: '>',
