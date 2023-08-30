@@ -6,6 +6,7 @@ import { Sidebar } from 'widgets/Sidebar'
 import React, { Suspense } from 'react'
 import { PageLoader } from 'shared/ui/PageLoader/PageLoader'
 import './styles/index.scss'
+import { Counter } from 'enteties/Counter'
 
 const App: React.FC = () => {
   const { theme } = useTheme()
@@ -17,6 +18,7 @@ const App: React.FC = () => {
         <Navbar />
         <div className='content-page'>
           <Sidebar />
+          <Counter />
           <AppRouter />
         </div>
       </Suspense>
