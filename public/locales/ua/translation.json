@@ -6,5 +6,7 @@
   "notFoundPage": "Сторінка не знайдена",
   "errorOccurs": "Виникла помилка",
   "reloadPage": "Перевантажити сторінку",
-  "signIn": "Ввійти"
+  "signIn": "Ввійти",
+  "username": "Юзернейм",
+  "password": "Пароль"
 }
