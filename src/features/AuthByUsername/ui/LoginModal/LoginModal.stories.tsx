@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Theme } from 'app/providers/ThemeProvider'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import LoginModal from './LoginModal'
 
@@ -23,10 +24,30 @@ export const Primary: Story = {
     isOpen: true
   }
 }
+Primary.decorators = [
+  StoreDecorator({
+    loginForm: {
+      username: 'sdsdsd',
+      password: 'sdfsfs',
+      isLoading: false,
+      error: null
+    }
+  })
+]
 
 export const Dark: Story = {
   args: {
     isOpen: true
   }
 }
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+Dark.decorators = [
+  ThemeDecorator(Theme.DARK),
+  StoreDecorator({
+    loginForm: {
+      username: 'sdsdsd',
+      password: 'sdfsfs',
+      isLoading: false,
+      error: null
+    }
+  })
+]

@@ -7,6 +7,10 @@
   "errorOccurs": "Some error occur",
   "reloadPage": "Reload Page",
   "signIn": "Sign in",
+  "signOut": "Sign out",
   "username": "Username",
-  "password": "Password"
+  "password": "Password",
+  "authorizationForm": "Authorization form",
+  "somethingWentWrong": "Something went wrong",
+  "incorrectCreds": "Incorrect credentials"
 }

@@ -107,3 +107,12 @@ export const XLarge: Story = {
     theme: ButtonTheme.BACKGROUND_INVERTED
   }
 }
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+    children: 'Test',
+    size: ButtonSize.XL,
+    theme: ButtonTheme.BACKGROUND_INVERTED
+  }
+}

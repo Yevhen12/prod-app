@@ -1,5 +1,5 @@
 import { BuildPaths } from './../build/types/config';
-import webpack, { RuleSetRule, ModuleOptions } from "webpack"
+import webpack, { RuleSetRule, ModuleOptions, DefinePlugin } from "webpack"
 import path from 'path';
 
 
@@ -74,6 +74,10 @@ export default ({ config }: { config: webpack.Configuration }) => {
       use: ['@svgr/webpack'],
     });
   }
+
+  config.plugins?.push(new DefinePlugin({
+    __IS_DEV__: true
+  }))
 
 
   return config

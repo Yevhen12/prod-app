@@ -7,6 +7,10 @@
   "errorOccurs": "Виникла помилка",
   "reloadPage": "Перевантажити сторінку",
   "signIn": "Ввійти",
+  "signOut": "Вийти",
   "username": "Юзернейм",
-  "password": "Пароль"
+  "password": "Пароль",
+  "authorizationForm": "Форма авторизації",
+  "somethingWentWrong": "Щось пішло не так",
+  "incorrectCreds": "Неправильні дані"
 }
