@@ -2,24 +2,34 @@ import React, { FC, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import { loginActions } from '../../model/slice/loginSlice'
+import { loginActions, loginReducer } from '../../model/slice/loginSlice'
 import Input from 'shared/ui/Input/Input'
 import cls from './LoginForm.module.scss'
-import { getLoginState } from '../../model/selectors/getLoginState/getLoginState'
-import { LoginSchema } from 'features/AuthByUsername/model/types/loginShema'
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
 import Text, { TextTheme } from 'shared/ui/Text/Text'
 import { AppDispatch } from 'app/providers/StoreProvider'
+import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername'
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword'
+import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading'
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError'
+import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 
-interface LoginFormProps {
+export interface LoginFormProps {
   className?: string
   closeModal?: () => void
+}
+
+const initialReducers: ReducersList = {
+  loginForm: loginReducer
 }
 
 const LoginForm: FC<LoginFormProps> = memo(({ closeModal }: LoginFormProps) => {
   const { t } = useTranslation()
   const dispatch = useDispatch<AppDispatch>()
-  const { username, password, error, isLoading } = useSelector(getLoginState) as LoginSchema
+  const username = useSelector(getLoginUsername)
+  const password = useSelector(getLoginPassword)
+  const isLoading = useSelector(getLoginLoading)
+  const error = useSelector(getLoginError)
 
   const onChangeUsername = useCallback((val: string) => {
     dispatch(loginActions.setUsername(val))
@@ -42,42 +52,43 @@ const LoginForm: FC<LoginFormProps> = memo(({ closeModal }: LoginFormProps) => {
     // }
   }, [dispatch, password, username])
 
-  console.log('121212121212', error)
   return (
-    <form className={cls.loginForm}>
-      <Text text={t('authorizationForm')} />
-      {error &&
-        <Text
-          text={error}
-          theme={TextTheme.ERROR}
+    <DynamicModuleLoader reducers={initialReducers}>
+      <form className={cls.loginForm}>
+        <Text text={t('authorizationForm')} />
+        {error &&
+          <Text
+            text={error}
+            theme={TextTheme.ERROR}
+          />
+        }
+        <Input
+          type='text'
+          className={cls.input}
+          placeholder={t('username')}
+          onChange={onChangeUsername}
+          value={username}
+          autofocus
         />
-      }
-      <Input
-        type='text'
-        className={cls.input}
-        placeholder={t('username')}
-        onChange={onChangeUsername}
-        value={username}
-        autofocus
-      />
-      <Input
-        type='text'
-        className={cls.input}
-        placeholder={t('password')}
-        value={password}
-        onChange={onChangePassword}
-      />
-      <Button
-        // eslint-disable-next-line @typescript-eslint/no-misused-promises
-        onClick={onLoginClick}
-        className={cls.loginBtn}
-        theme={ButtonTheme.BACKGROUND_INVERTED}
-        disabled={isLoading}
-      >
+        <Input
+          type='text'
+          className={cls.input}
+          placeholder={t('password')}
+          value={password}
+          onChange={onChangePassword}
+        />
+        <Button
+          // eslint-disable-next-line @typescript-eslint/no-misused-promises
+          onClick={onLoginClick}
+          className={cls.loginBtn}
+          theme={ButtonTheme.BACKGROUND_INVERTED}
+          disabled={isLoading}
+        >
 
-        {t('signIn')}
-      </Button>
-    </form>
+          {t('signIn')}
+        </Button>
+      </form>
+    </DynamicModuleLoader>
   )
 })
 
