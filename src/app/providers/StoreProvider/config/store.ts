@@ -26,5 +26,4 @@ export const createReduxStore = (initialState?: StateSchema, asyncReducers?: Red
   return store
 }
 
-const AppDispatchValue = createReduxStore().dispatch
-export type AppDispatch = typeof AppDispatchValue
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']

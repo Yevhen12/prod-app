@@ -1,3 +1,4 @@
+import { ProfileSchema } from './../../../../enteties/Profile/model/types/profile'
 import { ReducersMapObject, AnyAction, CombinedState, Reducer } from '@reduxjs/toolkit'
 import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore'
 import { CounterShema } from 'enteties/Counter'
@@ -8,6 +9,7 @@ export interface StateSchema {
   counter: CounterShema
   user: UserSchema
   loginForm?: LoginSchema
+  profile?: ProfileSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

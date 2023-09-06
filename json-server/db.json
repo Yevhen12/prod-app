@@ -5,10 +5,19 @@
   "comments": [
     { "id": 1, "body": "some comment", "postId": 1 }
   ],
-  "profile": { "name": "typicode" }, 
+  "profile": { 
+    "first": "Yevhen",
+    "lastname": "Lys",
+    "age": "19",
+    "currency": "UA",
+    "country": "Ukraine",
+    "city": "Lviv",
+    "username": "Neylen",
+    "avatar": "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2787&q=80"
+  }, 
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "admin",
       "password": "123"
     }

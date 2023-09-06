@@ -34,7 +34,7 @@ const DynamicModuleLoader: FC<PropsWithChildren<DynamicModuleLoaderProps>> = (pr
       if (removeAfterUnmount) {
         Object.keys(reducers).forEach((name: StateSchemaKey) => {
           store.reducerManager.remove(name)
-          dispatch({ type: `@DESTROy ${name} reducer` })
+          dispatch({ type: `@DESTROY ${name} reducer` })
         })
       }
     }
