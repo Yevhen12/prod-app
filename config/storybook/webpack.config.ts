@@ -2,6 +2,7 @@ import { BuildPaths } from './../build/types/config';
 import webpack, { RuleSetRule, ModuleOptions, DefinePlugin } from "webpack"
 import path from 'path';
 
+type RuleType = undefined | null | false | "" | 0 | RuleSetRule | "..."
 
 export default ({ config }: { config: webpack.Configuration }) => {
   const paths: BuildPaths = {
@@ -60,15 +61,19 @@ export default ({ config }: { config: webpack.Configuration }) => {
   // })
 
   // eslint-disable-next-line no-param-reassign
-  if(config?.module?.rules) {
-    config.module.rules = config?.module?.rules?.map((rule: RuleSetRule) => {
-      if (/svg/.test(rule.test as string)) {
-        return { ...rule, exclude: /\.svg$/i };
+  if (config?.module?.rules) {
+    config.module.rules = config?.module?.rules?.map((rule: RuleType) => {
+      const newRule: RuleSetRule = { ...rule as RuleSetRule }
+      if (!newRule) {
+        return newRule
       }
-  
-      return rule;
+      if (/svg/.test(newRule.test as string)) {
+        return { ...newRule, exclude: /\.svg$/i };
+      }
+
+      return newRule;
     });
-  
+
     config?.module?.rules?.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],

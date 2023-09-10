@@ -4,6 +4,8 @@ import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore'
 import { CounterShema } from 'enteties/Counter'
 import { UserSchema } from 'enteties/User'
 import { LoginSchema } from 'features/AuthByUsername'
+import { AxiosInstance } from 'axios'
+import { NavigateFunction } from 'react-router-dom'
 
 export interface StateSchema {
   counter: CounterShema
@@ -23,4 +25,16 @@ export interface ReducerManager {
   reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>
   add: (key: StateSchemaKey, reducer: Reducer) => void
   remove: (key: StateSchemaKey) => void
+}
+
+export interface ThunkExtraArg {
+  api?: AxiosInstance
+  navigate?: NavigateFunction
+}
+
+export interface ThunkConfig<T> {
+  rejectValue: T
+  // extra: ThunkExtraArg
+  // Todo: figure out why extra: ThunkExtraArg is not working
+  extra: any
 }

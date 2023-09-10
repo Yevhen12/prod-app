@@ -1,6 +1,5 @@
 import { getLoginLoading } from './getLoginLoading'
 import { StateSchema } from 'app/providers/StoreProvider'
-import { DeepPartial } from '@reduxjs/toolkit'
 
 describe('getLoginLoading', () => {
   test('should render status laoding', () => {

@@ -1,12 +1,12 @@
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage'
-import { createAsyncThunk } from '@reduxjs/toolkit'
-import axios, { AxiosError } from 'axios'
+import { AxiosError } from 'axios'
 import { User, userActions } from 'enteties/User'
 import i18n from 'shared/config/i18n/i18n'
 import { loginActions } from '../../slice/loginSlice'
-import { BASE_API_URL } from 'shared/const/api'
+import { createAppAsyncThunk } from 'shared/lib/createAppAsynkThunk/createAppAsynkThunk'
+import { api } from 'shared/api/api'
 
-const URL = `${BASE_API_URL}/login`
+const URL = 'login'
 
 interface LoginByUsernameProps {
   username: string
@@ -17,11 +17,13 @@ interface UserDTO extends User {
   password: string
 }
 
-export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { rejectValue: string }>(
+// TODO: NEED TO FIX extra: any
+
+export const loginByUsername = createAppAsyncThunk<User, LoginByUsernameProps>(
   'login/loginByUsername',
   async ({ username, password }, thunkAPI) => {
     try {
-      const response = await axios.post<UserDTO>(URL, {
+      const response = await api.post<UserDTO>(URL, {
         username,
         password
       })
@@ -33,6 +35,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, { re
       localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(otherFields))
       thunkAPI.dispatch(userActions.setAuthData(otherFields))
       thunkAPI.dispatch(loginActions.reset())
+
       return otherFields
     } catch (error: any) {
       if (error instanceof AxiosError) {

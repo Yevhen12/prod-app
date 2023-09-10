@@ -1,6 +1,6 @@
 /* eslint-disable indent */
 /* eslint-disable react/display-name */
-import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit'
+import { ReducersMapObject } from '@reduxjs/toolkit'
 import { StoryFn } from '@storybook/react'
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider'
 import { profileReducer } from 'enteties/Profile'

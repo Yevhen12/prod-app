@@ -1,6 +1,5 @@
 import { getLoginState } from './getLoginState'
 import { StateSchema } from 'app/providers/StoreProvider'
-import { DeepPartial } from '@reduxjs/toolkit'
 
 describe('getLoginState', () => {
   test('should render correct login state', () => {

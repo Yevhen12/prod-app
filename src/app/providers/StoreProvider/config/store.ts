@@ -1,10 +1,16 @@
 import { StateSchema } from './StateSchema'
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit'
+import { AnyAction, CombinedState, configureStore, Reducer, ReducersMapObject, ThunkMiddleware } from '@reduxjs/toolkit'
 import { counterReducer } from 'enteties/Counter/model/slice/counterSlice'
 import { userReducer } from 'enteties/User/model/slice/userSlice'
 import { createReducerManager } from './reducerManager'
+import { api } from 'shared/api/api'
+import { NavigateFunction } from 'react-router-dom'
 
-export const createReduxStore = (initialState?: StateSchema, asyncReducers?: ReducersMapObject<StateSchema>) => {
+export const createReduxStore = (
+  initialState?: StateSchema,
+  asyncReducers?: ReducersMapObject<StateSchema>,
+  navigate?: NavigateFunction
+) => {
   const rootReducer: ReducersMapObject<StateSchema> = {
     counter: counterReducer,
     user: userReducer,
@@ -14,9 +20,17 @@ export const createReduxStore = (initialState?: StateSchema, asyncReducers?: Red
   const reducerManager = createReducerManager(rootReducer)
 
   const store = configureStore<StateSchema>({
-    reducer: reducerManager.reduce,
+    reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
     devTools: __IS_DEV__,
-    preloadedState: initialState
+    preloadedState: initialState,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+      thunk: {
+        extraArgument: {
+          api,
+          navigate
+        }
+      }
+    }) as unknown as [ThunkMiddleware<StateSchema, AnyAction, undefined>]
   })
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

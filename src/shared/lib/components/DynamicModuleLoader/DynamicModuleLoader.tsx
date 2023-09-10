@@ -13,7 +13,7 @@ interface DynamicModuleLoaderProps {
   removeAfterUnmount?: boolean
 }
 
-export type ReducersTypeEntry = [StateSchemaKey, Reducer]
+export type ReducersTypeEntry = [string, Reducer]
 
 const DynamicModuleLoader: FC<PropsWithChildren<DynamicModuleLoaderProps>> = (props) => {
   const {
@@ -26,14 +26,14 @@ const DynamicModuleLoader: FC<PropsWithChildren<DynamicModuleLoaderProps>> = (pr
 
   useEffect(() => {
     Object.entries(reducers).forEach(([name, reducer]: ReducersTypeEntry) => {
-      store.reducerManager.add(name, reducer)
+      store.reducerManager.add(name as StateSchemaKey, reducer)
       dispatch({ type: `@INIT ${name} reducer` })
     })
 
     return () => {
       if (removeAfterUnmount) {
-        Object.keys(reducers).forEach((name: StateSchemaKey) => {
-          store.reducerManager.remove(name)
+        Object.keys(reducers).forEach((name: string) => {
+          store.reducerManager.remove(name as StateSchemaKey)
           dispatch({ type: `@DESTROY ${name} reducer` })
         })
       }
