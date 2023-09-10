@@ -18,7 +18,14 @@ i18n
       escapeValue: false // not needed for react!!
     },
 
-    resources: { en: { translations: {} } }
+    resources: {
+      en: {
+        translations: {
+          somethingWentWrong: 'Something went wrong',
+          incorrectCreds: 'Incorrect credentials'
+        }
+      }
+    }
   })
 
 export default i18n

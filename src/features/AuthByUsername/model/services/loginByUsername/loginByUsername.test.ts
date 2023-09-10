@@ -1,14 +1,13 @@
+import { api } from 'shared/api/api'
 // import { StateSchema } from 'app/providers/StoreProvider'
 import { loginByUsername } from './loginByUsername'
-import axios from 'axios'
 // import { Dispatch } from '@reduxjs/toolkit'
 import { userActions } from 'enteties/User'
 import { loginActions } from '../../slice/loginSlice'
 import { TestAsynkThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk'
 
-jest.mock('axios')
-
-const mockedAxios = jest.mocked(axios, { shallow: false })
+jest.mock('shared/api/api')
+const mockedAxios = jest.mocked(api, { shallow: false })
 
 describe('getLoginError', () => {
   // let dispatch: Dispatch

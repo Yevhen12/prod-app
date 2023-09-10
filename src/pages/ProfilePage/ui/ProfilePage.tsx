@@ -15,7 +15,7 @@ const ProfilePage: FC<ProfilePageProps> = memo(({ className }: ProfilePageProps)
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    dispatch(fetchProfileData())
+    void dispatch(fetchProfileData())
   }, [dispatch])
   return (
     <DynamicModuleLoader reducers={reducers}>
