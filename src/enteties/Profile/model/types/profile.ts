@@ -1,19 +1,21 @@
-import { Country, Currency } from 'shared/const/common'
+import { Currency } from 'enteties/Currency'
+import { Country } from 'enteties/Country'
 
 export interface Profile {
-  first: string
-  lastname: string
-  age: string
-  currency: Currency
-  country: Country
-  city: string
-  username: string
-  avatar: string
+  first?: string
+  lastname?: string
+  age?: string
+  currency?: Currency
+  country?: Country
+  city?: string
+  username?: string
+  avatar?: string
 }
 
 export interface ProfileSchema {
-  data: Profile | null
+  data: Profile | undefined
+  form: Profile | undefined
   isLoading: boolean
-  error: string | null
+  error: string | undefined
   readonly: boolean
 }

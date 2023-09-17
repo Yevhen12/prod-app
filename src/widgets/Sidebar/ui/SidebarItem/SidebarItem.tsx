@@ -4,6 +4,8 @@ import { SidebarItemType } from 'widgets/Sidebar/model/items'
 import { useTranslation } from 'react-i18next'
 import cls from './SidebarItem.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
+import { useSelector } from 'react-redux'
+import { getUserAuthData } from 'enteties/User'
 
 interface SidebarItemProps {
   item: SidebarItemType
@@ -12,6 +14,10 @@ interface SidebarItemProps {
 
 const SidebarItem: FC<SidebarItemProps> = memo(({ item, collapsed }: SidebarItemProps) => {
   const { t } = useTranslation()
+  const isAuth = useSelector(getUserAuthData)
+  if (item.authOnly && !isAuth) {
+    return null
+  }
   return (
     <AppLink
       to={item.path}
@@ -21,6 +27,7 @@ const SidebarItem: FC<SidebarItemProps> = memo(({ item, collapsed }: SidebarItem
       <item.Icon className={cls.icon} />
       <span className={cls.link}>{t(item.text)}</span>
     </AppLink>
+
   )
 })
 

@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.editBtn, .saveBtn {
+  margin-left: auto;
+}
+
+.editBtn {
+  margin-right: 10px;
+}

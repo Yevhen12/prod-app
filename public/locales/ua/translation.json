@@ -12,5 +12,13 @@
   "password": "Пароль",
   "authorizationForm": "Форма авторизації",
   "somethingWentWrong": "Щось пішло не так",
-  "incorrectCreds": "Неправильні дані"
+  "incorrectCreds": "Неправильні дані",
+  "edit": "Редагувати",
+  "cancel": "Відмінити",
+  "save": "Зберегти",
+  "yourAge": "Твій вік",
+  "yourCity": "Твоє місто",
+  "yourUsername": "Твоє ім'я",
+  "yourAvatar": "Твій аватар",
+  "yourCountry": "Твоя країна"
 }

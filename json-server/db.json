@@ -1,20 +1,28 @@
 {
   "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
   ],
   "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
   ],
-  "profile": { 
-    "first": "Yevhen",
-    "lastname": "Lys",
-    "age": "19",
-    "currency": "UA",
-    "country": "Ukraine",
+  "profile": {
+    "first": "Yevhenfdffdfd",
+    "lastname": "Lysdfdf",
+    "age": "191",
+    "currency": "USD",
+    "country": "England",
     "city": "Lviv",
     "username": "Neylen",
-    "avatar": "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2787&q=80"
-  }, 
+    "avatar": "https://images.unsplash.com/photo-1694845482698-accfce9310f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60"
+  },
   "users": [
     {
       "id": "1",

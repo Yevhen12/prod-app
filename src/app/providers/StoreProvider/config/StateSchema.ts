@@ -37,4 +37,5 @@ export interface ThunkConfig<T> {
   // extra: ThunkExtraArg
   // Todo: figure out why extra: ThunkExtraArg is not working
   extra: any
+  state: StateSchema
 }

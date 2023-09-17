@@ -12,5 +12,13 @@
   "password": "Password",
   "authorizationForm": "Authorization form",
   "somethingWentWrong": "Something went wrong",
-  "incorrectCreds": "Incorrect credentials"
+  "incorrectCreds": "Incorrect credentials",
+  "edit": "Edit",
+  "cancel": "Cancel",
+  "save": "Save",
+  "yourAge": "Your age",
+  "yourCity": "Your city",
+  "yourUsername": "Your username",
+  "yourAvatar": "Your avatar",
+  "yourCountry": "Your country"
 }
