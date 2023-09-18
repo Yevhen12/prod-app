@@ -6,6 +6,7 @@ interface PortalProps {
   element?: HTMLElement
 }
 const Portal: FC<PortalProps> = ({ children, element = document.body }) => {
+  console.log('element', element)
   return createPortal(children, element)
 }
 

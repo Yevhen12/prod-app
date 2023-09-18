@@ -6,7 +6,9 @@ import {
   getProfileError,
   profileActions,
   getProfileReadonly,
-  getProfileForm
+  getProfileForm,
+  getProfileValidateErrors,
+  ProfileValidateError
 } from 'enteties/Profile'
 import { FC, memo, useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
@@ -15,6 +17,8 @@ import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { Currency } from 'enteties/Currency'
 import { Country } from 'enteties/Country'
+import Text, { TextAlign, TextTheme } from 'shared/ui/Text/Text'
+import { useTranslation } from 'react-i18next'
 
 export interface ProfilePageProps {
   className?: string
@@ -30,6 +34,15 @@ const ProfilePage: FC<ProfilePageProps> = memo(({ className }: ProfilePageProps)
   const isLoading = useSelector(getProfileLoading)
   const readonly = useSelector(getProfileReadonly)
   const form = useSelector(getProfileForm)
+  const validateErrors = useSelector(getProfileValidateErrors)
+  const { t } = useTranslation()
+
+  const validateErrorsTranslation = {
+    [ProfileValidateError.INCORRECT_AGE]: t('errorIncorectAge'),
+    [ProfileValidateError.INCORRECT_COUNTRY]: t('errorIncorectCountry'),
+    [ProfileValidateError.INCORRECT_USER_DATA]: t('errorIncorectUserData'),
+    [ProfileValidateError.NO_DATA]: t('errorNoData')
+  }
 
   useEffect(() => {
     void dispatch(fetchProfileData())
@@ -71,6 +84,14 @@ const ProfilePage: FC<ProfilePageProps> = memo(({ className }: ProfilePageProps)
     <DynamicModuleLoader reducers={reducers}>
       <div>
         <ProfilePageHeader />
+        {validateErrors?.length && validateErrors.map(err => (
+          <Text
+            align={TextAlign.LEFT}
+            key={err}
+            theme={TextTheme.ERROR}
+            title={validateErrorsTranslation[err]}
+          />
+        ))}
         <ProfileCard
           data={form}
           isLoading={isLoading}

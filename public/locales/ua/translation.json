@@ -20,5 +20,9 @@
   "yourCity": "Твоє місто",
   "yourUsername": "Твоє ім'я",
   "yourAvatar": "Твій аватар",
-  "yourCountry": "Твоя країна"
+  "yourCountry": "Твоя країна",
+  "errorIncorectAge": "Неправильний вік",
+  "errorIncorectCountry": "Неправильна країна",
+  "errorIncorectUserData": "Неправильне ім'я або прізвище",
+  "errorNoData": "Неправильні дані"
 }

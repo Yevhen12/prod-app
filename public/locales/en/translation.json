@@ -20,5 +20,9 @@
   "yourCity": "Your city",
   "yourUsername": "Your username",
   "yourAvatar": "Your avatar",
-  "yourCountry": "Your country"
+  "yourCountry": "Your country",
+  "errorIncorectAge": "Incorrect age",
+  "errorIncorectCountry": "Incorrect country",
+  "errorIncorectUserData": "Incorrect firstname or lastname",
+  "errorNoData": "Incorrect data"
 }
