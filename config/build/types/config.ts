@@ -7,11 +7,14 @@ export interface BuildPaths {
   src: string
 }
 
+export type ProjectType = 'frontend' | 'storybook' | 'jest'
+
 export interface BuildOptions {
   mode: BuildMode
   paths: BuildPaths
   isDev: boolean
   port: number
+  project: ProjectType
 }
 
 export interface BuildEnv {

@@ -5,6 +5,8 @@ declare module '*.scss' {
   export = classNames
 }
 
+type ProjectType = 'frontend' | 'storybook' | 'jest'
+
 declare module '*.svg' {
   import type React from 'react'
   const content: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
@@ -16,6 +18,7 @@ declare module '*.jpeg'
 declare module '*.jpg'
 
 declare const __IS_DEV__: boolean
+declare const __PROJECT__: ProjectType
 
 type DeepPartial<T> = T extends object ? {
   [P in keyof T]?: DeepPartial<T[P]>;

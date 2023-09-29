@@ -27,6 +27,9 @@ module.exports = {
     'react',
     'react-hooks'
   ],
+  globals: {
+    __PROJECT__: true
+  },
   rules: {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',

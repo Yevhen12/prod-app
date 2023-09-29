@@ -31,7 +31,8 @@ export default {
     '\\.svg': '<rootDir>/config/jest/jestEmptySvg.tsx'
   },
   globals: {
-    __IS_DEV__: true
+    __IS_DEV__: true,
+    __PROJECT__: 'jest'
   }
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,

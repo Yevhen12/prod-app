@@ -22,6 +22,10 @@ export const updateProfileData = createAppAsyncThunk<Profile, undefined, ThunkCo
 
       const response = await api.put<Profile>(URL, formData)
 
+      if (!response.data) {
+        throw new Error('no data')
+      }
+
       return response.data
     } catch (error: any) {
       return thunkAPI.rejectWithValue(i18n.t('somethingWentWrong'))

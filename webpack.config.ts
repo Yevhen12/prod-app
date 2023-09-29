@@ -1,4 +1,5 @@
 import { BuildEnv, BuildPaths } from './config/build/types/config'
+import { ProjectType } from './config/build/types/config'
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
 import path from 'path'
@@ -16,12 +17,14 @@ module.exports = (env: BuildEnv) => {
   const mode = env.mode || 'development'
   const isDev = mode === 'development'
   const PORT = env.port || 3000
+  const project = 'frontend' as ProjectType
 
   const config: webpack.Configuration = buildWebpackConfig({
     mode,
     paths,
     isDev,
-    port: PORT
+    port: PORT,
+    project
   })
 
   return config

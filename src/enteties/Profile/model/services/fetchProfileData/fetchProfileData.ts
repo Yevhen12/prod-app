@@ -15,7 +15,6 @@ export const fetchProfileData = createAppAsyncThunk<Profile, undefined>(
       if (!response.data) {
         throw new Error()
       }
-
       return response.data
     } catch (error: any) {
       return thunkAPI.rejectWithValue(i18n.t('somethingWentWrong'))

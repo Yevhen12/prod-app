@@ -5,7 +5,7 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import webpack from 'webpack'
 import { BuildOptions } from './types/config'
 
-export const buildPlugins = ({ paths, isDev }: BuildOptions): webpack.WebpackPluginInstance[] => {
+export const buildPlugins = ({ paths, isDev, project }: BuildOptions): webpack.WebpackPluginInstance[] => {
   const plugins = [
     new webpack.ProgressPlugin(),
     new HtmlWebpackPlugin({
@@ -16,7 +16,8 @@ export const buildPlugins = ({ paths, isDev }: BuildOptions): webpack.WebpackPlu
       chunkFilename: 'css/[name].[contenthash:8].css'
     }),
     new webpack.DefinePlugin({
-      __IS_DEV__: JSON.stringify(isDev)
+      __IS_DEV__: JSON.stringify(isDev),
+      __PROJECT__: JSON.stringify(project)
     })
   ]
   if (isDev) {
