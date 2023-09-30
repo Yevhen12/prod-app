@@ -5,15 +5,17 @@ import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 import React, { Suspense, useEffect } from 'react'
 import { PageLoader } from 'shared/ui/PageLoader/PageLoader'
-import './styles/index.scss'
 import { Counter } from 'enteties/Counter'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch } from './providers/StoreProvider'
 import { userActions } from 'enteties/User'
+import { getUserMounted } from 'enteties/User/model/selectors/getUserMounted/getUserModunted'
+import './styles/index.scss'
 
 const App: React.FC = () => {
   const { theme } = useTheme()
   const dispatch = useDispatch<AppDispatch>()
+  const isMounted = useSelector(getUserMounted)
 
   useEffect(() => {
     dispatch(userActions.initAuthData())
@@ -28,7 +30,7 @@ const App: React.FC = () => {
         <div className='content-page'>
           <Sidebar />
           <Counter />
-          <AppRouter />
+          {isMounted ? <AppRouter /> : null}
         </div>
       </Suspense>
     </div>
