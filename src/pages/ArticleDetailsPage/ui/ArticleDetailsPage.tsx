@@ -1,5 +1,7 @@
 import { FC } from 'react'
-// import { useTranslation } from 'react-i18next'
+import { ArticleDetails } from 'enteties/Article'
+import { useParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 // import cls from './ArticleDetailsPage.module.scss'
 
 export interface ArticleDetailsPageProps {
@@ -7,10 +9,19 @@ export interface ArticleDetailsPageProps {
 }
 
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
-  // const { t } = useTranslation()
+  const { t } = useTranslation()
+  const { id } = useParams<{ id: string }>()
+
+  if (!id) {
+    return (
+      <div>
+        {t('articleNotFound')}
+      </div>
+    )
+  }
   return (
     <div>
-      ArticleDetailsPage
+      <ArticleDetails id={id} />
     </div>
   )
 }

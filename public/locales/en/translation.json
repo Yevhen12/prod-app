@@ -24,5 +24,6 @@
   "errorIncorectAge": "Incorrect age",
   "errorIncorectCountry": "Incorrect country",
   "errorIncorectUserData": "Incorrect firstname or lastname",
-  "errorNoData": "Incorrect data"
+  "errorNoData": "Incorrect data",
+  "articleNotFound": "Article Not Found"
 }

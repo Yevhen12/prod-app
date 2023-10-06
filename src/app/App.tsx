@@ -5,7 +5,6 @@ import { Navbar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
 import React, { Suspense, useEffect } from 'react'
 import { PageLoader } from 'shared/ui/PageLoader/PageLoader'
-import { Counter } from 'enteties/Counter'
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch } from './providers/StoreProvider'
 import { userActions } from 'enteties/User'
@@ -29,7 +28,6 @@ const App: React.FC = () => {
         <Navbar />
         <div className='content-page'>
           <Sidebar />
-          <Counter />
           {isMounted ? <AppRouter /> : null}
         </div>
       </Suspense>

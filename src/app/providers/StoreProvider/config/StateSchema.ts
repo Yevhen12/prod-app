@@ -6,12 +6,14 @@ import { UserSchema } from 'enteties/User'
 import { LoginSchema } from 'features/AuthByUsername'
 import { AxiosInstance } from 'axios'
 import { NavigateFunction } from 'react-router-dom'
+import { ArticleDetailsSchema } from 'enteties/Article'
 
 export interface StateSchema {
   counter: CounterShema
   user: UserSchema
   loginForm?: LoginSchema
   profile?: ProfileSchema
+  articleDetails?: ArticleDetailsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
