@@ -5,10 +5,12 @@ import { StoryFn } from '@storybook/react'
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider'
 import { profileReducer } from 'enteties/Profile'
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice'
+import { articleDetailsReducer } from 'enteties/Article/model/slice/articleDetailsSlice'
 
 const defaultReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
   loginForm: loginReducer,
-  profile: profileReducer
+  profile: profileReducer,
+  articleDetails: articleDetailsReducer
 }
 
 export const StoreDecorator = (
