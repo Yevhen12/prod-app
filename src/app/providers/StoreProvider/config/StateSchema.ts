@@ -1,3 +1,4 @@
+import { ArticleDetailsCommentsSchema } from './../../../../pages/ArticleDetailsPage/model/types/ArticleDetailsCommentsSchema'
 import { ProfileSchema } from './../../../../enteties/Profile/model/types/profile'
 import { ReducersMapObject, AnyAction, CombinedState, Reducer } from '@reduxjs/toolkit'
 import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore'
@@ -14,6 +15,7 @@ export interface StateSchema {
   loginForm?: LoginSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
+  articleDetailsComments?: ArticleDetailsCommentsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

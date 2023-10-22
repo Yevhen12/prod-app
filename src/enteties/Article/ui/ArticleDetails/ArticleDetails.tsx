@@ -8,7 +8,6 @@ import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/Dynamic
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import Skeleton from 'shared/ui/Skeleton/Skeleton'
 import Text, { TextAlign, TextSize, TextTheme } from 'shared/ui/Text/Text'
-// import { useTranslation } from 'react-i18next'
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
 import Avatar from 'shared/ui/Avatar/Avatar'
 import EyeIcon from 'shared/assets/icons/eye-outlined.svg'

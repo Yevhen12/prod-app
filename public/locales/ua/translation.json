@@ -25,5 +25,6 @@
   "errorIncorectCountry": "Неправильна країна",
   "errorIncorectUserData": "Неправильне ім'я або прізвище",
   "errorNoData": "Неправильні дані",
-  "articleNotFound": "Стаття не найдена"
+  "articleNotFound": "Стаття не найдена",
+  "comments": "Коментарі"
 }
