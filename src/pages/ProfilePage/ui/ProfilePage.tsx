@@ -10,7 +10,7 @@ import {
   getProfileValidateErrors,
   ProfileValidateError
 } from 'enteties/Profile'
-import { FC, memo, useCallback, useEffect } from 'react'
+import { FC, memo, useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader'
@@ -19,6 +19,8 @@ import { Currency } from 'enteties/Currency'
 import { Country } from 'enteties/Country'
 import Text, { TextAlign, TextTheme } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
+import { useParams } from 'react-router-dom'
 
 export interface ProfilePageProps {
   className?: string
@@ -35,6 +37,7 @@ const ProfilePage: FC<ProfilePageProps> = memo(({ className }: ProfilePageProps)
   const readonly = useSelector(getProfileReadonly)
   const form = useSelector(getProfileForm)
   const validateErrors = useSelector(getProfileValidateErrors)
+  const { id } = useParams<{ id: string }>()
   const { t } = useTranslation()
 
   const validateErrorsTranslation = {
@@ -44,11 +47,9 @@ const ProfilePage: FC<ProfilePageProps> = memo(({ className }: ProfilePageProps)
     [ProfileValidateError.NO_DATA]: t('errorNoData')
   }
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      void dispatch(fetchProfileData())
-    }
-  }, [dispatch])
+  useInitialEffect(() => {
+    void dispatch(fetchProfileData(id))
+  })
 
   const onChangeFirstname = useCallback((val: string) => {
     dispatch(profileActions.updateProfile({ first: val }))

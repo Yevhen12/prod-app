@@ -16,7 +16,8 @@ const testData = {
   country: Country.England,
   city: 'Lviv',
   username: 'neylen',
-  avatar: 'https://images.unsplash.com/photo-1694845482698-accfce9310f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60'
+  avatar: 'https://images.unsplash.com/photo-1694845482698-accfce9310f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60',
+  id: '1'
 }
 
 describe('updateProfileData', () => {
@@ -27,7 +28,7 @@ describe('updateProfileData', () => {
         form: testData
       }
     })
-    const result = await thunk.callThunk()
+    const result = await thunk.callThunk('1')
 
     expect(mockedAxios.put).toHaveBeenCalled()
     expect(result.payload).toEqual(testData)
@@ -42,7 +43,7 @@ describe('updateProfileData', () => {
       }
     })
 
-    const result = await thunk.callThunk()
+    const result = await thunk.callThunk('1')
 
     expect(mockedAxios.put).toHaveBeenCalled()
     expect(result.meta.requestStatus).toBe('rejected')
@@ -56,7 +57,7 @@ describe('updateProfileData', () => {
       }
     })
 
-    const result = await thunk.callThunk()
+    const result = await thunk.callThunk('1')
 
     expect(mockedAxios.put).toHaveBeenCalledTimes(0)
     expect(result.meta.requestStatus).toBe('rejected')

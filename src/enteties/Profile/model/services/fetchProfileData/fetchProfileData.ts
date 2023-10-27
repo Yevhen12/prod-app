@@ -7,11 +7,15 @@ const URL = '/profile'
 
 // TODO: NEED TO FIX extra: any
 
-export const fetchProfileData = createAppAsyncThunk<Profile, undefined>(
+export const fetchProfileData = createAppAsyncThunk<Profile, string | undefined>(
   'profile/fetchProfileData',
-  async (_, thunkAPI) => {
+  async (profileId, thunkAPI) => {
     try {
-      const response = await api.get<Profile>(URL)
+      if (!profileId) {
+        return thunkAPI.rejectWithValue(i18n.t('somethingWentWrong'))
+      }
+
+      const response = await api.get<Profile>(`${URL}/${profileId}`)
       if (!response.data) {
         throw new Error()
       }

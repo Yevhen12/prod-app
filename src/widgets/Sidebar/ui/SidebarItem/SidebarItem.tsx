@@ -6,6 +6,7 @@ import cls from './SidebarItem.module.scss'
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useSelector } from 'react-redux'
 import { getUserAuthData } from 'enteties/User'
+import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 
 interface SidebarItemProps {
   item: SidebarItemType
@@ -15,12 +16,19 @@ interface SidebarItemProps {
 const SidebarItem: FC<SidebarItemProps> = memo(({ item, collapsed }: SidebarItemProps) => {
   const { t } = useTranslation()
   const isAuth = useSelector(getUserAuthData)
+  const userData = useSelector(getUserAuthData)
+
+  const isProfile = RoutePath.profile === item.path
+
   if (item.authOnly && !isAuth) {
     return null
   }
+
+  const path = isProfile ? `${item.path}${userData?.id}` : item.path
+
   return (
     <AppLink
-      to={item.path}
+      to={path}
       theme={AppLinkTheme.SECONDARY}
       className={classNames(cls.item, { [cls.collapsed]: collapsed })}
     >

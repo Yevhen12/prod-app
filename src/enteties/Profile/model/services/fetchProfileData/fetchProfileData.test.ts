@@ -15,14 +15,15 @@ const testData = {
   country: Country.England,
   city: 'Lviv',
   username: 'neylen',
-  avatar: 'https://images.unsplash.com/photo-1694845482698-accfce9310f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60'
+  avatar: 'https://images.unsplash.com/photo-1694845482698-accfce9310f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60',
+  id: '1'
 }
 
 describe('fetchProfileData', () => {
   test('success fetching', async () => {
     mockedAxios.get.mockReturnValue(Promise.resolve({ data: testData }))
     const thunk = new TestAsynkThunk(fetchProfileData)
-    const result = await thunk.callThunk()
+    const result = await thunk.callThunk('1')
 
     expect(mockedAxios.get).toHaveBeenCalled()
     expect(result.payload).toEqual(testData)
@@ -32,7 +33,7 @@ describe('fetchProfileData', () => {
   test('error fetching', async () => {
     mockedAxios.get.mockReturnValue(Promise.resolve({ status: 403 }))
     const thunk = new TestAsynkThunk(fetchProfileData)
-    const result = await thunk.callThunk()
+    const result = await thunk.callThunk('1')
 
     expect(mockedAxios.get).toHaveBeenCalled()
     expect(result.meta.requestStatus).toBe('rejected')

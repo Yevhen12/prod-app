@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useCallback } from 'react'
 import { ArticleDetails } from 'enteties/Article'
 import { useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -12,6 +12,9 @@ import { getCommentArticleIsLoading } from '../model/selectors/comments'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
+import { AddCommentForm } from 'features/AddCommentForm'
+import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle'
+import { getAddCommentFormText } from 'features/AddCommentForm/model/selectors/addCommentFormSelectors'
 
 const reducers: ReducersList = {
   articleDetailsComments: articleDetailsCommentsReducer
@@ -28,10 +31,15 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 
   const comments = useSelector(getArticleComments.selectAll)
   const commentsIsLoading = useSelector(getCommentArticleIsLoading)
+  const commentText = useSelector(getAddCommentFormText)
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id))
   })
+
+  const onSendComment = useCallback(() => {
+    dispatch(addCommentForArticle(commentText))
+  }, [dispatch, commentText])
 
   console.log('comments', comments)
 
@@ -48,6 +56,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
       <div>
         <ArticleDetails id={id} />
         <Text className={cls.commentTitle} title={t('comments')} />
+        <AddCommentForm onSendComment={onSendComment} text={commentText}/>
         <CommentList isLoading={commentsIsLoading} comments={comments} />
       </div>
     </DynamicModuleLoader>

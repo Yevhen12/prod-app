@@ -6,21 +6,24 @@ import { validateProfileData } from '../validateProfileData/validateProfileData'
 import { Profile, ProfileValidateError } from '../../types/profile'
 import { ThunkConfig } from 'app/providers/StoreProvider'
 
-const URL = '/profile'
+const URL = '/profile/'
 
 // TODO: NEED TO FIX extra: any
 
-export const updateProfileData = createAppAsyncThunk<Profile, undefined, ThunkConfig<ProfileValidateError[] | string>>(
+export const updateProfileData = createAppAsyncThunk<Profile, string | undefined, ThunkConfig<ProfileValidateError[] | string>>(
   'profile/updateProfileData',
-  async (_, thunkAPI) => {
+  async (id, thunkAPI) => {
     try {
+      if (!id) {
+        return thunkAPI.rejectWithValue(i18n.t('somethingWentWrong'))
+      }
       const formData = getProfileForm(thunkAPI.getState())
       const errors = validateProfileData(formData)
       if (errors.length) {
         return thunkAPI.rejectWithValue(errors)
       }
 
-      const response = await api.put<Profile>(URL, formData)
+      const response = await api.put<Profile>(URL + id, formData)
 
       if (!response.data) {
         throw new Error('no data')

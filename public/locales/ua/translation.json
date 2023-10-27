@@ -26,5 +26,6 @@
   "errorIncorectUserData": "Неправильне ім'я або прізвище",
   "errorNoData": "Неправильні дані",
   "articleNotFound": "Стаття не найдена",
-  "comments": "Коментарі"
+  "comments": "Коментарі",
+  "enterTextComment": "Введіть текст"
 }

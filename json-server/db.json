@@ -20,7 +20,6 @@
       "articleId": "1",
       "userId": "2",
       "avatar": "https://images.unsplash.com/photo-1694845482698-accfce9310f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60"
-
     },
     {
       "id": "3",
@@ -28,18 +27,104 @@
       "articleId": "1",
       "userId": "1",
       "avatar": "https://images.unsplash.com/photo-1694845482698-accfce9310f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "fdfdfdfdffdfdfdfdfdfdfdfdfdfdfdfdfdfffffffff",
+      "id": "zPy8GKj"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "fdfdfdfdf",
+      "id": "pxoIraP"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "dfdfdfdfd",
+      "id": "osUJ43Q"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "dfdfdf232323",
+      "id": "o51jRiQ"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "fdfdfdf",
+      "id": "1yvgYtC"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "11111",
+      "id": "S_V8tBN"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "44444",
+      "id": "Pzbx0Ww"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "22222",
+      "id": "1WkMZyd"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "55555",
+      "id": "ZcYf_GI"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "666666",
+      "id": "lgBCtLC"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "ererer",
+      "id": "cGTN4hW"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "767676",
+      "id": "xb1GOMH"
     }
   ],
-  "profile": {
-    "first": "Yevhenfdffdfd",
-    "lastname": "віві",
-    "age": "191",
-    "currency": "USD",
-    "country": "England",
-    "city": "Lviv",
-    "username": "Neylen",
-    "avatar": "https://images.unsplash.com/photo-1694845482698-accfce9310f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60"
-  },
+  "profile": [
+    {
+      "id": "1",
+      "first": "j32323",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moscow",
+      "username": "admin213",
+      "avatar": "https://avatars.mds.yandex.net/get-zen_doc/3413519/pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200"
+    },
+    {
+      "id": "2",
+      "first": "ulbi tv",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "ulbi tv",
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    }
+  ],
   "articles": [
     {
       "id": "1",
@@ -48,7 +133,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",

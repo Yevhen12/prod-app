@@ -1,4 +1,5 @@
-import { getProfileReadonly, profileActions, updateProfileData } from 'enteties/Profile'
+import { getProfileData, getProfileReadonly, profileActions, updateProfileData } from 'enteties/Profile'
+import { getUserAuthData } from 'enteties/User'
 import { FC, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
@@ -13,6 +14,11 @@ interface ProfilePageHeaderProps {
 
 const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
   const readOnly = useSelector(getProfileReadonly)
+  const authData = useSelector(getUserAuthData)
+  const profileData = useSelector(getProfileData)
+
+  const canEdit = authData?.id === profileData?.id
+
   const dispatch = useAppDispatch()
   const { t } = useTranslation()
 
@@ -25,42 +31,44 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
   }, [dispatch])
 
   const onSave = useCallback(async () => {
-    await dispatch(updateProfileData())
-  }, [dispatch])
+    await dispatch(updateProfileData(profileData?.id))
+  }, [dispatch, profileData?.id])
 
   return (
     <div className={cls.header}>
       <Text title={t('profile')} />
-      {readOnly
-        ? (
-          <Button
-            theme={ButtonTheme.OUTLINE}
-            className={cls.editBtn}
-            onClick={onEdit}
-          >
-            {t('edit')}
-          </Button>
-          // eslint-disable-next-line @typescript-eslint/indent
-        )
-        : (
-          <div>
-            <Button
-              theme={ButtonTheme.OUTLINE_RED}
-              className={cls.editBtn}
-              onClick={onCancel}
-            >
-              {t('cancel')}
-            </Button>
+      {canEdit && (
+        readOnly
+          ? (
             <Button
               theme={ButtonTheme.OUTLINE}
-              className={cls.saveBtn}
-              onClick={onSave}
+              className={cls.editBtn}
+              onClick={onEdit}
             >
-              {t('save')}
+              {t('edit')}
             </Button>
-          </div>
-          // eslint-disable-next-line @typescript-eslint/indent
-        )}
+            // eslint-disable-next-line @typescript-eslint/indent
+          )
+          : (
+            <div>
+              <Button
+                theme={ButtonTheme.OUTLINE_RED}
+                className={cls.editBtn}
+                onClick={onCancel}
+              >
+                {t('cancel')}
+              </Button>
+              <Button
+                theme={ButtonTheme.OUTLINE}
+                className={cls.saveBtn}
+                onClick={onSave}
+              >
+                {t('save')}
+              </Button>
+            </div>
+            // eslint-disable-next-line @typescript-eslint/indent
+          )
+      )}
 
     </div>
   )

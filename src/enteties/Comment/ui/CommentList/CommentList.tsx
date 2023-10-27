@@ -15,6 +15,20 @@ interface CommentListProps {
 
 const CommentList: FC<CommentListProps> = ({ className = '', comments, isLoading }) => {
   const { t } = useTranslation()
+  if (isLoading) {
+    return (
+      <div className={classNames(cls.commentList, {}, [className])}>
+        <CommentCard isLoading />
+        <CommentCard isLoading />
+        <CommentCard isLoading />
+      </div>
+    )
+  }
+
+  if (!comments) {
+    return null
+  }
+
   return (
     <div className={classNames(cls.commentList, {}, [className])}>
       {comments?.length

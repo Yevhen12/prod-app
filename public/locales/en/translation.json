@@ -26,5 +26,6 @@
   "errorIncorectUserData": "Incorrect firstname or lastname",
   "errorNoData": "Incorrect data",
   "articleNotFound": "Article Not Found",
-  "comments": "Comments"
+  "comments": "Comments",
+  "enterTextComment": "Enter text"
 }
