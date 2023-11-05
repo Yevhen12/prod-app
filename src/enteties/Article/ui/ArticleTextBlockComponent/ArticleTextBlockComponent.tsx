@@ -1,5 +1,6 @@
 import { ArticleTextBlock } from 'enteties/Article/model/types/article'
 import { FC, memo } from 'react'
+import { classNames } from 'shared/lib/classNames/classNames'
 import Text from 'shared/ui/Text/Text'
 import cls from './ArticleTextBlockComponent.module.scss'
 // import { useTranslation } from 'react-i18next'
@@ -9,10 +10,10 @@ interface ArticleTextBlockComponentProps {
   block: ArticleTextBlock
 }
 
-const ArticleTextBlockComponent: FC<ArticleTextBlockComponentProps> = memo(({ className, block }: ArticleTextBlockComponentProps) => {
+const ArticleTextBlockComponent: FC<ArticleTextBlockComponentProps> = memo(({ className = '', block }: ArticleTextBlockComponentProps) => {
   // const { t } = useTranslation()
   return (
-    <div>
+    <div className={classNames(cls.articleTextBlock, {}, [className])}>
       {block.title && (
         <Text title={block.title} className={cls.title} />
       )}

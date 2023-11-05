@@ -27,5 +27,7 @@
   "errorNoData": "Неправильні дані",
   "articleNotFound": "Стаття не найдена",
   "comments": "Коментарі",
-  "enterTextComment": "Введіть текст"
+  "enterTextComment": "Введіть текст",
+  "readMore": "Читати більше",
+  "backToList": "Назад до списку"
 }

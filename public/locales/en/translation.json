@@ -27,5 +27,7 @@
   "errorNoData": "Incorrect data",
   "articleNotFound": "Article Not Found",
   "comments": "Comments",
-  "enterTextComment": "Enter text"
+  "enterTextComment": "Enter text",
+  "readMore": "Read more",
+  "backToList": "Back to list"
 }

@@ -1,3 +1,5 @@
+import { User } from 'enteties/User'
+
 export interface Article {
   id: string
   title: string
@@ -7,9 +9,15 @@ export interface Article {
   createdAt: string
   type: ArticleType[]
   blocks: ArticleBlock[]
+  user: User
 }
 
 export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock
+
+export enum ArticleView {
+  BIG = 'BIG',
+  SMALL = 'SMALL'
+}
 
 export enum ArticleType {
   IT = 'IT',

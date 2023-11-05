@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react'
 import { ArticleDetails } from 'enteties/Article'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import Text from 'shared/ui/Text/Text'
 import { CommentList } from 'enteties/Comment'
@@ -15,6 +15,8 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { AddCommentForm } from 'features/AddCommentForm'
 import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle'
 import { getAddCommentFormText } from 'features/AddCommentForm/model/selectors/addCommentFormSelectors'
+import { Button, ButtonTheme } from 'shared/ui/Button/Button'
+import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 
 const reducers: ReducersList = {
   articleDetailsComments: articleDetailsCommentsReducer
@@ -27,6 +29,7 @@ export interface ArticleDetailsPageProps {
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const { t } = useTranslation()
   const { id } = useParams<{ id: string }>()
+  const navigate = useNavigate()
   const dispatch = useAppDispatch()
 
   const comments = useSelector(getArticleComments.selectAll)
@@ -41,6 +44,10 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     dispatch(addCommentForArticle(commentText))
   }, [dispatch, commentText])
 
+  const onBackToList = useCallback(() => {
+    navigate(RoutePath.articles)
+  }, [navigate])
+
   console.log('comments', comments)
 
   if (!id) {
@@ -54,6 +61,9 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   return (
     <DynamicModuleLoader reducers={reducers}>
       <div>
+        <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
+          {t('backToList')}
+        </Button>
         <ArticleDetails id={id} />
         <Text className={cls.commentTitle} title={t('comments')} />
         <AddCommentForm onSendComment={onSendComment} text={commentText}/>
