@@ -26,6 +26,10 @@ const ArticleList: FC<ArticleListProps> = ({
     )
   }
 
+  const getSkeletons = new Array(view === ArticleView.SMALL ? 9 : 3).fill(0).map((el, idx) => (
+    <ArticleListItemSkeleton key={idx} view={view} />
+  ))
+
   const renderList = articles.map((article: Article): JSX.Element => {
     return <ArticleListItem key={article.id} article={article} view={view} />
   })
@@ -33,7 +37,9 @@ const ArticleList: FC<ArticleListProps> = ({
   return (
     <div className={classNames(cls.articlesList, {}, [className, cls[view]])}>
       {renderList}
-      <p>fdfd</p>
+      {isLoading && (
+        getSkeletons
+      )}
     </div>
   )
 }

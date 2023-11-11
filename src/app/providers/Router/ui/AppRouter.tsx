@@ -13,9 +13,9 @@ const AppRouter: React.FC = () => {
         path={path}
         element={authOnly
           ? <RequireAuth>
-            <div className='page-wrapper'>{element}</div>
+            <>{element}</>
           </RequireAuth>
-          : <div className='page-wrapper'>{element}</div>}
+          : <>{element}</>}
       />
     )
   }, [])

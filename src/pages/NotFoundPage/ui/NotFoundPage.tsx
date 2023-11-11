@@ -1,5 +1,6 @@
 import { FC, memo } from 'react'
 import { useTranslation } from 'react-i18next'
+import Page from 'shared/ui/Page/Page'
 import cls from './NotFoundPage.module.scss'
 
 interface NotFoundPageProps {
@@ -8,9 +9,9 @@ interface NotFoundPageProps {
 const NotFoundPage: FC<NotFoundPageProps> = memo(({ className }: NotFoundPageProps) => {
   const { t } = useTranslation()
   return (
-    <div className={cls.notFoundPage}>
+    <Page className={cls.notFoundPage}>
       {t('notFoundPage')}
-    </div>
+    </Page>
   )
 })
 

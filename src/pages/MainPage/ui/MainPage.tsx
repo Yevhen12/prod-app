@@ -2,6 +2,7 @@ import { memo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { AppRoutes } from 'shared/config/routeConfig/routeConfig'
 import Input from 'shared/ui/Input/Input'
+import Page from 'shared/ui/Page/Page'
 
 // interface Props {}
 
@@ -14,14 +15,14 @@ const MainPage: React.FC = memo(() => {
   }
 
   return (
-    <div>
+    <Page>
       {t('main')}
       <Input
         value={value}
         onChange={onChange}
         placeholder="Type text"
       />
-    </div>
+    </Page>
   )
 })
 
