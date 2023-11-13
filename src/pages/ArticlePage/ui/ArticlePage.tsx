@@ -7,8 +7,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import Page from 'shared/ui/Page/Page'
 import { getArticlesPageIsLoading, getArticlesPageView } from '../model/selectors/articlePageSelectors'
-import { fetchArticleList } from '../model/services/fetchArticleList/fetchArticleList'
 import { fetchNextArticlePage } from '../model/services/fetchNextArticlePage/fetchNextArticlePage'
+import { initArticlePage } from '../model/services/initArticlesPage/initArticlesPage'
 import { articlePageActions, articlePageSliceReducer, getArticles } from '../model/slices/articlePageSlice'
 // import { useTranslation } from 'react-i18next'
 // import cls from './ArticlePage.module.scss'
@@ -34,8 +34,7 @@ const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
   }, [dispatch])
 
   useInitialEffect(() => {
-    dispatch(articlePageActions.initState())
-    dispatch(fetchArticleList({ page: 1 }))
+    dispatch(initArticlePage())
   })
 
   const onViewChange = useCallback((view: ArticleView) => {
@@ -43,7 +42,7 @@ const ArticlePage: FC<ArticlePageProps> = ({ className }) => {
   }, [dispatch])
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page onScrollEnd={onLoadNextPart}>
         <ArticleViewSelector view={view} onChangeView={onViewChange} />
         <ArticleList

@@ -6,7 +6,6 @@ import { CounterShema } from 'enteties/Counter'
 import { UserSchema } from 'enteties/User'
 import { LoginSchema } from 'features/AuthByUsername'
 import { AxiosInstance } from 'axios'
-import { NavigateFunction } from 'react-router-dom'
 import { ArticleDetailsSchema } from 'enteties/Article'
 import { AddCommentFormSchema } from 'features/AddCommentForm'
 import { ArticlePageSchema } from 'pages/ArticlePage'
@@ -37,7 +36,6 @@ export interface ReducerManager {
 
 export interface ThunkExtraArg {
   api?: AxiosInstance
-  navigate?: NavigateFunction
 }
 
 export interface ThunkConfig<T> {

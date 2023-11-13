@@ -4,12 +4,10 @@ import { counterReducer } from 'enteties/Counter/model/slice/counterSlice'
 import { userReducer } from 'enteties/User/model/slice/userSlice'
 import { createReducerManager } from './reducerManager'
 import { api } from 'shared/api/api'
-import { NavigateFunction } from 'react-router-dom'
 
 export const createReduxStore = (
   initialState?: StateSchema,
-  asyncReducers?: ReducersMapObject<StateSchema>,
-  navigate?: NavigateFunction
+  asyncReducers?: ReducersMapObject<StateSchema>
 ) => {
   const rootReducer: ReducersMapObject<StateSchema> = {
     counter: counterReducer,
@@ -26,8 +24,7 @@ export const createReduxStore = (
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
       thunk: {
         extraArgument: {
-          api,
-          navigate
+          api
         }
       }
     }) as unknown as [ThunkMiddleware<StateSchema, AnyAction, undefined>]
