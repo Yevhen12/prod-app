@@ -2,6 +2,7 @@ import { StateSchema } from './StateSchema'
 import { AnyAction, CombinedState, configureStore, Reducer, ReducersMapObject, ThunkMiddleware } from '@reduxjs/toolkit'
 import { counterReducer } from 'enteties/Counter/model/slice/counterSlice'
 import { userReducer } from 'enteties/User/model/slice/userSlice'
+import { scrollReducer } from 'features/ScrollRestoration'
 import { createReducerManager } from './reducerManager'
 import { api } from 'shared/api/api'
 
@@ -12,6 +13,7 @@ export const createReduxStore = (
   const rootReducer: ReducersMapObject<StateSchema> = {
     counter: counterReducer,
     user: userReducer,
+    scroll: scrollReducer,
     ...asyncReducers
   }
 

@@ -9,10 +9,12 @@ import { AxiosInstance } from 'axios'
 import { ArticleDetailsSchema } from 'enteties/Article'
 import { AddCommentFormSchema } from 'features/AddCommentForm'
 import { ArticlePageSchema } from 'pages/ArticlePage'
+import { IScrollRestorationSchema } from 'features/ScrollRestoration'
 
 export interface StateSchema {
   counter: CounterShema
   user: UserSchema
+  scroll: IScrollRestorationSchema
   loginForm?: LoginSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
