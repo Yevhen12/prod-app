@@ -1,6 +1,4 @@
 /build
 node_modules
 /storybook-static
-/scripts
-/config
 .loki/
