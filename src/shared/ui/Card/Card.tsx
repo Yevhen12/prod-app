@@ -2,15 +2,21 @@ import React, { FC, HTMLAttributes } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './Card.module.scss'
 
-interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  className?: string
-  children: React.ReactElement
+export enum CardTheme {
+  NORMAL = 'normal',
+  OUTLINED = 'outlined'
 }
 
-const Card: FC<CardProps> = ({ className = '', children, ...otherProps }) => {
+interface CardProps extends HTMLAttributes<HTMLDivElement> {
+  className?: string
+  theme?: CardTheme
+  children: any
+}
+
+const Card: FC<CardProps> = ({ className = '', theme = CardTheme.NORMAL, children, ...otherProps }) => {
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
-    <div className={classNames(cls.card, {}, [className])} {...otherProps}>
+    <div className={classNames(cls.card, {}, [className, cls[theme]])} {...otherProps}>
       {children}
     </div>
   )

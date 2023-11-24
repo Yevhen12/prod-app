@@ -36,7 +36,6 @@ const Page: FC<PageProps> = ({ className = '', children, onScrollEnd }) => {
   })
 
   const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-    console.log('here', e.currentTarget.scrollTop)
     if (e.currentTarget) {
       dispatch(scrollActions.setScrollPosition({
         path: pathname,
@@ -52,7 +51,7 @@ const Page: FC<PageProps> = ({ className = '', children, onScrollEnd }) => {
       onScroll={onScroll}
     >
       {children}
-      <div ref={triggerRef as LegacyRef<HTMLDivElement> | undefined} />
+      {onScrollEnd ? <div className={cls.trigger} ref={triggerRef as LegacyRef<HTMLDivElement> | undefined} /> : null}
     </section>
   )
 }

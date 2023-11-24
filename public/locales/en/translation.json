@@ -29,5 +29,7 @@
   "comments": "Comments",
   "enterTextComment": "Enter text",
   "readMore": "Read more",
-  "backToList": "Back to list"
+  "backToList": "Back to list",
+  "sortOn": "Sort on",
+  "search": "Search"
 }

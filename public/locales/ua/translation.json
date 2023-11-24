@@ -29,5 +29,7 @@
   "comments": "Коментарі",
   "enterTextComment": "Введіть текст",
   "readMore": "Читати більше",
-  "backToList": "Назад до списку"
+  "backToList": "Назад до списку",
+  "sortOn": "Сортувати за",
+  "search": "Шукати"
 }

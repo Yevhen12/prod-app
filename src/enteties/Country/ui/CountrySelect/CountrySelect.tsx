@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
 import Select, { LabelOption } from 'shared/ui/Select/Select'
 
-export const COUNTRY_OPTIONS: LabelOption[] = [
+export const COUNTRY_OPTIONS: Array<LabelOption<Country>> = [
   { value: Country.Australia, content: Country.Australia },
   { value: Country.England, content: Country.England },
   { value: Country.Poland, content: Country.Poland },
