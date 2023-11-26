@@ -3,6 +3,7 @@ import { Article, ArticleView, ArticleSortField, ArticleType } from './model/typ
 import { ArticleDetailsSchema } from './model/types/articleDetailsSchema'
 import ArticleViewSelector from './ui/ArticleViewSelector/ArticleViewSelector'
 import ArticleSortSelector from './ui/ArticleSortSelector/ArticleSortSelector'
+import ArticleList from './ui/ArticleList/ArticleList'
 
 export {
   ArticleDetails,
@@ -12,5 +13,6 @@ export {
   ArticleView,
   ArticleViewSelector,
   ArticleSortField,
-  ArticleSortSelector
+  ArticleSortSelector,
+  ArticleList
 }

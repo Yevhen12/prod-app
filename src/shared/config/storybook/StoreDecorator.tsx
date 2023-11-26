@@ -7,14 +7,14 @@ import { profileReducer } from 'enteties/Profile'
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice'
 import { articleDetailsReducer } from 'enteties/Article/model/slice/articleDetailsSlice'
 import { addCommentFormReducer } from 'features/AddCommentForm/model/slices/addCommentFormSlice'
-import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slices/articleDetailsCommentsSlice'
+import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage'
 
 const defaultReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
   loginForm: loginReducer,
   profile: profileReducer,
   articleDetails: articleDetailsReducer,
   addCommentForm: addCommentFormReducer,
-  articleDetailsComments: articleDetailsCommentsReducer
+  articleDetailsPage: articleDetailsPageReducer
 }
 
 export const StoreDecorator = (

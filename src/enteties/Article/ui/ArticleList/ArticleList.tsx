@@ -1,5 +1,5 @@
 import { Article, ArticleView } from 'enteties/Article/model/types/article'
-import { FC } from 'react'
+import { FC, HTMLAttributeAnchorTarget } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import ArticleListItem from '../ArticleListItem/ArticleListItem'
 import ArticleListItemSkeleton from '../ArticleListItem/ArticleListItemSkeleton'
@@ -12,13 +12,15 @@ interface ArticleListProps {
   articles: Article[]
   isLoading: boolean
   view?: ArticleView
+  target?: HTMLAttributeAnchorTarget
 }
 
 const ArticleList: FC<ArticleListProps> = ({
   className = '',
   articles,
   isLoading,
-  view = ArticleView.SMALL
+  view = ArticleView.SMALL,
+  target
 }) => {
   const { t } = useTranslation()
   if (isLoading) {
@@ -34,7 +36,7 @@ const ArticleList: FC<ArticleListProps> = ({
   ))
 
   const renderList = articles.map((article: Article): JSX.Element => {
-    return <ArticleListItem key={article.id} article={article} view={view} />
+    return <ArticleListItem key={article.id} article={article} view={view} target={target} />
   })
 
   if (!isLoading && !articles.length) {
