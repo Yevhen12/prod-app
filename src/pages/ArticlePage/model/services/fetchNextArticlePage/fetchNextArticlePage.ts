@@ -7,7 +7,7 @@ import { fetchArticleList } from '../fetchArticleList/fetchArticleList'
 // TODO: NEED TO FIX extra: any
 
 // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
-export const fetchNextArticlePage = createAppAsyncThunk<void, void>(
+export const fetchNextArticlePage = createAppAsyncThunk<void, undefined>(
   'article/fetchNextArticlePage',
   async (_, thunkAPI) => {
     try {

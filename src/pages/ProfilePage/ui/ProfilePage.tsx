@@ -21,7 +21,7 @@ import Text, { TextAlign, TextTheme } from 'shared/ui/Text/Text'
 import { useTranslation } from 'react-i18next'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { useParams } from 'react-router-dom'
-import Page from 'widgets/Page/Page'
+import Page from 'widgets/Page/ui/Page'
 
 export interface ProfilePageProps {
   className?: string

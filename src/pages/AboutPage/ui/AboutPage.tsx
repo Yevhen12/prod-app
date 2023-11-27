@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { AppRoutes } from 'shared/config/routeConfig/routeConfig'
-import Page from 'widgets/Page/Page'
+import Page from 'widgets/Page/ui/Page'
 
 const AboutPage: React.FC = memo(() => {
   const { t } = useTranslation(AppRoutes.ABOUT)

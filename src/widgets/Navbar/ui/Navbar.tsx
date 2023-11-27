@@ -7,6 +7,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import cls from './Navbar.module.scss'
 import { getUserAuthData, userActions } from 'enteties/User'
 import { AppDispatch } from 'app/providers/StoreProvider'
+import Text, { TextTheme } from 'shared/ui/Text/Text'
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
+import { RoutePath } from 'shared/config/routeConfig/routeConfig'
 
 interface NavbarProps {
   className?: string
@@ -35,6 +38,10 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }: NavbarProps) =
   if (authData) {
     return (
       <header className={classNames(cls.navbar, {}, [className ?? ''])}>
+        <Text text='Production application' theme={TextTheme.INVERTED} className={cls.appName} />
+        <AppLink to={RoutePath.article_create} theme={AppLinkTheme.SECONDARY} className={cls.createBtn}>
+          {t('createArticle')}
+        </AppLink>
         <Button
           className={cls.links}
           theme={ButtonTheme.CLEAR_INVERTED}
