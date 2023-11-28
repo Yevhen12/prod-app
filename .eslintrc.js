@@ -28,7 +28,8 @@ module.exports = {
     'react-hooks'
   ],
   globals: {
-    __PROJECT__: true
+    __PROJECT__: true,
+    __API__: true
   },
   rules: {
     'react-hooks/rules-of-hooks': 'error',

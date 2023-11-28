@@ -9,7 +9,9 @@ export default ({ config }: { config: webpack.Configuration }) => {
     build: '',
     entry: '',
     html: '',
-    src: path.resolve(__dirname, '../', '../', 'src')
+    src: path.resolve(__dirname, '../', '../', 'src'),
+    locales: path.resolve(__dirname, '../', '../', 'public', 'locales'),
+    buildLocales: path.resolve(__dirname, '../', '../', 'build', 'locales')
   }
 
   config.resolve?.modules?.push(paths.src)
@@ -82,7 +84,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   config.plugins?.push(new DefinePlugin({
     __IS_DEV__: JSON.stringify(true),
-    __PROJECT__: JSON.stringify('storybook')
+    __PROJECT__: JSON.stringify('storybook'),
+    __API__: JSON.stringify('')
   }))
 
 

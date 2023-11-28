@@ -14,6 +14,10 @@ void i18n
     debug: false,
     interpolation: {
       escapeValue: false
+    },
+
+    backend: {
+      loadPath: '/locales/{{lng}}/{{ns}}.json'
     }
   })
 
