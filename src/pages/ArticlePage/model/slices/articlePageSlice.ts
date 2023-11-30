@@ -80,7 +80,7 @@ const articlePageSlice = createSlice({
     builder.addCase(fetchArticleList.fulfilled, (state, action) => {
       state.error = undefined
       state.isLoading = false
-      state.hasMore = action.payload.length > (state.limit ?? 0)
+      state.hasMore = action.payload.length >= (state.limit ?? 0)
 
       if (action.meta.arg.replace) {
         articlePageSliceAdapter.setAll(state, action.payload)

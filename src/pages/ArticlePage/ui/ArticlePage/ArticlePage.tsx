@@ -13,7 +13,6 @@ import ArticlesPageFilters from '../ArticlesPageFilters/ArticlesPageFilters'
 import { useSearchParams } from 'react-router-dom'
 // import { useTranslation } from 'react-i18next'
 import cls from './ArticlePage.module.scss'
-import { classNames } from 'shared/lib/classNames/classNames'
 
 export interface ArticlePageProps {
   className?: string
@@ -41,19 +40,17 @@ const ArticlePage: FC<ArticlePageProps> = ({ className = '' }) => {
   })
 
   return (
-    <div className={classNames(cls.articlePage, {}, [className])}>
-      <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-        <Page onScrollEnd={onLoadNextPart}>
-          <ArticlesPageFilters />
-          <ArticleList
-            articles={articles}
-            isLoading={isLoading}
-            view={view}
-            className={cls.list}
-          />
-        </Page>
-      </DynamicModuleLoader>
-    </div>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+      <Page onScrollEnd={onLoadNextPart}>
+        <ArticlesPageFilters />
+        <ArticleList
+          articles={articles}
+          isLoading={isLoading}
+          view={view}
+          className={cls.list}
+        />
+      </Page>
+    </DynamicModuleLoader>
   )
 }
 
