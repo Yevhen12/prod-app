@@ -25,7 +25,8 @@ module.exports = {
   },
   plugins: [
     'react',
-    'react-hooks'
+    'react-hooks',
+    'prod-proj-plugin'
   ],
   globals: {
     __PROJECT__: true,
@@ -57,6 +58,7 @@ module.exports = {
     '@typescript-eslint/no-misused-promises': 'off',
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/restrict-template-expressions': 'off',
-    '@typescript-eslint/no-confusing-void-expression': 'off'
+    '@typescript-eslint/no-confusing-void-expression': 'off',
+    'prod-proj-plugin/path-checker': 'error'
   }
 }

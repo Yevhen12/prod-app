@@ -1,9 +1,15 @@
 import { ArticleSortField, ArticleSortSelector, ArticleView, ArticleViewSelector } from 'enteties/Article'
 import { ArticleType } from 'enteties/Article/model/types/article'
 import ArticleTypeTabs from 'enteties/Article/ui/ArticleTypeTabs/ArticleTypeTabs'
-import { getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort, getArticlesPageType, getArticlesPageView } from 'pages/ArticlePage/model/selectors/articlePageSelectors'
-import { fetchArticleList } from 'pages/ArticlePage/model/services/fetchArticleList/fetchArticleList'
-import { articlePageActions } from 'pages/ArticlePage/model/slices/articlePageSlice'
+import {
+  getArticlesPageOrder,
+  getArticlesPageSearch,
+  getArticlesPageSort,
+  getArticlesPageType,
+  getArticlesPageView
+} from '../../model/selectors/articlePageSelectors'
+import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList'
+import { articlePageActions } from '../../model/slices/articlePageSlice'
 import { FC, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
