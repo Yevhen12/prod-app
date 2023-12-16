@@ -9,6 +9,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import Input from 'shared/ui/Input/Input'
 import cls from './AddCommentForm.module.scss'
 import DynamicModuleLoader, { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
+import { HStack } from 'shared/ui/Stack'
 
 export interface AddCommentFormProps {
   className?: string
@@ -37,7 +38,7 @@ const AddCommentForm: FC<AddCommentFormProps> = ({ className = '', onSendComment
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(cls.addCommentForm, {}, [className])}>
+      <HStack justify='between' max className={classNames(cls.addCommentForm, {}, [className])}>
         <Input
           className={cls.input}
           placeholder={t('enterTextComment')}
@@ -50,7 +51,7 @@ const AddCommentForm: FC<AddCommentFormProps> = ({ className = '', onSendComment
         >
           {t('send')}
         </Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   )
 }

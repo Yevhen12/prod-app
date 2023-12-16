@@ -3,9 +3,9 @@ import { Comment } from 'enteties/Comment'
 import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
+import { VStack } from 'shared/ui/Stack'
 import Text from 'shared/ui/Text/Text'
 import CommentCard from '../CommentCard/CommentCard'
-import cls from './CommentList.module.scss'
 
 interface CommentListProps {
   className?: string
@@ -17,11 +17,11 @@ const CommentList: FC<CommentListProps> = ({ className = '', comments, isLoading
   const { t } = useTranslation()
   if (isLoading) {
     return (
-      <div className={classNames(cls.commentList, {}, [className])}>
+      <VStack gap='16' className={classNames('', {}, [className])}>
         <CommentCard isLoading />
         <CommentCard isLoading />
         <CommentCard isLoading />
-      </div>
+      </VStack>
     )
   }
 
@@ -30,15 +30,15 @@ const CommentList: FC<CommentListProps> = ({ className = '', comments, isLoading
   }
 
   return (
-    <div className={classNames(cls.commentList, {}, [className])}>
+    <VStack gap='16' max className={classNames('', {}, [className])}>
       {comments?.length
         ? (
-            comments.map(el => <CommentCard isLoading={isLoading} key={el.id} comment={el} className={cls.comment} />)
+            comments.map(el => <CommentCard isLoading={isLoading} key={el.id} comment={el} />)
           )
         : (
           <Text text={t('noComments')} />
           )}
-    </div>
+    </VStack>
   )
 }
 

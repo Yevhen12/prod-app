@@ -22,6 +22,7 @@ import { useTranslation } from 'react-i18next'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
 import { useParams } from 'react-router-dom'
 import Page from 'widgets/Page/ui/Page'
+import VStack from 'shared/ui/Stack/VStack/VStack'
 
 export interface ProfilePageProps {
   className?: string
@@ -87,29 +88,31 @@ const ProfilePage: FC<ProfilePageProps> = memo(({ className }: ProfilePageProps)
   return (
     <DynamicModuleLoader reducers={reducers}>
       <Page>
-        <ProfilePageHeader />
-        {validateErrors?.length && validateErrors.map(err => (
-          <Text
-            align={TextAlign.LEFT}
-            key={err}
-            theme={TextTheme.ERROR}
-            title={validateErrorsTranslation[err]}
+        <VStack gap='16' max>
+          <ProfilePageHeader />
+          {validateErrors?.length && validateErrors.map(err => (
+            <Text
+              align={TextAlign.LEFT}
+              key={err}
+              theme={TextTheme.ERROR}
+              title={validateErrorsTranslation[err]}
+            />
+          ))}
+          <ProfileCard
+            data={form}
+            isLoading={isLoading}
+            error={error}
+            onChangeFirstname={onChangeFirstname}
+            onChangeLastname={onChangeLastname}
+            onChangeAge={onChangeAge}
+            onChangeCity={onChangeCity}
+            onChangeUsername={onChangeUsername}
+            onChangeAvatar={onChangeAvatar}
+            onChangeCurrency={onChangeCurrency}
+            onChangeCountry={onChangeCountry}
+            readonly={readonly}
           />
-        ))}
-        <ProfileCard
-          data={form}
-          isLoading={isLoading}
-          error={error}
-          onChangeFirstname={onChangeFirstname}
-          onChangeLastname={onChangeLastname}
-          onChangeAge={onChangeAge}
-          onChangeCity={onChangeCity}
-          onChangeUsername={onChangeUsername}
-          onChangeAvatar={onChangeAvatar}
-          onChangeCurrency={onChangeCurrency}
-          onChangeCountry={onChangeCountry}
-          readonly={readonly}
-        />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   )

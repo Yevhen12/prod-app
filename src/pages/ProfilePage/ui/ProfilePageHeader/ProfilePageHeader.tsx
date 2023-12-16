@@ -5,8 +5,8 @@ import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
+import HStack from 'shared/ui/Stack/HStack/HStack'
 import Text from 'shared/ui/Text/Text'
-import cls from './ProfilePageHeader.module.scss'
 
 interface ProfilePageHeaderProps {
   className?: string
@@ -35,14 +35,13 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
   }, [dispatch, profileData?.id])
 
   return (
-    <div className={cls.header}>
+    <HStack justify='between' max>
       <Text title={t('profile')} />
       {canEdit && (
         readOnly
           ? (
             <Button
               theme={ButtonTheme.OUTLINE}
-              className={cls.editBtn}
               onClick={onEdit}
             >
               {t('edit')}
@@ -50,27 +49,25 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
             // eslint-disable-next-line @typescript-eslint/indent
           )
           : (
-            <div>
+            <HStack gap='8'>
               <Button
                 theme={ButtonTheme.OUTLINE_RED}
-                className={cls.editBtn}
                 onClick={onCancel}
               >
                 {t('cancel')}
               </Button>
               <Button
                 theme={ButtonTheme.OUTLINE}
-                className={cls.saveBtn}
                 onClick={onSave}
               >
                 {t('save')}
               </Button>
-            </div>
+            </HStack>
             // eslint-disable-next-line @typescript-eslint/indent
           )
       )}
 
-    </div>
+    </HStack>
   )
 }
 

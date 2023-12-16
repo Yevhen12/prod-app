@@ -17,6 +17,7 @@ import { ArticleBlock, ArticleBlockType } from 'enteties/Article/model/types/art
 import ArticleCodeBlockComponent from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent'
 import ArticleImageBlockComponent from '../ArticleImageBlockComponent/ArticleImageBlockComponent'
 import ArticleTextBlockComponent from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
+import { HStack, VStack } from 'shared/ui/Stack'
 
 interface ArticleDetailsProps {
   className?: string
@@ -71,27 +72,29 @@ const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }: Article
   } else {
     content = (
       <>
-        <div className={cls.avaterWrapper}>
+        <HStack justify='center' max className={cls.avaterWrapper}>
           <Avatar
             src={data?.img}
             size={200}
             className={cls.avatar}
           />
-        </div>
-        <Text
-          className={cls.title}
-          title={data?.title}
-          text={data?.subtitle}
-          size={TextSize.L}
-        />
-        <div className={cls.articleInfo}>
-          <Icon Svg={EyeIcon} className={cls.icon} />
-          <Text text={`${data?.views}`} />
-        </div>
-        <div className={cls.articleInfo}>
-          <Icon Svg={CalendarIcon} className={cls.icon} />
-          <Text text={`${data?.createdAt}`} />
-        </div>
+        </HStack>
+        <VStack gap='4' max>
+          <Text
+            className={cls.title}
+            title={data?.title}
+            text={data?.subtitle}
+            size={TextSize.L}
+          />
+          <HStack gap='8' className={cls.articleInfo}>
+            <Icon Svg={EyeIcon} className={cls.icon} />
+            <Text text={`${data?.views}`} />
+          </HStack>
+          <HStack gap='8' className={cls.articleInfo}>
+            <Icon Svg={CalendarIcon} className={cls.icon} />
+            <Text text={`${data?.createdAt}`} />
+          </HStack>
+        </VStack>
         {renderAllBlocks}
       </>
     )
@@ -106,9 +109,9 @@ const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }: Article
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div>
+      <VStack gap='16'>
         {content}
-      </div>
+      </VStack>
     </DynamicModuleLoader>
   )
 })

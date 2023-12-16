@@ -6,6 +6,7 @@ import { ThemeSwitcher } from 'widgets/ThemeSwitcher/ui/ThemeSwitcher'
 import { sidebarItemsList } from '../../model/items'
 import cls from './Sidebar.module.scss'
 import SidebarItem from '../SidebarItem/SidebarItem'
+import VStack from 'shared/ui/Stack/VStack/VStack'
 
 interface SidebarProps {
   className?: string
@@ -40,9 +41,9 @@ const Sidebar: FC<SidebarProps> = memo(({ className }: SidebarProps) => {
       >
         {collapsed ? '>' : '<'}
       </Button>
-      <div className={cls.links}>
+      <VStack gap='8' align='start' className={cls.links}>
         {itemsList}
-      </div>
+      </VStack>
       <div className={cls.switchers}>
         <LangSwitcher className={cls.langSwitcher} short={collapsed} />
         <ThemeSwitcher />

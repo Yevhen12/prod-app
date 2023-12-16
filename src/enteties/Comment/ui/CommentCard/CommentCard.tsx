@@ -6,6 +6,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { AppLink } from 'shared/ui/AppLink/AppLink'
 import Avatar from 'shared/ui/Avatar/Avatar'
 import Skeleton from 'shared/ui/Skeleton/Skeleton'
+import { VStack } from 'shared/ui/Stack'
 import Text from 'shared/ui/Text/Text'
 import cls from './CommentCard.module.scss'
 
@@ -20,24 +21,24 @@ const CommentCard: FC<CommentCardProps> = ({ className = '', comment, isLoading 
 
   if (isLoading) {
     return (
-      <div className={classNames(cls.commentCard, {}, [className, cls.loading])}>
+      <VStack max gap='8' className={classNames(cls.commentCard, {}, [className, cls.loading])}>
         <AppLink to={`${RoutePath.profile}/${comment?.user.id}`} className={cls.header}>
           <Skeleton width='30px' height='30px' border='50%' />
           <Skeleton height='16px' width='100px' className={cls.username} />
         </AppLink>
         <Skeleton width='100%' height='50px' className={cls.text} />
-      </div>
+      </VStack>
     )
   }
 
   return (
-    <div className={classNames(cls.commentCard, {}, [className])}>
+    <VStack gap='8' max className={classNames(cls.commentCard, {}, [className])}>
       <AppLink to={`${RoutePath.profile}${comment?.user.id}`} className={cls.header}>
         {comment?.user?.avatar ? <Avatar size={30} src={comment?.user?.avatar} /> : null}
         <Text className={cls.username} title={comment?.user?.username} />
       </AppLink>
       <Text className={cls.text} text={comment?.text} />
-    </div >
+    </VStack >
   )
 }
 
