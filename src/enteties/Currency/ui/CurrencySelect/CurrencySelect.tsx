@@ -2,7 +2,8 @@ import { Currency } from 'enteties/Currency/model/types/currency'
 import { FC, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
-import Select, { LabelOption } from 'shared/ui/Select/Select'
+import Listbox from 'shared/ui/ListBox/ListBox'
+import { LabelOption } from 'shared/ui/Select/Select'
 
 export const CURRENCY_OPTIONS: Array<LabelOption<Currency>> = [
   { value: Currency.UA, content: Currency.UA },
@@ -25,13 +26,15 @@ const CurrencySelect: FC<CurrencySelectProps> = memo(({ className = '', value, o
   }, [onChange])
 
   return (
-    <Select
+    <Listbox
       className={classNames('', {}, [className])}
       onChange={onChangeCurrencyHandler}
-      label={t('yourCurrency')}
-      options={CURRENCY_OPTIONS}
+      items={CURRENCY_OPTIONS}
       value={value}
+      defaultValue={t('chooseCurrency')}
+      label={t('chooseCurrency')}
       readonly={readonly}
+      direction='top'
     />
   )
 })
