@@ -47,7 +47,7 @@ const Page: FC<PageProps> = ({ className = '', children, onScrollEnd }) => {
   }, 500)
 
   return (
-    <section
+    <main
       id={PAGE_ID}
       ref={wrapperRef}
       className={classNames(cls.page, {}, [className])}
@@ -55,7 +55,7 @@ const Page: FC<PageProps> = ({ className = '', children, onScrollEnd }) => {
     >
       {children}
       {onScrollEnd ? <div className={cls.trigger} ref={triggerRef as LegacyRef<HTMLDivElement> | undefined} /> : null}
-    </section>
+    </main>
   )
 }
 
