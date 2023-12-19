@@ -34,7 +34,7 @@ const CurrencySelect: FC<CurrencySelectProps> = memo(({ className = '', value, o
       defaultValue={t('chooseCurrency')}
       label={t('chooseCurrency')}
       readonly={readonly}
-      direction='top'
+      direction='top_right'
     />
   )
 })

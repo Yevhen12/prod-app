@@ -36,6 +36,7 @@ const CountrySelect: FC<CountrySelectProps> = memo(({ className = '', value, onC
       defaultValue={t('chooseCountry')}
       label={t('chooseCountry')}
       readonly={readonly}
+      direction='top_right'
     />
   )
 })

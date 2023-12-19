@@ -5,12 +5,11 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from '../Button/Button'
 import { LabelOption } from '../Select/Select'
 import { HStack } from '../Stack'
+import { DropdownDirection } from 'shared/types/ui'
 
 export interface ListboxItem extends LabelOption<string> {
   disabled?: boolean
 }
-
-type DropdownDirection = 'top' | 'bottom'
 
 interface ListboxProps {
   value?: string
@@ -24,8 +23,10 @@ interface ListboxProps {
 }
 
 const mapDirectionClasses: Record<DropdownDirection, string> = {
-  bottom: cls.optionsBottom,
-  top: cls.optionsTop
+  bottom_left: cls.optionsBottomLeft,
+  bottom_right: cls.optionsBottomRight,
+  top_left: cls.optionsTopLeft,
+  top_right: cls.optionsTopRight
 }
 
 const Listbox = (props: ListboxProps) => {
@@ -36,7 +37,7 @@ const Listbox = (props: ListboxProps) => {
     onChange,
     className = '',
     readonly = false,
-    direction = 'bottom',
+    direction = 'bottom_right',
     label
   } = props
 
