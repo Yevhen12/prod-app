@@ -114,7 +114,8 @@
     "react-i18next": "^13.1.2",
     "react-redux": "^8.1.2",
     "react-router-dom": "^6.14.2",
-    "react-virtualized": "^9.22.5"
+    "react-virtualized": "^9.22.5",
+    "generate:slice": "node ./scripts/createSlice/index.js"
   },
   "loki": {
     "configurations": {
