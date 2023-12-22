@@ -1,18 +1,21 @@
-import { getProfileData, getProfileReadonly, profileActions, updateProfileData } from 'enteties/Profile'
 import { getUserAuthData } from 'enteties/User'
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData'
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly'
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData'
+import { profileActions } from '../../model/slice/profileSlice'
 import { FC, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import HStack from 'shared/ui/Stack/HStack/HStack'
 import Text from 'shared/ui/Text/Text'
+import { HStack } from 'shared/ui/Stack'
 
-interface ProfilePageHeaderProps {
+interface EditableProfileCardHeaderProps {
   className?: string
 }
 
-const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
+const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({ className }) => {
   const readOnly = useSelector(getProfileReadonly)
   const authData = useSelector(getUserAuthData)
   const profileData = useSelector(getProfileData)
@@ -71,4 +74,4 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
   )
 }
 
-export default ProfilePageHeader
+export default EditableProfileCardHeader

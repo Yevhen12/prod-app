@@ -1,7 +1,7 @@
 import i18n from 'shared/config/i18n/i18n'
 import { createAppAsyncThunk } from 'shared/lib/createAppAsynkThunk/createAppAsynkThunk'
 import { api } from 'shared/api/api'
-import { Profile } from '../../types/profile'
+import { Profile } from 'enteties/Profile'
 
 const URL = '/profile'
 

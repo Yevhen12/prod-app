@@ -1,6 +1,6 @@
-import { updateProfileData } from 'enteties/Profile'
+import { updateProfileData } from '../services/updateProfileData/updateProfileData'
 import { profileActions, profileReducer } from './profileSlice'
-import { ProfileSchema, ProfileValidateError } from '../types/profile'
+import { ProfileSchema, ProfileValidateError } from '../types/EditableProfileCardSchema'
 import { Country } from 'enteties/Country'
 import { Currency } from 'enteties/Currency'
 

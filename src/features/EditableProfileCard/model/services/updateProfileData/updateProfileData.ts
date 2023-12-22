@@ -3,8 +3,9 @@ import i18n from 'shared/config/i18n/i18n'
 import { createAppAsyncThunk } from 'shared/lib/createAppAsynkThunk/createAppAsynkThunk'
 import { api } from 'shared/api/api'
 import { validateProfileData } from '../validateProfileData/validateProfileData'
-import { Profile, ProfileValidateError } from '../../types/profile'
+import { Profile } from 'enteties/Profile'
 import { ThunkConfig } from 'app/providers/StoreProvider'
+import { ProfileValidateError } from '../../types/EditableProfileCardSchema'
 
 const URL = '/profile/'
 

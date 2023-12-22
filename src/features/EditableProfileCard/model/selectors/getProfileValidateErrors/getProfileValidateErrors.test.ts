@@ -1,6 +1,6 @@
 import { getProfileValidateErrors } from './getProfileValidateError'
 import { StateSchema } from 'app/providers/StoreProvider'
-import { ProfileValidateError } from '../../types/profile'
+import { ProfileValidateError } from '../../types/EditableProfileCardSchema'
 
 describe('getProfileError', () => {
   test('should return correct isLoading', () => {

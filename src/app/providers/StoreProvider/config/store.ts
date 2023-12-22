@@ -1,3 +1,4 @@
+import { rtkApi } from './../../../../shared/api/rtkApi'
 import { StateSchema } from './StateSchema'
 import { AnyAction, CombinedState, configureStore, Reducer, ReducersMapObject, ThunkMiddleware } from '@reduxjs/toolkit'
 import { counterReducer } from 'enteties/Counter/model/slice/counterSlice'
@@ -14,6 +15,7 @@ export const createReduxStore = (
     counter: counterReducer,
     user: userReducer,
     scroll: scrollReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer,
     ...asyncReducers
   }
 
@@ -29,7 +31,7 @@ export const createReduxStore = (
           api
         }
       }
-    }) as unknown as [ThunkMiddleware<StateSchema, AnyAction, undefined>]
+    }).concat(rtkApi.middleware) as unknown as [ThunkMiddleware<StateSchema, AnyAction, undefined>]
   })
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

@@ -1,9 +1,9 @@
-import { ProfileValidateError } from './../../types/profile'
 import { updateProfileData } from './updateProfileData'
 import { api } from 'shared/api/api'
 import { TestAsynkThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk'
 import { Country } from 'enteties/Country'
 import { Currency } from 'enteties/Currency'
+import { ProfileValidateError } from '../../types/EditableProfileCardSchema'
 
 jest.mock('shared/api/api')
 const mockedAxios = jest.mocked(api, { shallow: false })

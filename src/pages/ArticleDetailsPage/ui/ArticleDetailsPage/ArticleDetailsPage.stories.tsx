@@ -6,7 +6,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import ArticleDetailsPage from './ArticleDetailsPage'
 
 const meta = {
-  title: 'page/ArticleDetailsPage',
+  title: 'page/ArticleDetailsPage/ArticleDetailsPage',
   component: ArticleDetailsPage,
   parameters: {
     layout: 'centered'

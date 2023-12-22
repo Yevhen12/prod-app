@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Theme } from 'app/providers/ThemeProvider'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
-import ArticlesPageFilters from './ArticlesPageFilters'
+import ArticleRecommendationsList from './ArticleRecommendationsList'
 
 const meta = {
-  title: 'pages/ArticlePage/ArticlesPageFilters',
-  component: ArticlesPageFilters,
+  title: 'features/ArticleRecommendationsList',
+  component: ArticleRecommendationsList,
   parameters: {
     layout: 'centered'
   },
@@ -13,7 +13,7 @@ const meta = {
   argTypes: {
     backgroundColor: { control: 'color' }
   }
-} as Meta<typeof ArticlesPageFilters>
+} as Meta<typeof ArticleRecommendationsList>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -25,5 +25,4 @@ export const Primary: Story = {
 export const Dark: Story = {
   args: {}
 }
-
 Dark.decorators = [ThemeDecorator(Theme.DARK)]

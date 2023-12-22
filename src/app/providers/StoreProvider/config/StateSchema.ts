@@ -1,5 +1,6 @@
+import { rtkApi } from 'shared/api/rtkApi'
 import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage'
-import { ProfileSchema } from './../../../../enteties/Profile/model/types/profile'
+import { ProfileSchema } from 'features/EditableProfileCard'
 import { ReducersMapObject, AnyAction, CombinedState, Reducer } from '@reduxjs/toolkit'
 import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore'
 import { CounterShema } from 'enteties/Counter'
@@ -15,6 +16,8 @@ export interface StateSchema {
   counter: CounterShema
   user: UserSchema
   scroll: IScrollRestorationSchema
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
+
   loginForm?: LoginSchema
   profile?: ProfileSchema
   articleDetails?: ArticleDetailsSchema
