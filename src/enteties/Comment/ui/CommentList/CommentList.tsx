@@ -17,7 +17,7 @@ const CommentList: FC<CommentListProps> = ({ className = '', comments, isLoading
   const { t } = useTranslation()
   if (isLoading) {
     return (
-      <VStack gap='16' className={classNames('', {}, [className])}>
+      <VStack gap='16' max className={classNames('', {}, [className])}>
         <CommentCard isLoading />
         <CommentCard isLoading />
         <CommentCard isLoading />

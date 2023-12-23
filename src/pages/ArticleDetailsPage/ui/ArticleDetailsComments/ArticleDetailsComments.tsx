@@ -33,7 +33,7 @@ const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = ({ className, id
     dispatch(addCommentForArticle(commentText))
   }, [dispatch, commentText])
   return (
-    <VStack max gap='8'>
+    <VStack max gap='16'>
       <Text size={TextSize.L} title={t('comments')} />
       <AddCommentForm onSendComment={onSendComment} text={commentText} />
       <CommentList isLoading={commentsIsLoading} comments={comments} />

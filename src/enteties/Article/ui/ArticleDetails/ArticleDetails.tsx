@@ -109,7 +109,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }: Article
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <VStack gap='16'>
+      <VStack gap='16' max>
         {content}
       </VStack>
     </DynamicModuleLoader>
