@@ -6,13 +6,13 @@ import RequireAuth from './RequireAuth'
 
 const AppRouter: React.FC = () => {
   const renderWithWrapper = useCallback((route: RouteAppProps) => {
-    const { path, element, authOnly } = route
+    const { path, element, authOnly, roles } = route
     return (
       <Route
         key={path}
         path={path}
         element={authOnly
-          ? <RequireAuth>
+          ? <RequireAuth roles={roles}>
             <>{element}</>
           </RequireAuth>
           : <>{element}</>}
