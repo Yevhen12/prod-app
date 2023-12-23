@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/prefer-nullish-coalescing */
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
 import { memo } from 'react'
@@ -15,7 +16,7 @@ const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps)
   const { t } = useTranslation()
   const { isLoading, error, data: articles } = useArticleRecommendationsList(3)
 
-  if (error ?? isLoading) {
+  if (error || isLoading || !articles) {
     return null
   }
 
@@ -24,6 +25,7 @@ const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps)
       <Text size={TextSize.L} title={t('recommended')} />
       <ArticleList
         articles={articles}
+        virtualized={false}
         // isLoading={isLoading}
         target='_blank'
       />
