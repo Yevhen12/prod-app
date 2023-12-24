@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Theme } from 'app/providers/ThemeProvider'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import ArticleDetailsComments from './ArticleDetailsComments'
 
 const meta = {
-  title: 'pages/ArticleDetailsPage/ArticleDetailsComments',
+  title: 'page/ArticleDetailsPage/ArticleDetailsComments',
   component: ArticleDetailsComments,
   parameters: {
     layout: 'centered'
@@ -21,8 +22,11 @@ type Story = StoryObj<typeof meta>
 export const Primary: Story = {
   args: {}
 }
+Primary.decorators = [StoreDecorator({})]
 
 export const Dark: Story = {
-  args: {}
+  args: {
+    id: '1'
+  }
 }
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]

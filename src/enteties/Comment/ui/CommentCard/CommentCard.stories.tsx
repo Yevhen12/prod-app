@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Theme } from 'app/providers/ThemeProvider'
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import CommentCard from './CommentCard'
 
@@ -12,7 +13,8 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     backgroundColor: { control: 'color' }
-  }
+  },
+  decorators: [RouterDecorator]
 } as Meta<typeof CommentCard>
 
 export default meta

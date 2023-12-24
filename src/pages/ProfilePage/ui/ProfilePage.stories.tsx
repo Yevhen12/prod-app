@@ -5,6 +5,7 @@ import ProfilePage from './ProfilePage'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
 import { Country } from 'enteties/Country'
 import { Currency } from 'enteties/Currency'
+import { MemoryRouter, Routes, Route } from 'react-router-dom'
 
 const meta = {
   title: 'page/ProfilePage',
@@ -18,16 +19,17 @@ const meta = {
   },
   args: {
     to: '/'
-  }
+  },
+  decorators: [(Story) => (
+    <MemoryRouter initialEntries={['/profile/1']}>
+      <Routes>
+        <Route path="/profile/:id" element={<Story />} />
+      </Routes>
+    </MemoryRouter>)]
 } as Meta<typeof ProfilePage>
 
 export default meta
 type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
-  args: {}
-}
-Default.decorators = [StoreDecorator({})]
 
 export const Light: Story = {
   args: {}

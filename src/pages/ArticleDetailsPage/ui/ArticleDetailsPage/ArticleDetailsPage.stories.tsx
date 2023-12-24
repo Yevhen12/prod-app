@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Theme } from 'app/providers/ThemeProvider'
 import { Article, ArticleBlockType, ArticleType } from 'enteties/Article/model/types/article'
+import { MemoryRouter, Routes, Route } from 'react-router-dom'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import ArticleDetailsPage from './ArticleDetailsPage'
@@ -14,7 +15,13 @@ const meta = {
   tags: ['autodocs'],
   argTypes: {
     backgroundColor: { control: 'color' }
-  }
+  },
+  decorators: [(Story) => (
+    <MemoryRouter initialEntries={['/articles/1']}>
+      <Routes>
+        <Route path="/articles/:id" element={<Story />} />
+      </Routes>
+    </MemoryRouter>)]
 } as Meta<typeof ArticleDetailsPage>
 
 export default meta
