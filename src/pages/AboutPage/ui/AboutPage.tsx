@@ -8,6 +8,9 @@ const AboutPage: React.FC = memo(() => {
   return (
     <Page>
       {t('about')}
+      fdfd
+      dsdsfdfdf
+      fdfdf
     </Page>
   )
 })

@@ -1,25 +1,38 @@
 import { BuildOptions } from './types/config'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import webpack from 'webpack'
+import babelRemovePropsPlugin from '../babel/babelRemovePropsPlugin'
+
+const buildBabelLoader = (isTsx: boolean) => {
+  return {
+    test: isTsx ? /\.m?(tsx|jsx)$/ : /\.m?(js|ts)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: 'babel-loader',
+      options: {
+        presets: ['@babel/preset-env'],
+        plugins: [
+          ['@babel/plugin-transform-typescript', { isTSX: isTsx }],
+          '@babel/plugin-transform-runtime',
+          isTsx && [
+            babelRemovePropsPlugin,
+            {
+              props: ['data-testid']
+            }
+          ]
+        ].filter(Boolean)
+      }
+    }
+  }
+}
 
 export const buildLoaders = (options: BuildOptions): webpack.RuleSetRule[] => {
   const { isDev } = options
+  const codeBabelLoader = buildBabelLoader(false)
+  const tsxBabelLoader = buildBabelLoader(true)
   return [
-    {
-      test: /\.m?(js|ts|tsx|jsx)$/,
-      exclude: /node_modules/,
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env']
-        }
-      }
-    },
-    {
-      test: /\.(ts|tsx)$/i,
-      loader: 'ts-loader',
-      exclude: ['/node_modules/']
-    },
+    codeBabelLoader,
+    tsxBabelLoader,
     {
       test: /\.s[ac]ss$/i,
       use: [
