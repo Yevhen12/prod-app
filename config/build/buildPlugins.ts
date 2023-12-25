@@ -5,6 +5,7 @@ import CopyPlugin from 'copy-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import webpack from 'webpack'
 import { BuildOptions } from './types/config'
+import CircularDependencyPlugin from 'circular-dependency-plugin'
 
 export const buildPlugins = ({ paths, isDev, project, apiUrl }: BuildOptions): webpack.WebpackPluginInstance[] => {
   const plugins = [
@@ -25,6 +26,10 @@ export const buildPlugins = ({ paths, isDev, project, apiUrl }: BuildOptions): w
       patterns: [
         { from: paths.locales, to: paths.buildLocales }
       ]
+    }),
+    new CircularDependencyPlugin({
+      exclude: /node_modules/,
+      failOnError: true
     })
   ]
   if (isDev) {

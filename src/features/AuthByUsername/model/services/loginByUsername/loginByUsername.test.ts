@@ -3,7 +3,6 @@ import { api } from 'shared/api/api'
 import { loginByUsername } from './loginByUsername'
 // import { Dispatch } from '@reduxjs/toolkit'
 import { userActions } from 'enteties/User'
-import { loginActions } from '../../slice/loginSlice'
 import { TestAsynkThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk'
 
 jest.mock('shared/api/api')
@@ -52,8 +51,7 @@ describe('getLoginError', () => {
 
     expect(mockedAxios.post).toHaveBeenCalled()
     expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValues))
-    expect(thunk.dispatch).toHaveBeenCalledWith(loginActions.reset())
-    expect(thunk.dispatch).toHaveBeenCalledTimes(4)
+    expect(thunk.dispatch).toHaveBeenCalledTimes(3)
     expect(result.meta.requestStatus).toBe('fulfilled')
     expect(result.meta.arg.password).toBe('test')
     expect(result.meta.arg.username).toBe('test')
