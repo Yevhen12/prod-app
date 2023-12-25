@@ -1,4 +1,4 @@
-import { ArticleView } from 'enteties/Article/model/types/article'
+import { ArticleView } from '../../model/consts/articleConsts'
 import { FC } from 'react'
 import ListIcon from 'shared/assets/icons/articles-list.svg'
 import ColumnIcon from 'shared/assets/icons/articles-column.svg'

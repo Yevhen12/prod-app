@@ -1,5 +1,6 @@
 import ArticleDetails from './ui/ArticleDetails/ArticleDetails'
-import { Article, ArticleView, ArticleSortField, ArticleType } from './model/types/article'
+import { Article } from './model/types/article'
+import { ArticleView, ArticleSortField, ArticleType, ArticleBlockType } from './model/consts/articleConsts'
 import { ArticleDetailsSchema } from './model/types/articleDetailsSchema'
 import ArticleViewSelector from './ui/ArticleViewSelector/ArticleViewSelector'
 import ArticleSortSelector from './ui/ArticleSortSelector/ArticleSortSelector'
@@ -12,6 +13,7 @@ export {
   type ArticleDetailsSchema,
   ArticleType,
   ArticleView,
+  ArticleBlockType,
   ArticleViewSelector,
   ArticleSortField,
   ArticleSortSelector,

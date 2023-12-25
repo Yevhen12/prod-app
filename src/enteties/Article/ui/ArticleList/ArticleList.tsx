@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/indent */
-import { Article, ArticleView } from 'enteties/Article/model/types/article'
+import { Article } from '../../model/types/article'
+import { ArticleView } from '../../model/consts/articleConsts'
 import { HTMLAttributeAnchorTarget, LegacyRef, memo } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
 import ArticleListItem from '../ArticleListItem/ArticleListItem'

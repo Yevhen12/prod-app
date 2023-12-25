@@ -1,5 +1,6 @@
 import EditableProfileCard from './ui/EditableProfileCard/EditableProfileCard'
-import { ProfileSchema, ProfileValidateError } from './model/types/EditableProfileCardSchema'
+import { ProfileValidateError } from './model/consts/profileCardConsts'
+import { ProfileSchema } from './model/types/EditableProfileCardSchema'
 
 export {
   EditableProfileCard,

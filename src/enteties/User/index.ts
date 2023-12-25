@@ -1,5 +1,6 @@
 import { userSlice, userActions } from './model/slice/userSlice'
-import { UserSchema, User, UserRole } from './model/types/user'
+import { UserSchema, User } from './model/types/user'
+import { UserRole } from './model/consts/userConsts'
 import { getUserAuthData } from './model/selectors/getUserAuthData/getUserAuthData'
 import { getIsUserAdmin, getIsUserManager } from './model/selectors/roleSelectors'
 

@@ -1,4 +1,5 @@
-import { Article, ArticleBlockType, ArticleTextBlock, ArticleView } from 'enteties/Article/model/types/article'
+import { Article, ArticleTextBlock } from '../../model/types/article'
+import { ArticleBlockType, ArticleView } from '../../model/consts/articleConsts'
 import { FC, HTMLAttributeAnchorTarget, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'

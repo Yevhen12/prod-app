@@ -4,11 +4,10 @@ import {
   PayloadAction
 } from '@reduxjs/toolkit'
 import { StateSchema } from 'app/providers/StoreProvider'
-import { Article, ArticleView } from 'enteties/Article'
+import { Article, ArticleView, ArticleSortField, ArticleType } from 'enteties/Article'
 import { ArticlePageSchema } from '../types/articlePageSchema'
 import { fetchArticleList } from '../services/fetchArticleList/fetchArticleList'
 import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localStorage'
-import { ArticleSortField, ArticleType } from 'enteties/Article/model/types/article'
 import { OrderType } from 'shared/types'
 
 const articlePageSliceAdapter = createEntityAdapter<Article>({

@@ -1,4 +1,4 @@
-import { ArticleType } from 'enteties/Article/model/types/article'
+import { ArticleType } from '../../model/consts/articleConsts'
 import { FC, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import Tabs, { TabItem } from 'shared/ui/Tabs/Tabs'

@@ -9,6 +9,7 @@
     "checkJs": true,
     "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
@@ -38,6 +39,6 @@
     "**/node_modules/*"
   ],
   "files": [
-    "src/index.tsx", "./src/enteties/Profile/model/types/ProfileValidateError.ts"
+    "src/index.tsx"
   ],
 }

@@ -5,7 +5,7 @@ import { api } from 'shared/api/api'
 import { validateProfileData } from '../validateProfileData/validateProfileData'
 import { Profile } from 'enteties/Profile'
 import { ThunkConfig } from 'app/providers/StoreProvider'
-import { ProfileValidateError } from '../../types/EditableProfileCardSchema'
+import { ProfileValidateError } from '../../consts/profileCardConsts'
 
 const URL = '/profile/'
 
