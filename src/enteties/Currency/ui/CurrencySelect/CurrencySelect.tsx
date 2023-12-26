@@ -2,7 +2,7 @@ import { Currency } from 'enteties/Currency/model/types/currency'
 import { FC, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames/classNames'
-import Listbox from 'shared/ui/ListBox/ListBox'
+import { Listbox } from 'shared/ui/Popups'
 import { LabelOption } from 'shared/ui/Select/Select'
 
 export const CURRENCY_OPTIONS: Array<LabelOption<Currency>> = [
