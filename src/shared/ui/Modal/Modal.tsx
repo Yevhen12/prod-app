@@ -1,5 +1,6 @@
 import React, { FC, useCallback, useEffect, useRef, useState } from 'react'
 import { classNames } from 'shared/lib/classNames/classNames'
+import Overlay from '../Overlay/Overlay'
 import Portal from '../Portal/Portal'
 import cls from './Modal.module.scss'
 
@@ -63,10 +64,6 @@ const Modal: FC<ModalProps> = (props) => {
     }
   }, [isOpen, onKeyDown])
 
-  const onContentClick = (e: React.MouseEvent) => {
-    e.stopPropagation()
-  }
-
   if (lazy && !isMounted) {
     return null
   }
@@ -74,10 +71,9 @@ const Modal: FC<ModalProps> = (props) => {
   return (
     <Portal element={document.getElementById('app') ?? undefined}>
       <div className={classNames(cls.modal, mods, [className])}>
-        <div onClick={closeModal} className={cls.overlay}>
-          <div style={{ width }} className={cls.content} onClick={onContentClick}>
-            {children}
-          </div>
+        <Overlay onClick={closeModal} className={cls.overlay} />
+        <div style={{ width }} className={cls.content}>
+          {children}
         </div>
       </div>
     </Portal>
