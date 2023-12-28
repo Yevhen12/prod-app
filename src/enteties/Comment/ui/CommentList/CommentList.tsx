@@ -1,10 +1,10 @@
 /* eslint-disable indent */
-import { Comment } from 'enteties/Comment'
+import { Comment } from '@/enteties/Comment'
 import { FC } from 'react'
 import { useTranslation } from 'react-i18next'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { VStack } from 'shared/ui/Stack'
-import Text from 'shared/ui/Text/Text'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { VStack } from '@/shared/ui/Stack'
+import Text from '@/shared/ui/Text/Text'
 import CommentCard from '../CommentCard/CommentCard'
 
 interface CommentListProps {

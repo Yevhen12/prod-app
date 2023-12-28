@@ -1,5 +1,5 @@
 import { getProfileFirstname } from './getProfileFirstname'
-import { StateSchema } from 'app/providers/StoreProvider'
+import { StateSchema } from '@/app/providers/StoreProvider'
 
 describe('getProfileError', () => {
   test('should return correct error', () => {

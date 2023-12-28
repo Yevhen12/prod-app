@@ -1,7 +1,7 @@
 import { mockArticle } from './../../../../../shared/mocks/articleMock'
 import { fetchArticleById } from './fetchArticleById'
-import { api } from 'shared/api/api'
-import { TestAsynkThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk'
+import { api } from '@/shared/api/api'
+import { TestAsynkThunk } from '@/shared/lib/tests/testAsyncThunk/TestAsyncThunk'
 
 jest.mock('shared/api/api')
 const mockedAxios = jest.mocked(api, { shallow: false })

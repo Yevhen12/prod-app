@@ -2,14 +2,14 @@
 import { Article } from '../../model/types/article'
 import { ArticleView } from '../../model/consts/articleConsts'
 import { HTMLAttributeAnchorTarget, LegacyRef, memo } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import ArticleListItem from '../ArticleListItem/ArticleListItem'
 import ArticleListItemSkeleton from '../ArticleListItem/ArticleListItemSkeleton'
-import Text, { TextSize } from 'shared/ui/Text/Text'
+import Text, { TextSize } from '@/shared/ui/Text/Text'
 import { List, ListRowProps, WindowScroller } from 'react-virtualized'
 import cls from './ArticleList.module.scss'
 import { useTranslation } from 'react-i18next'
-import { PAGE_ID } from 'widgets/Page/ui/Page'
+import { PAGE_ID } from '@/widgets/Page/ui/Page'
 
 interface ArticleListProps {
   className?: string

@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Theme } from 'app/providers/ThemeProvider'
-import { Article } from 'enteties/Article/model/types/article'
-import { ArticleBlockType, ArticleType } from 'enteties/Article'
+import { Theme } from '@/app/providers/ThemeProvider'
+import { Article } from '@/enteties/Article/model/types/article'
+import { ArticleBlockType, ArticleType } from '@/enteties/Article'
 import { MemoryRouter, Routes, Route } from 'react-router-dom'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator'
 import ArticleDetailsPage from './ArticleDetailsPage'
 
 const meta = {

@@ -3,12 +3,12 @@ import {
   createSlice,
   PayloadAction
 } from '@reduxjs/toolkit'
-import { StateSchema } from 'app/providers/StoreProvider'
-import { Article, ArticleView, ArticleSortField, ArticleType } from 'enteties/Article'
+import { StateSchema } from '@/app/providers/StoreProvider'
+import { Article, ArticleView, ArticleSortField, ArticleType } from '@/enteties/Article'
 import { ArticlePageSchema } from '../types/articlePageSchema'
 import { fetchArticleList } from '../services/fetchArticleList/fetchArticleList'
-import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localStorage'
-import { OrderType } from 'shared/types'
+import { ARTICLE_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localStorage'
+import { OrderType } from '@/shared/types'
 
 const articlePageSliceAdapter = createEntityAdapter<Article>({
   selectId: (article) => article.id

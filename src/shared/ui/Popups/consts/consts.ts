@@ -1,4 +1,4 @@
-import { DropdownDirection } from 'shared/types/ui'
+import { DropdownDirection } from '@/shared/types/ui'
 import cls from '../styles/Popup.module.scss'
 
 export const mapDirectionClasses: Record<DropdownDirection, string> = {

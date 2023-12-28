@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
-import { Theme } from 'app/providers/ThemeProvider'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator'
+import { Theme } from '@/app/providers/ThemeProvider'
 import ProfilePage from './ProfilePage'
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator'
-import { Country } from 'enteties/Country'
-import { Currency } from 'enteties/Currency'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator'
+import { Country } from '@/enteties/Country'
+import { Currency } from '@/enteties/Currency'
 import { MemoryRouter, Routes, Route } from 'react-router-dom'
 
 const meta = {

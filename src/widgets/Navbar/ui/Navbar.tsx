@@ -1,18 +1,18 @@
 /* eslint-disable indent */
-import { LoginModal } from 'features/AuthByUsername'
+import { LoginModal } from '@/features/AuthByUsername'
 import React, { memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
 import { useSelector } from 'react-redux'
 import cls from './Navbar.module.scss'
-import { getUserAuthData } from 'enteties/User'
-import Text, { TextTheme } from 'shared/ui/Text/Text'
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
-import { RoutePath } from 'shared/config/routeConfig/routeConfig'
-import { HStack } from 'shared/ui/Stack'
-import { NotificationButton } from 'features/NotificationButton'
-import { AvatarDropdown } from 'features/AvatarDropdown'
+import { getUserAuthData } from '@/enteties/User'
+import Text, { TextTheme } from '@/shared/ui/Text/Text'
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink'
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
+import { HStack } from '@/shared/ui/Stack'
+import { NotificationButton } from '@/features/NotificationButton'
+import { AvatarDropdown } from '@/features/AvatarDropdown'
 
 interface NavbarProps {
   className?: string

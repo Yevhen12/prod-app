@@ -1,7 +1,7 @@
 import { Article } from './../../types/article'
-import i18n from 'shared/config/i18n/i18n'
-import { createAppAsyncThunk } from 'shared/lib/createAppAsynkThunk/createAppAsynkThunk'
-import { api } from 'shared/api/api'
+import i18n from '@/shared/config/i18n/i18n'
+import { createAppAsyncThunk } from '@/shared/lib/createAppAsynkThunk/createAppAsynkThunk'
+import { api } from '@/shared/api/api'
 
 const URL = '/articles'
 

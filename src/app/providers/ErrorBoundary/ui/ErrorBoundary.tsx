@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { PageError } from 'widgets/PageError'
+import { PageError } from '@/widgets/PageError'
 import React, { ErrorInfo, ReactNode, Suspense } from 'react'
 
 interface StateType {

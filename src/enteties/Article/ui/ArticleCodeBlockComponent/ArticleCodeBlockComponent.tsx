@@ -1,6 +1,6 @@
-import { ArticleCodeBlock } from 'enteties/Article/model/types/article'
+import { ArticleCodeBlock } from '@/enteties/Article/model/types/article'
 import { FC, memo } from 'react'
-import Code from 'shared/ui/Code/Code'
+import Code from '@/shared/ui/Code/Code'
 // import cls from './ArticleCodeBlockComponent.module.scss'
 // import { useTranslation } from 'react-i18next'
 

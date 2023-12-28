@@ -1,6 +1,6 @@
-import { CommentList } from 'enteties/Comment'
-import { AddCommentForm } from 'features/AddCommentForm'
-import { getAddCommentFormText } from 'features/AddCommentForm/model/selectors/addCommentFormSelectors'
+import { CommentList } from '@/enteties/Comment'
+import { AddCommentForm } from '@/features/AddCommentForm'
+import { getAddCommentFormText } from '@/features/AddCommentForm/model/selectors/addCommentFormSelectors'
 import { t } from 'i18next'
 import { getCommentArticleIsLoading } from '../../model/selectors/comments'
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'
@@ -8,10 +8,10 @@ import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByAr
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice'
 import { FC, useCallback } from 'react'
 import { useSelector } from 'react-redux'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect'
-import Text, { TextSize } from 'shared/ui/Text/Text'
-import { VStack } from 'shared/ui/Stack'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect'
+import Text, { TextSize } from '@/shared/ui/Text/Text'
+import { VStack } from '@/shared/ui/Stack'
 
 interface ArticleDetailsCommentsProps {
   className?: string

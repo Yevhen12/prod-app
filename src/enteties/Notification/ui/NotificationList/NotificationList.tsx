@@ -1,8 +1,8 @@
-import { useNotifications } from 'enteties/Notification/api/notificationApi'
+import { useNotifications } from '@/enteties/Notification/api/notificationApi'
 import { FC, useMemo } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
-import Skeleton from 'shared/ui/Skeleton/Skeleton'
-import { VStack } from 'shared/ui/Stack'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import Skeleton from '@/shared/ui/Skeleton/Skeleton'
+import { VStack } from '@/shared/ui/Stack'
 import NotificationItem from '../NotificationItem/NotificationItem'
 import cls from './NotificationList.module.scss'
 

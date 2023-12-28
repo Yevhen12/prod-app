@@ -1,9 +1,9 @@
-import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage'
+import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage'
 import { AxiosError } from 'axios'
-import { User, userActions } from 'enteties/User'
-import i18n from 'shared/config/i18n/i18n'
-import { createAppAsyncThunk } from 'shared/lib/createAppAsynkThunk/createAppAsynkThunk'
-import { api } from 'shared/api/api'
+import { User, userActions } from '@/enteties/User'
+import i18n from '@/shared/config/i18n/i18n'
+import { createAppAsyncThunk } from '@/shared/lib/createAppAsynkThunk/createAppAsynkThunk'
+import { api } from '@/shared/api/api'
 
 const URL = 'login'
 

@@ -1,10 +1,10 @@
 import { memo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { AppRoutes } from 'shared/config/routeConfig/routeConfig'
-import Input from 'shared/ui/Input/Input'
-import { Listbox } from 'shared/ui/Popups'
-import { HStack } from 'shared/ui/Stack'
-import Page from 'widgets/Page/ui/Page'
+import { AppRoutes } from '@/shared/config/routeConfig/routeConfig'
+import Input from '@/shared/ui/Input/Input'
+import { Listbox } from '@/shared/ui/Popups'
+import { HStack } from '@/shared/ui/Stack'
+import Page from '@/widgets/Page/ui/Page'
 
 // interface Props {}
 

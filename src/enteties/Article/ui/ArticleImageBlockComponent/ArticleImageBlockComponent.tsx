@@ -1,8 +1,8 @@
-import { ArticleImageBlock } from 'enteties/Article/model/types/article'
+import { ArticleImageBlock } from '@/enteties/Article/model/types/article'
 import { FC, memo } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticleImageBlockComponent.module.scss'
-import Text, { TextAlign } from 'shared/ui/Text/Text'
+import Text, { TextAlign } from '@/shared/ui/Text/Text'
 // import { useTranslation } from 'react-i18next'
 
 interface ArticleImageBlockComponentProps {

@@ -7,6 +7,8 @@ export const buildResolvers = (oprions: BuildOptions): webpack.ResolveOptions =>
     preferAbsolute: true,
     modules: [oprions.paths.src, 'node_modules'],
     mainFiles: ['index'],
-    alias: {}
+    alias: {
+      '@': oprions.paths.src
+    }
   }
 }

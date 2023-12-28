@@ -2,8 +2,8 @@ import { updateProfileData } from '../services/updateProfileData/updateProfileDa
 import { profileActions, profileReducer } from './profileSlice'
 import { ProfileSchema } from '../types/EditableProfileCardSchema'
 import { ProfileValidateError } from '../consts/profileCardConsts'
-import { Country } from 'enteties/Country'
-import { Currency } from 'enteties/Currency'
+import { Country } from '@/enteties/Country'
+import { Currency } from '@/enteties/Currency'
 
 const defaultData = {
   first: 'Yevhen',

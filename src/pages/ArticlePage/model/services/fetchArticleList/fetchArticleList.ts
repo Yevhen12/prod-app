@@ -1,9 +1,9 @@
-import { Article, ArticleType } from 'enteties/Article'
-import i18n from 'shared/config/i18n/i18n'
-import { createAppAsyncThunk } from 'shared/lib/createAppAsynkThunk/createAppAsynkThunk'
-import { api } from 'shared/api/api'
+import { Article, ArticleType } from '@/enteties/Article'
+import i18n from '@/shared/config/i18n/i18n'
+import { createAppAsyncThunk } from '@/shared/lib/createAppAsynkThunk/createAppAsynkThunk'
+import { api } from '@/shared/api/api'
 import { getArticlesPageLimit, getArticlesPageOrder, getArticlesPagePage, getArticlesPageSearch, getArticlesPageSort, getArticlesPageType } from '../../selectors/articlePageSelectors'
-import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams'
+import { addQueryParams } from '@/shared/lib/url/addQueryParams/addQueryParams'
 
 const URL = '/articles'
 

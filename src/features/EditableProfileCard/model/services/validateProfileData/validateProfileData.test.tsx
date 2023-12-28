@@ -1,6 +1,6 @@
-import { Country } from 'enteties/Country'
+import { Country } from '@/enteties/Country'
 import { validateProfileData } from './validateProfileData'
-import { Currency } from 'enteties/Currency'
+import { Currency } from '@/enteties/Currency'
 import { ProfileValidateError } from '../../consts/profileCardConsts'
 
 jest.mock('shared/api/api')

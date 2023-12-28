@@ -1,9 +1,9 @@
-import { Country } from 'enteties/Country/model/types/country'
+import { Country } from '@/enteties/Country/model/types/country'
 import { FC, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
-import { classNames } from 'shared/lib/classNames/classNames'
-import { Listbox } from 'shared/ui/Popups'
-import { LabelOption } from 'shared/ui/Select/Select'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import { Listbox } from '@/shared/ui/Popups'
+import { LabelOption } from '@/shared/ui/Select/Select'
 
 export const COUNTRY_OPTIONS: Array<LabelOption<Country>> = [
   { value: Country.Australia, content: Country.Australia },

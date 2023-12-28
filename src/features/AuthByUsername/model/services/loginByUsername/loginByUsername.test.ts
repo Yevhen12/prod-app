@@ -1,9 +1,9 @@
-import { api } from 'shared/api/api'
+import { api } from '@/shared/api/api'
 // import { StateSchema } from 'app/providers/StoreProvider'
 import { loginByUsername } from './loginByUsername'
 // import { Dispatch } from '@reduxjs/toolkit'
-import { userActions } from 'enteties/User'
-import { TestAsynkThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk'
+import { userActions } from '@/enteties/User'
+import { TestAsynkThunk } from '@/shared/lib/tests/testAsyncThunk/TestAsyncThunk'
 
 jest.mock('shared/api/api')
 const mockedAxios = jest.mocked(api, { shallow: false })

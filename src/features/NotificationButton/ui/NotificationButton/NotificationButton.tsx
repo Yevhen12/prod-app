@@ -1,13 +1,13 @@
-import { Popover } from 'shared/ui/Popups'
-import { NotificationList } from 'enteties/Notification'
+import { Popover } from '@/shared/ui/Popups'
+import { NotificationList } from '@/enteties/Notification'
 import { FC, useState } from 'react'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
 import { BrowserView, MobileView } from 'react-device-detect'
-import Icon from 'shared/ui/Icon/Icon'
-import NotificationIcon from 'shared/assets/icons/call-20-20.svg'
+import Icon from '@/shared/ui/Icon/Icon'
+import NotificationIcon from '@/shared/assets/icons/call-20-20.svg'
 import cls from './NotificationButton.module.scss'
-import Drawer from 'shared/ui/Drawer/Drawer'
-import { AnimationProvider } from 'shared/lib/components/AnimationProvider/AnimationProvider'
+import Drawer from '@/shared/ui/Drawer/Drawer'
+import { AnimationProvider } from '@/shared/lib/components/AnimationProvider/AnimationProvider'
 
 interface NotificationButtonProps {
   className?: string

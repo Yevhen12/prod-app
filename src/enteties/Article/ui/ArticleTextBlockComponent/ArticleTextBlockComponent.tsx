@@ -1,7 +1,7 @@
-import { ArticleTextBlock } from 'enteties/Article/model/types/article'
+import { ArticleTextBlock } from '@/enteties/Article/model/types/article'
 import { FC, memo } from 'react'
-import { classNames } from 'shared/lib/classNames/classNames'
-import Text from 'shared/ui/Text/Text'
+import { classNames } from '@/shared/lib/classNames/classNames'
+import Text from '@/shared/ui/Text/Text'
 import cls from './ArticleTextBlockComponent.module.scss'
 // import { useTranslation } from 'react-i18next'
 

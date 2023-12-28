@@ -1,10 +1,10 @@
 import { getArticlesPageInited } from './../../selectors/articlePageSelectors'
-import i18n from 'shared/config/i18n/i18n'
-import { createAppAsyncThunk } from 'shared/lib/createAppAsynkThunk/createAppAsynkThunk'
+import i18n from '@/shared/config/i18n/i18n'
+import { createAppAsyncThunk } from '@/shared/lib/createAppAsynkThunk/createAppAsynkThunk'
 import { articlePageActions } from '../../slices/articlePageSlice'
 import { fetchArticleList } from '../fetchArticleList/fetchArticleList'
-import { OrderType } from 'shared/types'
-import { ArticleSortField, ArticleType } from 'enteties/Article'
+import { OrderType } from '@/shared/types'
+import { ArticleSortField, ArticleType } from '@/enteties/Article'
 
 // TODO: NEED TO FIX extra: any
 

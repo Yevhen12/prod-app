@@ -1,5 +1,5 @@
 import { Article } from './../../enteties/Article/model/types/article'
-import { ArticleBlockType, ArticleType } from 'enteties/Article'
+import { ArticleBlockType, ArticleType } from '@/enteties/Article'
 
 export const mockArticle: Article = {
   id: '1',

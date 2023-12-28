@@ -1,4 +1,4 @@
-import { getUserAuthData } from 'enteties/User'
+import { getUserAuthData } from '@/enteties/User'
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData'
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly'
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData'
@@ -6,10 +6,10 @@ import { profileActions } from '../../model/slice/profileSlice'
 import { FC, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useSelector } from 'react-redux'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch'
-import { Button, ButtonTheme } from 'shared/ui/Button/Button'
-import Text from 'shared/ui/Text/Text'
-import { HStack } from 'shared/ui/Stack'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
+import Text from '@/shared/ui/Text/Text'
+import { HStack } from '@/shared/ui/Stack'
 
 interface EditableProfileCardHeaderProps {
   className?: string
