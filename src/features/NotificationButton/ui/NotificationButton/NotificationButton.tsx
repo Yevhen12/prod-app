@@ -7,6 +7,7 @@ import Icon from 'shared/ui/Icon/Icon'
 import NotificationIcon from 'shared/assets/icons/call-20-20.svg'
 import cls from './NotificationButton.module.scss'
 import Drawer from 'shared/ui/Drawer/Drawer'
+import { AnimationProvider } from 'shared/lib/components/AnimationProvider/AnimationProvider'
 
 interface NotificationButtonProps {
   className?: string
@@ -41,9 +42,11 @@ const NotificationButton: FC<NotificationButtonProps> = ({ className = '' }) => 
       </BrowserView>
       <MobileView>
         {trigger}
-        <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-          <NotificationList />
-        </Drawer>
+        <AnimationProvider>
+          <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+            <NotificationList />
+          </Drawer>
+        </AnimationProvider>
       </MobileView>
     </>
   )
