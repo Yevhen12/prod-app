@@ -8,7 +8,7 @@ import cls from './Drawer.module.scss'
 import { useModal } from '@/shared/lib/hooks/useModal'
 // import { useDrag } from '@use-gesture/react'
 // import { a, useSpring, config } from '@react-spring/web'
-import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider/AnimationProvider'
+import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider/AnimationProvider'
 
 interface DrawerProps {
   className?: string
@@ -90,7 +90,7 @@ const DrawerContent: FC<DrawerProps> = memo((props: DrawerProps) => {
 
 DrawerContent.displayName = 'DrawerContent'
 
-const Drawer: FC<DrawerProps> = memo((props: DrawerProps) => {
+const DrawerAsync: FC<DrawerProps> = (props: DrawerProps) => {
   const { isLoaded } = useAnimationLibs()
 
   if (!isLoaded) {
@@ -98,8 +98,16 @@ const Drawer: FC<DrawerProps> = memo((props: DrawerProps) => {
   }
 
   return <DrawerContent {...props} />
-})
+}
 
-export default Drawer
+const Drawer: FC<DrawerProps> = (props: DrawerProps) => {
+  return (
+    <AnimationProvider>
+      <DrawerAsync {...props} />
+    </AnimationProvider>
+  )
+}
 
 Drawer.displayName = 'Drawer'
+
+export default Drawer
