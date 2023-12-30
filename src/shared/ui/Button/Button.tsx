@@ -9,6 +9,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean
   size?: string
   disabled?: boolean
+  fullwidth?: boolean
 }
 
 export enum ButtonTheme {
@@ -34,6 +35,7 @@ export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
     square = false,
     size = ButtonSize.M,
     disabled = false,
+    fullwidth = false,
     ...otherProps
   } = props
 
@@ -44,7 +46,8 @@ export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
   ]
   const mods: Record<string, boolean> = {
     [cls.square]: square,
-    [cls.disabled]: disabled
+    [cls.disabled]: disabled,
+    [cls.fullwidth]: fullwidth
   }
 
   return (

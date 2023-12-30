@@ -35,7 +35,7 @@ const Dropdown: FC<DropdownProps> = ({
         {trigger}
       </Menu.Button>
       <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
-        {items.map((item) => {
+        {items.map((item, idx) => {
           const content = ({ active }: { active: boolean }) => (
             <button
               onClick={item.onClick}

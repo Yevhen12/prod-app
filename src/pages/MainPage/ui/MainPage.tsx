@@ -5,6 +5,7 @@ import Input from '@/shared/ui/Input/Input'
 import { Listbox } from '@/shared/ui/Popups'
 import { HStack } from '@/shared/ui/Stack'
 import Page from '@/widgets/Page/ui/Page'
+import { RatingCard } from '@/enteties/Rating'
 
 // interface Props {}
 
@@ -39,9 +40,7 @@ const MainPage: React.FC = memo(() => {
           ]}
         />
       </HStack>
-      <div>twtttd</div>
-      <div>twtttd</div>
-      <div>twtttd</div>
+      <RatingCard title='Your feedback' feedbackTitle='Leave your feedback' hasFeedback />
     </Page>
   )
 })
