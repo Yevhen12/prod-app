@@ -25,7 +25,6 @@ const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps)
       <Text size={TextSize.L} title={t('recommended')} />
       <ArticleList
         articles={articles}
-        virtualized={false}
         // isLoading={isLoading}
         target='_blank'
       />
