@@ -59,6 +59,6 @@ module.exports = {
     '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/restrict-template-expressions': 'off',
     '@typescript-eslint/no-confusing-void-expression': 'off',
-    'prod-proj-plugin/path-checker': 'error'
+    'prod-proj-plugin/path-checker': ['error', { alias: '@' }]
   }
 }
