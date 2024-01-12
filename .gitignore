@@ -4,3 +4,4 @@ node_modules
 .loki/
 /reports
 .DS_Store
+/json-server
