@@ -1,6 +1,5 @@
 import { Comment } from '@/enteties/Comment'
 import { FC } from 'react'
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
 // import { useTranslation } from 'react-i18next'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { AppLink } from '@/shared/ui/AppLink/AppLink'
@@ -9,6 +8,7 @@ import Skeleton from '@/shared/ui/Skeleton/Skeleton'
 import { VStack } from '@/shared/ui/Stack'
 import Text from '@/shared/ui/Text/Text'
 import cls from './CommentCard.module.scss'
+import { RoutePath } from '@/shared/const/router'
 
 interface CommentCardProps {
   className?: string

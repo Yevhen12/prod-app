@@ -66,7 +66,7 @@ const ProfileCard: FC<ProfileCardProps> = ({
   }
 
   return (
-    <VStack max gap='16' className={classNames(cls.profileCard, {}, [className ?? ''])}>
+    <VStack align='start' justify='start' max gap='16' className={classNames(cls.profileCard, {}, [className ?? ''])}>
       <HStack justify='center' max className={cls.avatarWrapper}>
         {data?.avatar && <Avatar src={data.avatar} alt='avatar' size={100} />}
       </HStack>

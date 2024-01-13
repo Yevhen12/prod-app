@@ -6,7 +6,7 @@ import cls from './SidebarItem.module.scss'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useSelector } from 'react-redux'
 import { getUserAuthData } from '@/enteties/User'
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig'
+import { RoutePath } from '@/shared/const/router'
 
 interface SidebarItemProps {
   item: SidebarItemType

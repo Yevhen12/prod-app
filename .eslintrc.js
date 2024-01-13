@@ -60,6 +60,12 @@ module.exports = {
     '@typescript-eslint/restrict-template-expressions': 'off',
     '@typescript-eslint/no-confusing-void-expression': 'off',
     'prod-proj-plugin/path-checker': ['error', { alias: '@' }],
-    'prod-proj-plugin/public-api-imports': ['error', { alias: '@' }]
+    'prod-proj-plugin/public-api-imports': [
+      'error',
+      {
+        alias: '@',
+        testFiles: ['**/*.test.*', '**/*.story.*', '**/StoryDecorator.tsx']
+      }
+    ]
   }
 }
