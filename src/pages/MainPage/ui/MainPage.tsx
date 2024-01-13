@@ -4,7 +4,7 @@ import { AppRoutes } from '@/shared/config/routeConfig/routeConfig'
 import Input from '@/shared/ui/Input/Input'
 import { Listbox } from '@/shared/ui/Popups'
 import { HStack } from '@/shared/ui/Stack'
-import Page from '@/widgets/Page/ui/Page'
+import { Page } from '@/widgets/Page'
 import { RatingCard } from '@/enteties/Rating'
 
 // interface Props {}

@@ -1,6 +1,5 @@
 import { CommentList } from '@/enteties/Comment'
-import { AddCommentForm } from '@/features/AddCommentForm'
-import { getAddCommentFormText } from '@/features/AddCommentForm/model/selectors/addCommentFormSelectors'
+import { AddCommentForm, getAddCommentFormText } from '@/features/AddCommentForm'
 import { t } from 'i18next'
 import { getCommentArticleIsLoading } from '../../model/selectors/comments'
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle'

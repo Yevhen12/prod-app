@@ -1,3 +1,4 @@
+/* eslint-disable prod-proj-plugin/public-api-imports */
 /* eslint-disable indent */
 /* eslint-disable react/display-name */
 import { ReducersMapObject } from '@reduxjs/toolkit'

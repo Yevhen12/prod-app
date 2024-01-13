@@ -1,6 +1,5 @@
 import { StateSchema } from '@/app/providers/StoreProvider'
-import { getScrollPosition } from '@/features/ScrollRestoration'
-import { scrollActions } from '@/features/ScrollRestoration/model/slice/slice'
+import { getScrollPosition, scrollActions } from '@/features/ScrollRestoration'
 import { FC, LegacyRef, MutableRefObject, ReactNode, useRef, UIEvent } from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
