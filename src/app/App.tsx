@@ -1,4 +1,3 @@
-import { useTheme } from './providers/ThemeProvider'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { AppRouter } from '@/app/providers/Router'
 import { Navbar } from '@/widgets/Navbar'
@@ -10,6 +9,7 @@ import { AppDispatch } from './providers/StoreProvider'
 import { userActions } from '@/enteties/User'
 import { getUserMounted } from '@/enteties/User/model/selectors/getUserMounted/getUserModunted'
 import './styles/index.scss'
+import { useTheme } from '@/shared/lib/hooks/useTheme'
 
 const App: React.FC = () => {
   const { theme } = useTheme()

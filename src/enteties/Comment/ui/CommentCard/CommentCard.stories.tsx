@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { Theme } from '@/app/providers/ThemeProvider'
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator'
 import CommentCard from './CommentCard'
+import { Theme } from '@/shared/const/theme'
 
 const meta = {
   title: 'enteties/CommentCard',
