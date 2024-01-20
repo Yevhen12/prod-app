@@ -1,4 +1,4 @@
-import { ArticleTextBlock } from '@/enteties/Article/model/types/article'
+import { ArticleTextBlock } from '@/enteties/Article'
 import { FC, memo } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import Text from '@/shared/ui/Text/Text'

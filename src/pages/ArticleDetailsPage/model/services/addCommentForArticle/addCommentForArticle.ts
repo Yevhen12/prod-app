@@ -2,7 +2,7 @@ import i18n from '@/shared/config/i18n/i18n'
 import { createAppAsyncThunk } from '@/shared/lib/createAppAsynkThunk/createAppAsynkThunk'
 import { api } from '@/shared/api/api'
 import { getUserAuthData } from '@/enteties/User'
-import { getArticleDetailsData } from '@/enteties/Article/model/selectors/articleDetails'
+import { getArticleDetailsData } from '@/enteties/Article'
 import { Comment } from '@/enteties/Comment'
 import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId'
 

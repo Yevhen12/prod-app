@@ -1,6 +1,7 @@
 /* eslint-disable indent */
-import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '@/enteties/Article/model/selectors/articleDetails'
-import { fetchArticleById } from '@/enteties/Article/model/services/fetchArticleById/fetchArticleById'
+import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from '../../model/selectors/articleDetails'
+import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById'
+import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice'
 import { FC, memo, useCallback, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import cls from './ArticleDetails.module.scss'
@@ -8,7 +9,6 @@ import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/Dynam
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch'
 import Skeleton from '@/shared/ui/Skeleton/Skeleton'
 import Text, { TextAlign, TextSize, TextTheme } from '@/shared/ui/Text/Text'
-import { articleDetailsReducer } from '@/enteties/Article/model/slice/articleDetailsSlice'
 import Avatar from '@/shared/ui/Avatar/Avatar'
 import EyeIcon from '@/shared/assets/icons/eye-outlined.svg'
 import CalendarIcon from '@/shared/assets/icons/calendar.svg'

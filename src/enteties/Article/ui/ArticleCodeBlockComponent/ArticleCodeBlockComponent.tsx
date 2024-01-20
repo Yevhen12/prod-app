@@ -1,4 +1,4 @@
-import { ArticleCodeBlock } from '@/enteties/Article/model/types/article'
+import { ArticleCodeBlock } from '@/enteties/Article'
 import { FC, memo } from 'react'
 import Code from '@/shared/ui/Code/Code'
 // import cls from './ArticleCodeBlockComponent.module.scss'

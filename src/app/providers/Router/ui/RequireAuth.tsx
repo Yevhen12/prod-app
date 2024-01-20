@@ -1,5 +1,4 @@
-import { getUserAuthData, UserRole } from '@/enteties/User'
-import { getAllRoles } from '@/enteties/User/model/selectors/roleSelectors'
+import { getUserAuthData, UserRole, getAllRoles } from '@/enteties/User'
 import { RoutePath } from '@/shared/const/router'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'

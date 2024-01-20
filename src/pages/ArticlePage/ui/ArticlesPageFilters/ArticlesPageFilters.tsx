@@ -1,5 +1,4 @@
-import { ArticleSortField, ArticleSortSelector, ArticleView, ArticleViewSelector, ArticleType } from '@/enteties/Article'
-import ArticleTypeTabs from '@/enteties/Article/ui/ArticleTypeTabs/ArticleTypeTabs'
+import { ArticleSortField, ArticleSortSelector, ArticleView, ArticleViewSelector, ArticleType, ArticleTypeTabs } from '@/enteties/Article'
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,

@@ -1,4 +1,4 @@
-import { useNotifications } from '@/enteties/Notification/api/notificationApi'
+import { useNotifications } from '../../api/notificationApi'
 import { FC, useMemo } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import Skeleton from '@/shared/ui/Skeleton/Skeleton'

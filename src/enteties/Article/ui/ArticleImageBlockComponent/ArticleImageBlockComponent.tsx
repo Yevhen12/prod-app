@@ -1,4 +1,4 @@
-import { ArticleImageBlock } from '@/enteties/Article/model/types/article'
+import { ArticleImageBlock } from '@/enteties/Article'
 import { FC, memo } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import cls from './ArticleImageBlockComponent.module.scss'

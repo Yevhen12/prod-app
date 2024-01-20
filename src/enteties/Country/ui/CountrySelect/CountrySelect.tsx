@@ -1,4 +1,4 @@
-import { Country } from '@/enteties/Country/model/types/country'
+import { Country } from '../../model/types/country'
 import { FC, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from '@/shared/lib/classNames/classNames'
