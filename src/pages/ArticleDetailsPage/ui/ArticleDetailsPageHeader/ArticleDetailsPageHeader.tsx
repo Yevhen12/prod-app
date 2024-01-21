@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
 import { HStack } from '@/shared/ui/Stack'
-import { RoutePath } from '@/shared/const/router'
+import { getRouteArticles, getRouteArticlesEdit } from '@/shared/const/router'
 
 interface ArticleDetailsPageHeaderProps {
   className?: string
@@ -20,11 +20,11 @@ const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = ({ className
   const article = useSelector(getArticleDetailsData)
 
   const onBackToList = useCallback(() => {
-    navigate(RoutePath.articles)
+    navigate(getRouteArticles())
   }, [navigate])
 
   const onEditArticle = useCallback(() => {
-    navigate(`${RoutePath.articles_details}${article?.id}/edit`)
+    navigate(getRouteArticlesEdit(article?.id ?? ''))
   }, [article?.id, navigate])
 
   return (

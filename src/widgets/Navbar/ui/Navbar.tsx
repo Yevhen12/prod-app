@@ -12,7 +12,7 @@ import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink'
 import { HStack } from '@/shared/ui/Stack'
 import { NotificationButton } from '@/features/NotificationButton'
 import { AvatarDropdown } from '@/features/AvatarDropdown'
-import { RoutePath } from '@/shared/const/router'
+import { getRouteArticlesNew } from '@/shared/const/router'
 
 interface NavbarProps {
   className?: string
@@ -35,7 +35,7 @@ export const Navbar: React.FC<NavbarProps> = memo(({ className }: NavbarProps) =
     return (
       <header className={classNames(cls.navbar, {}, [className ?? ''])}>
         <Text text='Production application' theme={TextTheme.INVERTED} className={cls.appName} />
-        <AppLink to={RoutePath.article_create} theme={AppLinkTheme.SECONDARY} className={cls.createBtn}>
+        <AppLink to={getRouteArticlesNew()} theme={AppLinkTheme.SECONDARY} className={cls.createBtn}>
           {t('createArticle')}
         </AppLink>
         <HStack gap='16' justify='end' className={cls.actions}>

@@ -8,7 +8,7 @@ import Skeleton from '@/shared/ui/Skeleton/Skeleton'
 import { VStack } from '@/shared/ui/Stack'
 import Text from '@/shared/ui/Text/Text'
 import cls from './CommentCard.module.scss'
-import { RoutePath } from '@/shared/const/router'
+import { getRouteProfile } from '@/shared/const/router'
 
 interface CommentCardProps {
   className?: string
@@ -22,7 +22,7 @@ const CommentCard: FC<CommentCardProps> = ({ className = '', comment, isLoading 
   if (isLoading) {
     return (
       <VStack max gap='8' className={classNames(cls.commentCard, {}, [className, cls.loading])}>
-        <AppLink to={`${RoutePath.profile}/${comment?.user.id}`} className={cls.header}>
+        <AppLink to={getRouteProfile(comment?.user.id ?? '')} className={cls.header}>
           <Skeleton width='30px' height='30px' border='50%' />
           <Skeleton height='16px' width='100px' className={cls.username} />
         </AppLink>
@@ -33,7 +33,7 @@ const CommentCard: FC<CommentCardProps> = ({ className = '', comment, isLoading 
 
   return (
     <VStack gap='8' max className={classNames(cls.commentCard, {}, [className])}>
-      <AppLink to={`${RoutePath.profile}${comment?.user.id}`} className={cls.header}>
+      <AppLink to={getRouteProfile(comment?.user.id ?? '')} className={cls.header}>
         {comment?.user?.avatar ? <Avatar size={30} src={comment?.user?.avatar} /> : null}
         <Text className={cls.username} title={comment?.user?.username} />
       </AppLink>

@@ -1,7 +1,7 @@
 import HomeIcon from '@/shared/assets/icons/home.svg'
 import ProfileIcon from '@/shared/assets/icons/profile.svg'
 import ArticleIcon from '@/shared/assets/icons/articles.svg'
-import { RoutePath } from '@/shared/const/router'
+import { getRouteAbout, getRouteArticles, getRouteMain, RoutePath } from '@/shared/const/router'
 
 export interface SidebarItemType {
   path: string
@@ -12,12 +12,12 @@ export interface SidebarItemType {
 
 export const sidebarItemsList: SidebarItemType[] = [
   {
-    path: RoutePath.main,
+    path: getRouteMain(),
     text: 'Main',
     Icon: HomeIcon
   },
   {
-    path: RoutePath.about,
+    path: getRouteAbout(),
     text: 'About',
     Icon: HomeIcon
   },
@@ -28,7 +28,7 @@ export const sidebarItemsList: SidebarItemType[] = [
     authOnly: true
   },
   {
-    path: RoutePath.articles,
+    path: getRouteArticles(),
     text: 'Articles',
     Icon: ArticleIcon,
     authOnly: true

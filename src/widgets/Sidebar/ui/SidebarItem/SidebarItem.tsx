@@ -6,7 +6,7 @@ import cls from './SidebarItem.module.scss'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { useSelector } from 'react-redux'
 import { getUserAuthData } from '@/enteties/User'
-import { RoutePath } from '@/shared/const/router'
+import { getRouteProfile, RoutePath } from '@/shared/const/router'
 
 interface SidebarItemProps {
   item: SidebarItemType
@@ -24,7 +24,7 @@ const SidebarItem: FC<SidebarItemProps> = memo(({ item, collapsed }: SidebarItem
     return null
   }
 
-  const path = isProfile ? `${item.path}${userData?.id}` : item.path
+  const path = isProfile ? getRouteProfile(userData?.id ?? '') : item.path
 
   return (
     <AppLink

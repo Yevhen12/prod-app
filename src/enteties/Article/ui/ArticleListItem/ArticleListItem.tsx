@@ -12,7 +12,7 @@ import Avatar from '@/shared/ui/Avatar/Avatar'
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
 import ArticleTextBlockComponent from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { AppLink } from '@/shared/ui/AppLink/AppLink'
-import { RoutePath } from '@/shared/const/router'
+import { getRouteArticlesDetails } from '@/shared/const/router'
 
 interface ArticleListItemProps {
   className?: string
@@ -54,7 +54,7 @@ const ArticleListItem: FC<ArticleListItemProps> = memo(({
             <img src={article.img} alt={article.title} className={cls.img} />
             {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
             <div className={cls.footer}>
-              <AppLink to={RoutePath.articles_details + article.id} target={target}>
+              <AppLink to={getRouteArticlesDetails(article.id)} target={target}>
                 <Button theme={ButtonTheme.OUTLINE}>
                   {t('readMore')}
                 </Button>
@@ -68,7 +68,7 @@ const ArticleListItem: FC<ArticleListItemProps> = memo(({
   }
 
   return (
-    <AppLink to={RoutePath.articles_details + article.id} target={target}>
+    <AppLink to={getRouteArticlesDetails(article.id)} target={target}>
       <div className={classNames(cls.articleListItem, {}, [className, cls[view]])}>
         <Card>
           <>

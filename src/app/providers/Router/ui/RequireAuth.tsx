@@ -1,5 +1,5 @@
 import { getUserAuthData, UserRole, getAllRoles } from '@/enteties/User'
-import { RoutePath } from '@/shared/const/router'
+import { getRouteForbidden, getRouteMain } from '@/shared/const/router'
 import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
@@ -22,11 +22,11 @@ const RequireAuth = ({ children, roles }: RequireAuthProps): JSX.Element => {
   }, [roles, userRoles])
 
   if (!authUser) {
-    return <Navigate to={RoutePath.main} replace />
+    return <Navigate to={getRouteMain()} replace />
   }
 
   if (!hasRequiredRoles) {
-    return <Navigate to={RoutePath.forbidden} replace />
+    return <Navigate to={getRouteForbidden()} replace />
   }
 
   return children
