@@ -15,6 +15,14 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/
       }
+    },
+    themes: {
+      default: 'dark',
+      list: [
+        { name: 'dark', class: Theme.DARK, color: '#ffffff' },
+        { name: 'light', class: Theme.LIGHT, color: '#000000' },
+        { name: 'orange', class: Theme.ORANGE, color: '#ffb005' }
+      ]
     }
   },
   decorators: [
@@ -25,5 +33,6 @@ const preview: Preview = {
     // TranslationDecorator
   ]
 }
+// NOTE: There's no need to ThemeDecorator. 'storybook-addon-themes' can handle it. Futhermoe its even better to use this addon as it prevents us from dofferent bugs.
 
 export default preview
