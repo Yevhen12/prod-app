@@ -1,10 +1,10 @@
-import { ArticleSortField } from '../../model/consts/articleConsts'
 import { FC, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import { OrderType } from '@/shared/types'
 import Select, { LabelOption } from '@/shared/ui/Select/Select'
 import cls from './ArticleSortSelector.module.scss'
+import { ArticleSortField } from '@/enteties/Article'
 
 interface ArticleSortSelectorProps {
   className?: string

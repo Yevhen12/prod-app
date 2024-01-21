@@ -1,4 +1,4 @@
-import { ArticleSortField, ArticleSortSelector, ArticleView, ArticleViewSelector, ArticleType, ArticleTypeTabs } from '@/enteties/Article'
+import { ArticleSortField, ArticleView, ArticleType } from '@/enteties/Article'
 import {
   getArticlesPageOrder,
   getArticlesPageSearch,
@@ -19,6 +19,9 @@ import Card from '@/shared/ui/Card/Card'
 import Input from '@/shared/ui/Input/Input'
 import { TabItem } from '@/shared/ui/Tabs/Tabs'
 import cls from './ArticlesPageFilters.module.scss'
+import { ArticleSortSelector } from '@/features/ArticleSortSelector'
+import { ArticleTypeTabs } from '@/features/ArticleTypeTabs'
+import { ArticleViewSelector } from '@/features/ArticleViewSelector'
 
 interface ArticlesPageFiltersProps {
   className?: string

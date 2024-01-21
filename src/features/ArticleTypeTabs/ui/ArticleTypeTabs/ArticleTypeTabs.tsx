@@ -1,8 +1,8 @@
-import { ArticleType } from '../../model/consts/articleConsts'
 import { FC, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import Tabs, { TabItem } from '@/shared/ui/Tabs/Tabs'
 import cls from './ArticleTypeTabs.module.scss'
+import { ArticleType } from '@/enteties/Article'
 
 interface ArticleTypeTabsProps {
   type: ArticleType
