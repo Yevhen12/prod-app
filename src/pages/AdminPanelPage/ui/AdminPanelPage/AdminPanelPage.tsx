@@ -9,7 +9,7 @@ interface AdminPanelPageProps {
 const AdminPanelPage: FC<AdminPanelPageProps> = ({ className }) => {
   // const { t } = useTranslation()
   return (
-    <Page>
+    <Page data-testid='AdminPanelPage'>
       AdminPanelPage
     </Page>
   )

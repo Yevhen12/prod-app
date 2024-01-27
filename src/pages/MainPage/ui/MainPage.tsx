@@ -19,7 +19,7 @@ const MainPage: React.FC = memo(() => {
   }
 
   return (
-    <Page>
+    <Page data-testid='MainPage'>
       {t('main')}
       <Input
         value={value}

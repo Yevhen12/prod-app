@@ -6,7 +6,7 @@ import { AppRoutes } from '@/shared/const/router'
 const AboutPage: React.FC = memo(() => {
   const { t } = useTranslation(AppRoutes.ABOUT)
   return (
-    <Page>
+    <Page data-testid='AboutPage'>
       {t('about')}
       fdfd
       dsdsfdfdf
