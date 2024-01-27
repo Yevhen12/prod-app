@@ -6,6 +6,7 @@ import { HStack } from '@/shared/ui/Stack'
 import { Page } from '@/widgets/Page'
 import { RatingCard } from '@/enteties/Rating'
 import { AppRoutes } from '@/shared/const/router'
+import { Counter } from '@/enteties/Counter'
 
 // interface Props {}
 
@@ -27,6 +28,7 @@ const MainPage: React.FC = memo(() => {
       />
       <div>twtttd</div>
       <div>twtttd</div>
+      <Counter />
       <HStack>
         <div>twtttd</div>
         <Listbox
