@@ -5,6 +5,7 @@ module.exports = {
     jest: true
   },
   extends: ['standard-with-typescript', 'plugin:react/recommended', 'plugin:storybook/recommended'],
+  ignorePatterns: ['cypress', 'babel'],
   overrides: [
     {
       env: {
