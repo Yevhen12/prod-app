@@ -56,6 +56,8 @@ module.exports = {
     'no-underscore-dangle': 'off',
     '@typescript-eslint/consistent-type-imports': 'off',
     allowNullableObject: 0,
+    '@typescript-eslint/no-unsafe-argument': 'warn',
+    '@typescript-eslint/prefer-nullish-coalescing': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/consistent-type-assertions': 'off',
     '@typescript-eslint/strict-boolean-expressions': 'off',

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/non-nullable-type-assertion-style */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { LoginSchema } from '../types/loginShema'
 import { loginByUsername } from '../services/loginByUsername/loginByUsername'

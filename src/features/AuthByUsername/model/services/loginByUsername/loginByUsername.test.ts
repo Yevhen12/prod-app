@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 import { api } from '@/shared/api/api'
 // import { StateSchema } from 'app/providers/StoreProvider'
 import { loginByUsername } from './loginByUsername'

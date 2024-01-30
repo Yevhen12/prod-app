@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 import { mockArticle } from './../../../../../shared/mocks/articleMock'
 import { fetchArticleById } from './fetchArticleById'
 import { api } from '@/shared/api/api'

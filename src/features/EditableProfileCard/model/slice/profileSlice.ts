@@ -46,6 +46,7 @@ export const profileSlice = createSlice({
     })
     builder.addCase(fetchProfileData.rejected, (state, action) => {
       state.isLoading = false
+      // eslint-disable-next-line @typescript-eslint/non-nullable-type-assertion-style
       state.error = action.payload as string
     })
     builder.addCase(updateProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
