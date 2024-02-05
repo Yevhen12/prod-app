@@ -58,12 +58,12 @@ const RatingCard: FC<RatingCardProps> = ({
   const modalContent = (
     <>
       <Text title={feedbackTitle} />
-      <Input value={feedback} onChange={setFeedback} placeholder={t('yourFeedback')} />
+      <Input value={feedback} onChange={setFeedback} placeholder={t('yourFeedback')} data-testid={'RatingCard.Input'} />
     </>
   )
 
   return (
-    <Card max className={classNames(cls.ratingCard, {}, [className])}>
+    <Card max className={classNames(cls.ratingCard, {}, [className])} data-testid='RatingCard'>
       <VStack align='center' justify='center' gap='8' max>
         <Text title={startsCount ? t('thanksForFeedback') : title} />
         <StarRating selectedStars={startsCount} size={40} onSelect={onSelectStars} />
@@ -73,11 +73,11 @@ const RatingCard: FC<RatingCardProps> = ({
           <VStack gap='16'>
             {modalContent}
             <HStack max gap='16' justify='end'>
-              <Button theme={ButtonTheme.OUTLINE_RED} onClick={cancelHandler}>
+              <Button theme={ButtonTheme.OUTLINE_RED} onClick={cancelHandler} data-testid="RatingCard.Close">
                 {t('close')}
               </Button>
-              <Button theme={ButtonTheme.OUTLINE} onClick={acceptHandler}>
-                {t('Send')}
+              <Button theme={ButtonTheme.OUTLINE} onClick={acceptHandler} data-testid="RatingCard.Send">
+                {t('send')}
               </Button>
             </HStack>
           </VStack>

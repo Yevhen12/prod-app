@@ -80,7 +80,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }: Article
             className={cls.avatar}
           />
         </HStack>
-        <VStack gap='4' max>
+        <VStack gap='4' max data-testid='ArticleDetails.Info'>
           <Text
             className={cls.title}
             title={data?.title}

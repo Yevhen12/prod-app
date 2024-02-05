@@ -43,7 +43,7 @@ const ArticleListItem: FC<ArticleListItemProps> = memo(({
     const textBlock = article.blocks.find(block => block.type === ArticleBlockType.TEXT) as ArticleTextBlock
 
     return (
-      <div className={classNames(cls.articleListItem, {}, [className, cls[view]])}>
+      <div className={classNames(cls.articleListItem, {}, [className, cls[view]])} data-testid='ArticleListItem'>
         <Card>
           <>
             <div className={cls.header}>
@@ -75,7 +75,7 @@ const ArticleListItem: FC<ArticleListItemProps> = memo(({
   }
 
   return (
-    <AppLink to={getRouteArticlesDetails(article.id)} target={target}>
+    <AppLink to={getRouteArticlesDetails(article.id)} target={target} data-testid='ArticleListItem'>
       <div className={classNames(cls.articleListItem, {}, [className, cls[view]])}>
         <Card>
           <>
