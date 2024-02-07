@@ -3,7 +3,7 @@ describe('User opens ArticleDetails Page', () => {
   beforeEach(() => {
     cy.login();
     cy.createArticle().then((article) => {
-      cy.log(JSON.stringify(article))
+      cy.log(JSON.stringify(article));
       currentArticleId = article.id;
       cy.visit(`articles/${article.id}`);
     });
@@ -24,7 +24,7 @@ describe('User opens ArticleDetails Page', () => {
     cy.getByTestId('CommentCard.Content').should('have.length', 1);
   });
   it('should rate', () => {
-    cy.intercept("GET", '**/articles/*', { fixture: 'article-details.json' })
+    cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
     cy.getByTestId('ArticleDetails.Info');
     cy.getByTestId('RatingCard').scrollIntoView();
     cy.setRate(4, 'feedback');

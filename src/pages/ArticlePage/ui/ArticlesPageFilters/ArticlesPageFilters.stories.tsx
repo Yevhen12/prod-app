@@ -1,30 +1,30 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator'
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator'
-import ArticlesPageFilters from './ArticlesPageFilters'
-import { Theme } from '@/shared/const/theme'
+import type { Meta, StoryObj } from '@storybook/react';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import ArticlesPageFilters from './ArticlesPageFilters';
+import { Theme } from '@/shared/const/theme';
 
 const meta = {
   title: 'page/ArticlePage/ArticlesPageFilters',
   component: ArticlesPageFilters,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { control: 'color' }
-  }
-} as Meta<typeof ArticlesPageFilters>
+    backgroundColor: { control: 'color' },
+  },
+} as Meta<typeof ArticlesPageFilters>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  args: {}
-}
-Primary.decorators = [StoreDecorator({})]
+  args: {},
+};
+Primary.decorators = [StoreDecorator({})];
 
 export const Dark: Story = {
-  args: {}
-}
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
+  args: {},
+};
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];

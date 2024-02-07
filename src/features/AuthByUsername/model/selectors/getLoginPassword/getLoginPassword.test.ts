@@ -1,5 +1,5 @@
-import { getLoginPassword } from './getLoginPassword'
-import { StateSchema } from '@/app/providers/StoreProvider'
+import { getLoginPassword } from './getLoginPassword';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getLoginPassword', () => {
   test('should render correct password', () => {
@@ -8,10 +8,10 @@ describe('getLoginPassword', () => {
         error: 'error occur',
         password: '123',
         username: '',
-        isLoading: true
-      }
-    }
+        isLoading: true,
+      },
+    };
 
-    expect(getLoginPassword(state as StateSchema)).toBe('123')
-  })
-})
+    expect(getLoginPassword(state as StateSchema)).toBe('123');
+  });
+});

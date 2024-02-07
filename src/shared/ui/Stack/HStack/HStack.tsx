@@ -1,12 +1,10 @@
-import { FC } from 'react'
-import Flex, { FlexProps } from '../Flex/Flex'
+import { FC } from 'react';
+import Flex, { FlexProps } from '../Flex/Flex';
 
-type HStackProps = Omit<FlexProps, 'direction'>
+type HStackProps = Omit<FlexProps, 'direction'>;
 
 const HStack: FC<HStackProps> = (props) => {
-  return (
-    <Flex direction='row' {...props} />
-  )
-}
+  return <Flex direction="row" {...props} />;
+};
 
-export default HStack
+export default HStack;

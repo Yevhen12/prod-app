@@ -1,37 +1,37 @@
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { AppRouter } from '@/app/providers/Router'
-import { Navbar } from '@/widgets/Navbar'
-import { Sidebar } from '@/widgets/Sidebar'
-import React, { Suspense, useEffect } from 'react'
-import { PageLoader } from '@/widgets/PageLoader'
-import { useDispatch, useSelector } from 'react-redux'
-import { AppDispatch } from './providers/StoreProvider'
-import { userActions, getUserMounted } from '@/enteties/User'
-import './styles/index.scss'
-import { useTheme } from '@/shared/lib/hooks/useTheme'
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppRouter } from '@/app/providers/Router';
+import { Navbar } from '@/widgets/Navbar';
+import { Sidebar } from '@/widgets/Sidebar';
+import React, { Suspense, useEffect } from 'react';
+import { PageLoader } from '@/widgets/PageLoader';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch } from './providers/StoreProvider';
+import { userActions, getUserMounted } from '@/enteties/User';
+import './styles/index.scss';
+import { useTheme } from '@/shared/lib/hooks/useTheme';
 
 const App: React.FC = () => {
-  const { theme } = useTheme()
-  const dispatch = useDispatch<AppDispatch>()
-  const isMounted = useSelector(getUserMounted)
+  const { theme } = useTheme();
+  const dispatch = useDispatch<AppDispatch>();
+  const isMounted = useSelector(getUserMounted);
 
   useEffect(() => {
-    dispatch(userActions.initAuthData())
-  }, [dispatch])
+    dispatch(userActions.initAuthData());
+  }, [dispatch]);
 
-  const prootectedTheme = theme ?? ''
+  const prootectedTheme = theme ?? '';
 
   return (
-    <div id='app' className={classNames('app', {}, [prootectedTheme])}>
+    <div id="app" className={classNames('app', {}, [prootectedTheme])}>
       <Suspense fallback={<PageLoader />}>
         <Navbar />
-        <div className='content-page'>
+        <div className="content-page">
           <Sidebar />
           {isMounted ? <AppRouter /> : null}
         </div>
       </Suspense>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

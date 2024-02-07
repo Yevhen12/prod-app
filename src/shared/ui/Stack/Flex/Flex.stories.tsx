@@ -1,20 +1,20 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import Flex from './Flex'
+import type { Meta, StoryObj } from '@storybook/react';
+import Flex from './Flex';
 
 const meta = {
   title: 'shared/Flex',
   component: Flex,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { control: 'color' }
-  }
-} as Meta<typeof Flex>
+    backgroundColor: { control: 'color' },
+  },
+} as Meta<typeof Flex>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Row: Story = {
   args: {
@@ -26,9 +26,9 @@ export const Row: Story = {
         <div>third</div>
         <div>forth</div>
       </>
-    )
-  }
-}
+    ),
+  },
+};
 
 export const Column: Story = {
   args: {
@@ -40,9 +40,9 @@ export const Column: Story = {
         <div>third</div>
         <div>forth</div>
       </>
-    )
-  }
-}
+    ),
+  },
+};
 
 export const RowGap4: Story = {
   args: {
@@ -54,9 +54,9 @@ export const RowGap4: Story = {
         <div>third</div>
         <div>forth</div>
       </>
-    )
-  }
-}
+    ),
+  },
+};
 
 export const RowGap8: Story = {
   args: {
@@ -68,9 +68,9 @@ export const RowGap8: Story = {
         <div>third</div>
         <div>forth</div>
       </>
-    )
-  }
-}
+    ),
+  },
+};
 
 export const RowGap16: Story = {
   args: {
@@ -82,9 +82,9 @@ export const RowGap16: Story = {
         <div>third</div>
         <div>forth</div>
       </>
-    )
-  }
-}
+    ),
+  },
+};
 
 export const RowGap32: Story = {
   args: {
@@ -96,6 +96,6 @@ export const RowGap32: Story = {
         <div>third</div>
         <div>forth</div>
       </>
-    )
-  }
-}
+    ),
+  },
+};

@@ -1,35 +1,38 @@
-import { FC, useMemo } from 'react'
-import { useTranslation } from 'react-i18next'
-import Tabs, { TabItem } from '@/shared/ui/Tabs/Tabs'
-import cls from './ArticleTypeTabs.module.scss'
-import { ArticleType } from '@/enteties/Article'
+import { FC, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import Tabs, { TabItem } from '@/shared/ui/Tabs/Tabs';
+import cls from './ArticleTypeTabs.module.scss';
+import { ArticleType } from '@/enteties/Article';
 
 interface ArticleTypeTabsProps {
-  type: ArticleType
-  onChangeTab: (tab: TabItem) => void
+  type: ArticleType;
+  onChangeTab: (tab: TabItem) => void;
 }
 
 const ArticleTypeTabs: FC<ArticleTypeTabsProps> = ({ type, onChangeTab }) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
-  const typeTabs = useMemo<TabItem[]>(() => [
-    {
-      value: ArticleType.ALL,
-      content: t('allArticles')
-    },
-    {
-      value: ArticleType.IT,
-      content: t('it')
-    },
-    {
-      value: ArticleType.SCIENCE,
-      content: t('science')
-    },
-    {
-      value: ArticleType.ECONOMICS,
-      content: t('economics')
-    }
-  ], [t])
+  const typeTabs = useMemo<TabItem[]>(
+    () => [
+      {
+        value: ArticleType.ALL,
+        content: t('allArticles'),
+      },
+      {
+        value: ArticleType.IT,
+        content: t('it'),
+      },
+      {
+        value: ArticleType.SCIENCE,
+        content: t('science'),
+      },
+      {
+        value: ArticleType.ECONOMICS,
+        content: t('economics'),
+      },
+    ],
+    [t],
+  );
 
   return (
     <Tabs
@@ -38,7 +41,7 @@ const ArticleTypeTabs: FC<ArticleTypeTabsProps> = ({ type, onChangeTab }) => {
       value={type}
       onTabClick={onChangeTab}
     />
-  )
-}
+  );
+};
 
-export default ArticleTypeTabs
+export default ArticleTypeTabs;

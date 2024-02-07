@@ -1,7 +1,4 @@
-import LoginModal from './ui/LoginModal/LoginModal'
-import { LoginSchema } from './model/types/loginShema'
+import LoginModal from './ui/LoginModal/LoginModal';
+import { LoginSchema } from './model/types/loginShema';
 
-export {
-  LoginModal,
-  type LoginSchema
-}
+export { LoginModal, type LoginSchema };

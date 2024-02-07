@@ -1,7 +1,7 @@
-import { EntityState } from '@reduxjs/toolkit'
-import { Comment } from '@/enteties/Comment'
+import { EntityState } from '@reduxjs/toolkit';
+import { Comment } from '@/enteties/Comment';
 
 export interface ArticleDetailsCommentsSchema extends EntityState<Comment> {
-  isLoading: boolean | undefined
-  error: string | undefined
+  isLoading: boolean | undefined;
+  error: string | undefined;
 }

@@ -1,31 +1,31 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator'
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator'
-import CommentCard from './CommentCard'
-import { Theme } from '@/shared/const/theme'
+import type { Meta, StoryObj } from '@storybook/react';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import CommentCard from './CommentCard';
+import { Theme } from '@/shared/const/theme';
 
 const meta = {
   title: 'enteties/CommentCard',
   component: CommentCard,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { control: 'color' }
+    backgroundColor: { control: 'color' },
   },
-  decorators: [RouterDecorator]
-} as Meta<typeof CommentCard>
+  decorators: [RouterDecorator],
+} as Meta<typeof CommentCard>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  args: {}
-}
+  args: {},
+};
 
 export const Dark: Story = {
-  args: {}
-}
+  args: {},
+};
 
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+Dark.decorators = [ThemeDecorator(Theme.DARK)];

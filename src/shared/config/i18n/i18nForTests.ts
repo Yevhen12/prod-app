@@ -1,31 +1,29 @@
 /* eslint-disable @typescript-eslint/no-floating-promises */
-import i18n from 'i18next'
-import { initReactI18next } from 'react-i18next'
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
 
-i18n
-  .use(initReactI18next)
-  .init({
-    lng: 'en',
-    fallbackLng: 'en',
+i18n.use(initReactI18next).init({
+  lng: 'en',
+  fallbackLng: 'en',
 
-    // have a common namespace used around the full app
-    ns: ['translationsNS'],
-    defaultNS: 'translationsNS',
+  // have a common namespace used around the full app
+  ns: ['translationsNS'],
+  defaultNS: 'translationsNS',
 
-    debug: false,
+  debug: false,
 
-    interpolation: {
-      escapeValue: false // not needed for react!!
+  interpolation: {
+    escapeValue: false, // not needed for react!!
+  },
+
+  resources: {
+    en: {
+      translations: {
+        somethingWentWrong: 'Something went wrong',
+        incorrectCreds: 'Incorrect credentials',
+      },
     },
+  },
+});
 
-    resources: {
-      en: {
-        translations: {
-          somethingWentWrong: 'Something went wrong',
-          incorrectCreds: 'Incorrect credentials'
-        }
-      }
-    }
-  })
-
-export default i18n
+export default i18n;

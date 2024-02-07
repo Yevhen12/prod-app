@@ -1,26 +1,26 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Article } from '@/enteties/Article'
-import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator'
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator'
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator'
-import ArticleRecommendationsList from './ArticleRecommendationsList'
-import { Theme } from '@/shared/const/theme'
+import type { Meta, StoryObj } from '@storybook/react';
+import { Article } from '@/enteties/Article';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import ArticleRecommendationsList from './ArticleRecommendationsList';
+import { Theme } from '@/shared/const/theme';
 
 const meta = {
   title: 'features/ArticleRecommendationsList',
   component: ArticleRecommendationsList,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { control: 'color' }
+    backgroundColor: { control: 'color' },
   },
-  decorators: [RouterDecorator]
-} as Meta<typeof ArticleRecommendationsList>
+  decorators: [RouterDecorator],
+} as Meta<typeof ArticleRecommendationsList>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 const article: Article = {
   id: '1',
@@ -29,13 +29,13 @@ const article: Article = {
   views: 123,
   user: {
     id: '1',
-    username: 'admin'
+    username: 'admin',
   },
   blocks: [],
   type: [],
   title: '',
-  subtitle: ''
-}
+  subtitle: '',
+};
 
 export const Primary: Story = {
   args: {},
@@ -48,15 +48,15 @@ export const Primary: Story = {
         response: [
           { ...article, id: '1' },
           { ...article, id: '2' },
-          { ...article, id: '3' }
-        ]
-      }
-    ]
-  }
-}
-Primary.decorators = [StoreDecorator({})]
+          { ...article, id: '3' },
+        ],
+      },
+    ],
+  },
+};
+Primary.decorators = [StoreDecorator({})];
 
 export const Dark: Story = {
-  args: {}
-}
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
+  args: {},
+};
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];

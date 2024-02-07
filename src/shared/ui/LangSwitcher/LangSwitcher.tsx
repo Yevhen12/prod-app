@@ -1,28 +1,30 @@
-import { FC, memo } from 'react'
-import { useTranslation } from 'react-i18next'
-import { Button } from '../Button/Button'
-import { classNames } from '@/shared/lib/classNames/classNames'
+import { FC, memo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Button } from '../Button/Button';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface LangSwitcherProps {
-  className?: string
-  short?: boolean
+  className?: string;
+  short?: boolean;
 }
 
-export const LangSwitcher: FC<LangSwitcherProps> = memo(({ className, short = false }: LangSwitcherProps) => {
-  const { i18n, t } = useTranslation()
+export const LangSwitcher: FC<LangSwitcherProps> = memo(
+  ({ className, short = false }: LangSwitcherProps) => {
+    const { i18n, t } = useTranslation();
 
-  const toggle = (): void => {
-    void i18n.changeLanguage(i18n.language === 'ua' ? 'en' : 'ua')
-  }
+    const toggle = (): void => {
+      void i18n.changeLanguage(i18n.language === 'ua' ? 'en' : 'ua');
+    };
 
-  return (
-    <Button
-      className={classNames('', {}, [className ?? ''])}
-      onClick={toggle}
-    >
-      {t(short ? 'shortLanguage' : 'language')}
-    </Button>
-  )
-})
+    return (
+      <Button
+        className={classNames('', {}, [className ?? ''])}
+        onClick={toggle}
+      >
+        {t(short ? 'shortLanguage' : 'language')}
+      </Button>
+    );
+  },
+);
 
-LangSwitcher.displayName = 'LangSwitcher'
+LangSwitcher.displayName = 'LangSwitcher';

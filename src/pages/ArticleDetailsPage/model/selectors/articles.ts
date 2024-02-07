@@ -1,15 +1,15 @@
-import { createSelector } from '@reduxjs/toolkit'
-import { getArticleDetailsData } from '@/enteties/Article'
-import { getUserAuthData } from '@/enteties/User'
+import { createSelector } from '@reduxjs/toolkit';
+import { getArticleDetailsData } from '@/enteties/Article';
+import { getUserAuthData } from '@/enteties/User';
 
 export const getUserCanEditArticle = createSelector(
   getUserAuthData,
   getArticleDetailsData,
   (user, article) => {
     if (!user || !article) {
-      return false
+      return false;
     }
 
-    return article.user.id === user.id
-  }
-)
+    return article.user.id === user.id;
+  },
+);

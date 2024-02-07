@@ -1,36 +1,40 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import Popover from './Popover'
+import type { Meta, StoryObj } from '@storybook/react';
+import Popover from './Popover';
 
 const meta = {
   title: 'shared/Popover',
   component: Popover,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { control: 'color' }
+    backgroundColor: { control: 'color' },
   },
   decorators: [
-    Story => <div style={{ padding: '100px' }}><Story /></div>
-  ]
-} as Meta<typeof Popover>
+    (Story) => (
+      <div style={{ padding: '100px' }}>
+        <Story />
+      </div>
+    ),
+  ],
+} as Meta<typeof Popover>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const TopLeft: Story = {
-  args: {}
-}
+  args: {},
+};
 
 export const TopRight: Story = {
-  args: {}
-}
+  args: {},
+};
 
 export const BottomLeft: Story = {
-  args: {}
-}
+  args: {},
+};
 
 export const BottomRight: Story = {
-  args: {}
-}
+  args: {},
+};

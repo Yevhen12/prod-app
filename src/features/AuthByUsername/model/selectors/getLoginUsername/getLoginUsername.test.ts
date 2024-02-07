@@ -1,5 +1,5 @@
-import { getLoginUsername } from './getLoginUsername'
-import { StateSchema } from '@/app/providers/StoreProvider'
+import { getLoginUsername } from './getLoginUsername';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getLoginUsername', () => {
   test('should render correct username', () => {
@@ -8,10 +8,10 @@ describe('getLoginUsername', () => {
         error: 'error occur',
         password: '123',
         username: 'test',
-        isLoading: true
-      }
-    }
+        isLoading: true,
+      },
+    };
 
-    expect(getLoginUsername(state as StateSchema)).toBe('test')
-  })
-})
+    expect(getLoginUsername(state as StateSchema)).toBe('test');
+  });
+});

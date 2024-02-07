@@ -1,17 +1,17 @@
-import { CSSProperties, FC, useMemo } from 'react'
-import { classNames, Mods } from '@/shared/lib/classNames/classNames'
-import cls from './Avatar.module.scss'
-import AppImage from '../AppImage/AppImage'
-import UserIcon from '../../assets/icons/profile-32-32.svg'
-import Icon from '../Icon/Icon'
-import Skeleton from '../Skeleton/Skeleton'
+import { CSSProperties, FC, useMemo } from 'react';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+import cls from './Avatar.module.scss';
+import AppImage from '../AppImage/AppImage';
+import UserIcon from '../../assets/icons/profile-32-32.svg';
+import Icon from '../Icon/Icon';
+import Skeleton from '../Skeleton/Skeleton';
 
 interface AvatarProps {
-  className?: string
-  src?: string
-  alt?: string
-  size?: number
-  fallbackInverted?: boolean
+  className?: string;
+  src?: string;
+  alt?: string;
+  size?: number;
+  fallbackInverted?: boolean;
 }
 
 const Avatar: FC<AvatarProps> = ({
@@ -19,18 +19,27 @@ const Avatar: FC<AvatarProps> = ({
   src,
   alt = 'somePhoto',
   size = 40,
-  fallbackInverted = false
+  fallbackInverted = false,
 }) => {
-  const mods: Mods = {}
+  const mods: Mods = {};
   const styles = useMemo<CSSProperties>(() => {
     return {
       width: size,
-      height: size
-    }
-  }, [size])
+      height: size,
+    };
+  }, [size]);
 
-  const fallback = <Skeleton width={`${size}px`} height={`${size}px`} border={'50%'} />
-  const errorFallback = <Icon inverted={fallbackInverted} width={size} height={size} Svg={UserIcon} />
+  const fallback = (
+    <Skeleton width={`${size}px`} height={`${size}px`} border={'50%'} />
+  );
+  const errorFallback = (
+    <Icon
+      inverted={fallbackInverted}
+      width={size}
+      height={size}
+      Svg={UserIcon}
+    />
+  );
 
   return (
     <AppImage
@@ -41,7 +50,7 @@ const Avatar: FC<AvatarProps> = ({
       alt={alt}
       style={styles}
     />
-  )
-}
+  );
+};
 
-export default Avatar
+export default Avatar;

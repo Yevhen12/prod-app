@@ -1,5 +1,3 @@
-import { PageLoader } from './ui/PageLoader/PageLoader'
+import { PageLoader } from './ui/PageLoader/PageLoader';
 
-export {
-  PageLoader
-}
+export { PageLoader };

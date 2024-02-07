@@ -1,23 +1,27 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import Listbox from './ListBox'
+import type { Meta, StoryObj } from '@storybook/react';
+import Listbox from './ListBox';
 
 const meta = {
   title: 'shared/Listbox',
   component: Listbox,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { control: 'color' }
+    backgroundColor: { control: 'color' },
   },
   decorators: [
-    Story => <div style={{ padding: '100px' }}><Story /></div>
-  ]
-} as Meta<typeof Listbox>
+    (Story) => (
+      <div style={{ padding: '100px' }}>
+        <Story />
+      </div>
+    ),
+  ],
+} as Meta<typeof Listbox>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const TopLeft: Story = {
   args: {
@@ -26,10 +30,10 @@ export const TopLeft: Story = {
     items: [
       { content: 'test', value: 'test' },
       { content: 'test1', value: 'test1' },
-      { content: 'test2', value: 'test2' }
-    ]
-  }
-}
+      { content: 'test2', value: 'test2' },
+    ],
+  },
+};
 
 export const TopRight: Story = {
   args: {
@@ -38,10 +42,10 @@ export const TopRight: Story = {
     items: [
       { content: 'test', value: 'test' },
       { content: 'test1', value: 'test1' },
-      { content: 'test2', value: 'test2' }
-    ]
-  }
-}
+      { content: 'test2', value: 'test2' },
+    ],
+  },
+};
 
 export const BottomLeft: Story = {
   args: {
@@ -50,10 +54,10 @@ export const BottomLeft: Story = {
     items: [
       { content: 'test', value: 'test' },
       { content: 'test1', value: 'test1' },
-      { content: 'test2', value: 'test2' }
-    ]
-  }
-}
+      { content: 'test2', value: 'test2' },
+    ],
+  },
+};
 
 export const BottomRight: Story = {
   args: {
@@ -62,7 +66,7 @@ export const BottomRight: Story = {
     items: [
       { content: 'test', value: 'test' },
       { content: 'test1', value: 'test1' },
-      { content: 'test2', value: 'test2' }
-    ]
-  }
-}
+      { content: 'test2', value: 'test2' },
+    ],
+  },
+};

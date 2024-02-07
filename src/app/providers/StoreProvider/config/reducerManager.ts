@@ -1,49 +1,56 @@
 /* eslint-disable @typescript-eslint/no-dynamic-delete */
-import { AnyAction, combineReducers, Reducer, ReducersMapObject } from '@reduxjs/toolkit'
-import { StateSchema } from '..'
-import { ReducerManager, StateSchemaKey } from './StateSchema'
+import {
+  AnyAction,
+  combineReducers,
+  Reducer,
+  ReducersMapObject,
+} from '@reduxjs/toolkit';
+import { StateSchema } from '..';
+import { ReducerManager, StateSchemaKey } from './StateSchema';
 
-export function createReducerManager (initialReducers: ReducersMapObject<StateSchema>): ReducerManager {
-  const reducers = { ...initialReducers }
+export function createReducerManager(
+  initialReducers: ReducersMapObject<StateSchema>,
+): ReducerManager {
+  const reducers = { ...initialReducers };
 
-  let combinedReducer = combineReducers(reducers)
+  let combinedReducer = combineReducers(reducers);
 
-  let keysToRemove: StateSchemaKey[] = []
-  console.log('reducers', reducers)
+  let keysToRemove: StateSchemaKey[] = [];
+  console.log('reducers', reducers);
 
   return {
     getReducerMap: () => reducers,
 
     reduce: (state: StateSchema, action: AnyAction) => {
       if (keysToRemove.length > 0) {
-        state = { ...state }
+        state = { ...state };
         for (const key of keysToRemove) {
-          delete state[key]
+          delete state[key];
         }
-        keysToRemove = []
+        keysToRemove = [];
       }
 
-      return combinedReducer(state, action)
+      return combinedReducer(state, action);
     },
 
     add: (key: StateSchemaKey, reducer: Reducer) => {
       if (!key || reducers[key]) {
-        return
+        return;
       }
 
-      reducers[key] = reducer
+      reducers[key] = reducer;
 
-      combinedReducer = combineReducers(reducers)
+      combinedReducer = combineReducers(reducers);
     },
 
     remove: (key: StateSchemaKey) => {
       if (!key || !reducers[key]) {
-        return
+        return;
       }
 
-      delete reducers[key]
-      keysToRemove.push(key)
-      combinedReducer = combineReducers(reducers)
-    }
-  }
+      delete reducers[key];
+      keysToRemove.push(key);
+      combinedReducer = combineReducers(reducers);
+    },
+  };
 }

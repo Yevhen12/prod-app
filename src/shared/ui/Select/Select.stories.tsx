@@ -1,22 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator'
-import Select from './Select'
-import { Theme } from '@/shared/const/theme'
+import type { Meta, StoryObj } from '@storybook/react';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import Select from './Select';
+import { Theme } from '@/shared/const/theme';
 
 const meta = {
   title: 'shared/Select',
   component: Select,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { control: 'color' }
-  }
-} as Meta<typeof Select>
+    backgroundColor: { control: 'color' },
+  },
+} as Meta<typeof Select>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
@@ -24,10 +24,10 @@ export const Primary: Story = {
     options: [
       { value: '1', content: '111111' },
       { value: '2', content: '222222' },
-      { value: '3', content: '333333' }
-    ]
-  }
-}
+      { value: '3', content: '333333' },
+    ],
+  },
+};
 
 export const Dark: Story = {
   args: {
@@ -35,8 +35,8 @@ export const Dark: Story = {
     options: [
       { value: '1', content: '111111' },
       { value: '2', content: '222222' },
-      { value: '3', content: '333333' }
-    ]
-  }
-}
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+      { value: '3', content: '333333' },
+    ],
+  },
+};
+Dark.decorators = [ThemeDecorator(Theme.DARK)];

@@ -13,9 +13,7 @@
     "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
     "strict": true,
     "strictNullChecks": true,
@@ -36,11 +34,6 @@
     "./vite.config.ts",
     "cypress.config.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "**/node_modules/*"
-  ],
-  "files": [
-    "src/index.tsx"
-  ],
+  "exclude": ["node_modules", "**/node_modules/*"],
+  "files": ["src/index.tsx"]
 }

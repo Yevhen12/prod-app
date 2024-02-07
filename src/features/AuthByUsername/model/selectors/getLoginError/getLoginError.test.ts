@@ -1,5 +1,5 @@
-import { getLoginError } from './getLoginError'
-import { StateSchema } from '@/app/providers/StoreProvider'
+import { getLoginError } from './getLoginError';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getLoginError', () => {
   test('should render correct error', () => {
@@ -8,10 +8,10 @@ describe('getLoginError', () => {
         error: 'error occur',
         password: '',
         username: '',
-        isLoading: false
-      }
-    }
+        isLoading: false,
+      },
+    };
 
-    expect(getLoginError(state as StateSchema)).toBe('error occur')
-  })
-})
+    expect(getLoginError(state as StateSchema)).toBe('error occur');
+  });
+});

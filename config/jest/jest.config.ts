@@ -6,43 +6,32 @@
 export default {
   clearMocks: true,
   testEnvironment: 'jsdom',
-  coveragePathIgnorePatterns: [
-    '\\\\node_modules\\\\'
-  ],
-  moduleFileExtensions: [
-    'js',
-    'jsx',
-    'ts',
-    'tsx',
-    'json',
-    'node'
-  ],
-  moduleDirectories: [
-    'node_modules',
-    'src'
-  ],
-  testMatch: [
-    '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
-  ],
+  coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
+  moduleDirectories: ['node_modules', 'src'],
+  testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
   rootDir: '../../',
   setupFilesAfterEnv: ['<rootDir>/config/jest/jest-setup.ts'],
   moduleNameMapper: {
     '\\.(css|less|scss)$': 'identity-obj-proxy',
     '\\.svg': '<rootDir>/config/jest/jestEmptySvg.tsx',
-    '^@/(.*)$': '<rootDir>/src/$1'
+    '^@/(.*)$': '<rootDir>/src/$1',
   },
   globals: {
     __IS_DEV__: true,
     __PROJECT__: 'jest',
-    __API__: ''
+    __API__: '',
   },
   reporters: [
     'default',
-    ['./node_modules/jest-html-reporter', {
-      pageTitle: 'Tests Report',
-      outputPath: '<rootDir>/reports/unit.html'
-    }]
-  ]
+    [
+      './node_modules/jest-html-reporter',
+      {
+        pageTitle: 'Tests Report',
+        outputPath: '<rootDir>/reports/unit.html',
+      },
+    ],
+  ],
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
 
@@ -197,4 +186,4 @@ export default {
 
   // Whether to use watchman for file crawling
   // watchman: true,
-}
+};

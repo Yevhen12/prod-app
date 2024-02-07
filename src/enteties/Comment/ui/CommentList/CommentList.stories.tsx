@@ -1,29 +1,29 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator'
-import CommentList from './CommentList'
-import { Theme } from '@/shared/const/theme'
+import type { Meta, StoryObj } from '@storybook/react';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import CommentList from './CommentList';
+import { Theme } from '@/shared/const/theme';
 
 const meta = {
   title: 'enteties/CommentList',
   component: CommentList,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { control: 'color' }
-  }
-} as Meta<typeof CommentList>
+    backgroundColor: { control: 'color' },
+  },
+} as Meta<typeof CommentList>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  args: {}
-}
+  args: {},
+};
 
 export const Dark: Story = {
-  args: {}
-}
+  args: {},
+};
 
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+Dark.decorators = [ThemeDecorator(Theme.DARK)];

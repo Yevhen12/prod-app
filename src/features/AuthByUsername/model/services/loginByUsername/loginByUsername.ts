@@ -1,19 +1,19 @@
-import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage'
-import { AxiosError } from 'axios'
-import { User, userActions } from '@/enteties/User'
-import i18n from '@/shared/config/i18n/i18n'
-import { createAppAsyncThunk } from '@/shared/lib/createAppAsynkThunk/createAppAsynkThunk'
-import { api } from '@/shared/api/api'
+import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
+import { AxiosError } from 'axios';
+import { User, userActions } from '@/enteties/User';
+import i18n from '@/shared/config/i18n/i18n';
+import { createAppAsyncThunk } from '@/shared/lib/createAppAsynkThunk/createAppAsynkThunk';
+import { api } from '@/shared/api/api';
 
-const URL = 'login'
+const URL = 'login';
 
 interface LoginByUsernameProps {
-  username: string
-  password: string
+  username: string;
+  password: string;
 }
 
 interface UserDTO extends User {
-  password: string
+  password: string;
 }
 
 // TODO: NEED TO FIX extra: any
@@ -24,23 +24,23 @@ export const loginByUsername = createAppAsyncThunk<User, LoginByUsernameProps>(
     try {
       const response = await api.post<UserDTO>(URL, {
         username,
-        password
-      })
+        password,
+      });
       if (!response.data) {
-        throw new Error()
+        throw new Error();
       }
-      const { password: returnedPassword, ...otherFields } = response.data
+      const { password: returnedPassword, ...otherFields } = response.data;
 
-      localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(otherFields))
-      thunkAPI.dispatch(userActions.setAuthData(otherFields))
+      localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(otherFields));
+      thunkAPI.dispatch(userActions.setAuthData(otherFields));
 
-      return otherFields
+      return otherFields;
     } catch (error: any) {
       if (error instanceof AxiosError) {
-        return thunkAPI.rejectWithValue(i18n.t('incorrectCreds'))
+        return thunkAPI.rejectWithValue(i18n.t('incorrectCreds'));
       } else {
-        return thunkAPI.rejectWithValue(i18n.t('somethingWentWrong'))
+        return thunkAPI.rejectWithValue(i18n.t('somethingWentWrong'));
       }
     }
-  }
-)
+  },
+);

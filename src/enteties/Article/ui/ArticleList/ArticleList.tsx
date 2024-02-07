@@ -1,27 +1,28 @@
 /* eslint-disable @typescript-eslint/indent */
-import { Article } from '../../model/types/article'
-import { ArticleView } from '../../model/consts/articleConsts'
-import { HTMLAttributeAnchorTarget, memo } from 'react'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import ArticleListItem from '../ArticleListItem/ArticleListItem'
-import ArticleListItemSkeleton from '../ArticleListItem/ArticleListItemSkeleton'
-import Text, { TextSize } from '@/shared/ui/Text/Text'
-import cls from './ArticleList.module.scss'
-import { useTranslation } from 'react-i18next'
+import { Article } from '../../model/types/article';
+import { ArticleView } from '../../model/consts/articleConsts';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import ArticleListItem from '../ArticleListItem/ArticleListItem';
+import ArticleListItemSkeleton from '../ArticleListItem/ArticleListItemSkeleton';
+import Text, { TextSize } from '@/shared/ui/Text/Text';
+import cls from './ArticleList.module.scss';
+import { useTranslation } from 'react-i18next';
 
 interface ArticleListProps {
-  className?: string
-  articles: Article[]
-  isLoading?: boolean
-  target?: HTMLAttributeAnchorTarget
-  view?: ArticleView
+  className?: string;
+  articles: Article[];
+  isLoading?: boolean;
+  target?: HTMLAttributeAnchorTarget;
+  view?: ArticleView;
 }
 
-const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
-  .fill(0)
-  .map((item, index) => (
-    <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
-  ))
+const getSkeletons = (view: ArticleView) =>
+  new Array(view === ArticleView.SMALL ? 9 : 3)
+    .fill(0)
+    .map((item, index) => (
+      <ArticleListItemSkeleton className={cls.card} key={index} view={view} />
+    ));
 
 const ArticleList = memo((props: ArticleListProps) => {
   const {
@@ -29,22 +30,22 @@ const ArticleList = memo((props: ArticleListProps) => {
     articles,
     view = ArticleView.SMALL,
     isLoading,
-    target
-  } = props
-  const { t } = useTranslation()
+    target,
+  } = props;
+  const { t } = useTranslation();
 
   if (!isLoading && !articles.length) {
     return (
       <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
         <Text size={TextSize.L} title={t('Статьи не найдены')} />
       </div>
-    )
+    );
   }
 
   return (
     <div
       className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-      data-testid='ArticleList'
+      data-testid="ArticleList"
     >
       {articles.map((item) => (
         <ArticleListItem
@@ -57,9 +58,9 @@ const ArticleList = memo((props: ArticleListProps) => {
       ))}
       {isLoading && getSkeletons(view)}
     </div>
-  )
-})
+  );
+});
 
-ArticleList.displayName = 'ArticleList'
+ArticleList.displayName = 'ArticleList';
 
-export default ArticleList
+export default ArticleList;

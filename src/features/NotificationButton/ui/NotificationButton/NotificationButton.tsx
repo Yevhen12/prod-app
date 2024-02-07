@@ -1,42 +1,41 @@
-import { Popover } from '@/shared/ui/Popups'
-import { NotificationList } from '@/enteties/Notification'
-import { FC, useState } from 'react'
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button'
-import { BrowserView, MobileView } from 'react-device-detect'
-import Icon from '@/shared/ui/Icon/Icon'
-import NotificationIcon from '@/shared/assets/icons/call-20-20.svg'
-import cls from './NotificationButton.module.scss'
-import Drawer from '@/shared/ui/Drawer/Drawer'
-import { AnimationProvider } from '@/shared/lib/components/AnimationProvider/AnimationProvider'
+import { Popover } from '@/shared/ui/Popups';
+import { NotificationList } from '@/enteties/Notification';
+import { FC, useState } from 'react';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { BrowserView, MobileView } from 'react-device-detect';
+import Icon from '@/shared/ui/Icon/Icon';
+import NotificationIcon from '@/shared/assets/icons/call-20-20.svg';
+import cls from './NotificationButton.module.scss';
+import Drawer from '@/shared/ui/Drawer/Drawer';
+import { AnimationProvider } from '@/shared/lib/components/AnimationProvider/AnimationProvider';
 
 interface NotificationButtonProps {
-  className?: string
+  className?: string;
 }
 
-const NotificationButton: FC<NotificationButtonProps> = ({ className = '' }) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
+const NotificationButton: FC<NotificationButtonProps> = ({
+  className = '',
+}) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const onOpenDrawer = () => {
-    setIsOpen(true)
-  }
+    setIsOpen(true);
+  };
 
   const onCloseDrawer = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   const trigger = (
     <Button onClick={onOpenDrawer} theme={ButtonTheme.CLEAR}>
       <Icon inverted Svg={NotificationIcon} />
     </Button>
-  )
+  );
 
   return (
     <>
       <BrowserView>
-        <Popover
-          trigger={trigger}
-          direction='bottom_left'
-        >
+        <Popover trigger={trigger} direction="bottom_left">
           <NotificationList className={cls.notifications} />
         </Popover>
       </BrowserView>
@@ -49,7 +48,7 @@ const NotificationButton: FC<NotificationButtonProps> = ({ className = '' }) => 
         </AnimationProvider>
       </MobileView>
     </>
-  )
-}
+  );
+};
 
-export default NotificationButton
+export default NotificationButton;

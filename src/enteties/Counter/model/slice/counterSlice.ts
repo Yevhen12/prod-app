@@ -1,25 +1,25 @@
-import { buildSlice } from '@/shared/lib/store'
-import { CounterShema } from '../types/counterSchema'
+import { buildSlice } from '@/shared/lib/store';
+import { CounterShema } from '../types/counterSchema';
 
 const initialState: CounterShema = {
-  value: 0
-}
+  value: 0,
+};
 
 export const counterSlice = buildSlice({
   name: 'counter',
   initialState,
   reducers: {
     increment: (state) => {
-      state.value += 1
+      state.value += 1;
     },
     decrement: (state) => {
-      state.value -= 1
-    }
-  }
-})
+      state.value -= 1;
+    },
+  },
+});
 
 export const {
   actions: counterActions,
   reducer: counterReducer,
-  useActions: useCounterActions
-} = counterSlice
+  useActions: useCounterActions,
+} = counterSlice;

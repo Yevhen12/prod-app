@@ -1,3 +1,7 @@
-import { StoryFn } from '@storybook/react'
+import { StoryFn } from '@storybook/react';
 
-export const PortalDecorator = (Story: StoryFn) => <div className="v-app"><Story /></div>
+export const PortalDecorator = (Story: StoryFn) => (
+  <div className="v-app">
+    <Story />
+  </div>
+);

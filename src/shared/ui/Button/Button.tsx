@@ -1,15 +1,15 @@
-import { ButtonHTMLAttributes, FC, memo } from 'react'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import cls from './Button.module.scss'
-import '@/app/styles/index.scss'
+import { ButtonHTMLAttributes, FC, memo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import cls from './Button.module.scss';
+import '@/app/styles/index.scss';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string
-  theme?: string
-  square?: boolean
-  size?: string
-  disabled?: boolean
-  fullwidth?: boolean
+  className?: string;
+  theme?: string;
+  square?: boolean;
+  size?: string;
+  disabled?: boolean;
+  fullwidth?: boolean;
 }
 
 export enum ButtonTheme {
@@ -18,13 +18,13 @@ export enum ButtonTheme {
   OUTLINE = 'outline',
   OUTLINE_RED = 'outline_red',
   BACKGROUND = 'background',
-  BACKGROUND_INVERTED = 'backgroundInverted'
+  BACKGROUND_INVERTED = 'backgroundInverted',
 }
 
 export enum ButtonSize {
   M = 'size_m',
   L = 'size_l',
-  XL = 'size_xl'
+  XL = 'size_xl',
 }
 
 export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
@@ -37,18 +37,14 @@ export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
     disabled = false,
     fullwidth = false,
     ...otherProps
-  } = props
+  } = props;
 
-  const additionalClasses: string[] = [
-    className ?? '',
-    cls[theme],
-    cls[size]
-  ]
+  const additionalClasses: string[] = [className ?? '', cls[theme], cls[size]];
   const mods: Record<string, boolean> = {
     [cls.square]: square,
     [cls.disabled]: disabled,
-    [cls.fullwidth]: fullwidth
-  }
+    [cls.fullwidth]: fullwidth,
+  };
 
   return (
     <button
@@ -60,7 +56,7 @@ export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
     >
       {children}
     </button>
-  )
-})
+  );
+});
 
-Button.displayName = 'Button'
+Button.displayName = 'Button';

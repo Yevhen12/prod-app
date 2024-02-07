@@ -1,5 +1,5 @@
-import { getLoginLoading } from './getLoginLoading'
-import { StateSchema } from '@/app/providers/StoreProvider'
+import { getLoginLoading } from './getLoginLoading';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getLoginLoading', () => {
   test('should render status laoding', () => {
@@ -8,10 +8,10 @@ describe('getLoginLoading', () => {
         error: 'error occur',
         password: '',
         username: '',
-        isLoading: true
-      }
-    }
+        isLoading: true,
+      },
+    };
 
-    expect(getLoginLoading(state as StateSchema)).toBe(true)
-  })
-})
+    expect(getLoginLoading(state as StateSchema)).toBe(true);
+  });
+});

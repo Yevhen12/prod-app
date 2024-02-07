@@ -1,19 +1,19 @@
-import React, { FC } from 'react'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import { useModal } from '@/shared/lib/hooks/useModal'
-import Overlay from '../Overlay/Overlay'
-import Portal from '../Portal/Portal'
-import cls from './Modal.module.scss'
+import React, { FC } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useModal } from '@/shared/lib/hooks/useModal';
+import Overlay from '../Overlay/Overlay';
+import Portal from '../Portal/Portal';
+import cls from './Modal.module.scss';
 
 interface ModalProps {
-  className?: string
-  children?: React.ReactNode
-  isOpen?: boolean
-  onClose?: () => void
-  width?: string
-  lazy?: boolean
+  className?: string;
+  children?: React.ReactNode;
+  isOpen?: boolean;
+  onClose?: () => void;
+  width?: string;
+  lazy?: boolean;
 }
-const ANIMATION_DELAY = 200
+const ANIMATION_DELAY = 200;
 
 const Modal: FC<ModalProps> = (props) => {
   const {
@@ -22,19 +22,23 @@ const Modal: FC<ModalProps> = (props) => {
     isOpen = false,
     onClose,
     width = 'auto',
-    lazy
-  } = props
+    lazy,
+  } = props;
 
-  const { isClosing, isMounted, closeModal } = useModal({ onClose, isOpen, animationDelay: ANIMATION_DELAY })
+  const { isClosing, isMounted, closeModal } = useModal({
+    onClose,
+    isOpen,
+    animationDelay: ANIMATION_DELAY,
+  });
 
   if (lazy && !isMounted) {
-    return null
+    return null;
   }
 
   const mods: Record<string, boolean> = {
     [cls.opened]: isOpen,
-    [cls.isClosing]: isClosing
-  }
+    [cls.isClosing]: isClosing,
+  };
 
   return (
     <Portal element={document.getElementById('app') ?? undefined}>
@@ -45,7 +49,7 @@ const Modal: FC<ModalProps> = (props) => {
         </div>
       </div>
     </Portal>
-  )
-}
+  );
+};
 
-export default Modal
+export default Modal;

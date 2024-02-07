@@ -1,5 +1,5 @@
-import { getLoginState } from './getLoginState'
-import { StateSchema } from '@/app/providers/StoreProvider'
+import { getLoginState } from './getLoginState';
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getLoginState', () => {
   test('should render correct login state', () => {
@@ -8,10 +8,10 @@ describe('getLoginState', () => {
         error: 'error occur',
         password: '123',
         username: '',
-        isLoading: true
-      }
-    }
+        isLoading: true,
+      },
+    };
 
-    expect(getLoginState(state as StateSchema)).toEqual(state.loginForm)
-  })
-})
+    expect(getLoginState(state as StateSchema)).toEqual(state.loginForm);
+  });
+});

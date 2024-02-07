@@ -1,7 +1,7 @@
-import { StoryFn } from '@storybook/react'
-import i18n from '../i18n/i18n'
-import { I18nextProvider } from 'react-i18next'
-import { Suspense } from 'react'
+import { StoryFn } from '@storybook/react';
+import i18n from '../i18n/i18n';
+import { I18nextProvider } from 'react-i18next';
+import { Suspense } from 'react';
 
 // eslint-disable-next-line react/display-name
 export const TranslationDecorator = (Story: StoryFn) => (
@@ -10,5 +10,4 @@ export const TranslationDecorator = (Story: StoryFn) => (
       <Story />
     </Suspense>
   </I18nextProvider>
-
-)
+);

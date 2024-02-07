@@ -1,32 +1,32 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator'
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator'
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator'
-import ArticleInfiniteList from './ArticleInfiniteList'
-import { Theme } from '@/shared/const/theme'
+import type { Meta, StoryObj } from '@storybook/react';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import ArticleInfiniteList from './ArticleInfiniteList';
+import { Theme } from '@/shared/const/theme';
 
 const meta = {
   title: 'page/ArticlePage/ArticleInfiniteList',
   component: ArticleInfiniteList,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { control: 'color' }
+    backgroundColor: { control: 'color' },
   },
-  decorators: [RouterDecorator]
-} as Meta<typeof ArticleInfiniteList>
+  decorators: [RouterDecorator],
+} as Meta<typeof ArticleInfiniteList>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  args: {}
-}
-Primary.decorators = [StoreDecorator({})]
+  args: {},
+};
+Primary.decorators = [StoreDecorator({})];
 
 export const Dark: Story = {
-  args: {}
-}
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]
+  args: {},
+};
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];

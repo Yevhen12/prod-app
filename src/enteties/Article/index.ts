@@ -1,10 +1,24 @@
-import ArticleDetails from './ui/ArticleDetails/ArticleDetails'
-import { Article, ArticleTextBlock, ArticleImageBlock, ArticleCodeBlock } from './model/types/article'
-import { ArticleView, ArticleSortField, ArticleType, ArticleBlockType } from './model/consts/articleConsts'
-import { ArticleDetailsSchema } from './model/types/articleDetailsSchema'
-import ArticleList from './ui/ArticleList/ArticleList'
-import { fetchArticleById } from './model/services/fetchArticleById/fetchArticleById'
-import { getArticleDetailsData, getArticleDetailsError, getArticleDetailsIsLoading } from './model/selectors/articleDetails'
+import ArticleDetails from './ui/ArticleDetails/ArticleDetails';
+import {
+  Article,
+  ArticleTextBlock,
+  ArticleImageBlock,
+  ArticleCodeBlock,
+} from './model/types/article';
+import {
+  ArticleView,
+  ArticleSortField,
+  ArticleType,
+  ArticleBlockType,
+} from './model/consts/articleConsts';
+import { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
+import ArticleList from './ui/ArticleList/ArticleList';
+import { fetchArticleById } from './model/services/fetchArticleById/fetchArticleById';
+import {
+  getArticleDetailsData,
+  getArticleDetailsError,
+  getArticleDetailsIsLoading,
+} from './model/selectors/articleDetails';
 
 export {
   ArticleDetails,
@@ -21,5 +35,5 @@ export {
   getArticleDetailsData,
   getArticleDetailsError,
   getArticleDetailsIsLoading,
-  fetchArticleById
-}
+  fetchArticleById,
+};

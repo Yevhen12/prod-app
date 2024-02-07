@@ -1,40 +1,38 @@
-import { FC } from 'react'
-import { ArticleDetails } from '@/enteties/Article'
-import { useParams } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
-import DynamicModuleLoader, { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import { Page } from '@/widgets/Page'
-import { articleDetailsPageReducer } from '../../model/slices'
-import ArticleDetailsPageHeader from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader'
-import { VStack } from '@/shared/ui/Stack'
-import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList'
-import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComments'
-import { ArticleRating } from '@/features/ArticleRating'
+import { FC } from 'react';
+import { ArticleDetails } from '@/enteties/Article';
+import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import DynamicModuleLoader, {
+  ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Page } from '@/widgets/Page';
+import { articleDetailsPageReducer } from '../../model/slices';
+import ArticleDetailsPageHeader from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { VStack } from '@/shared/ui/Stack';
+import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
+import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComments';
+import { ArticleRating } from '@/features/ArticleRating';
 
 const reducers: ReducersList = {
-  articleDetailsPage: articleDetailsPageReducer
-}
+  articleDetailsPage: articleDetailsPageReducer,
+};
 
 export interface ArticleDetailsPageProps {
-  className?: string
+  className?: string;
 }
 
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
-  const { t } = useTranslation()
-  const { id } = useParams<{ id: string }>()
+  const { t } = useTranslation();
+  const { id } = useParams<{ id: string }>();
 
   if (!id) {
-    return (
-      <Page>
-        {t('articleNotFound')}
-      </Page>
-    )
+    return <Page>{t('articleNotFound')}</Page>;
   }
 
   return (
     <DynamicModuleLoader reducers={reducers}>
       <Page>
-        <VStack gap='16' max>
+        <VStack gap="16" max>
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
           <ArticleRating articleId={id} />
@@ -43,7 +41,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
         </VStack>
       </Page>
     </DynamicModuleLoader>
-  )
-}
+  );
+};
 
-export default ArticleDetailsPage
+export default ArticleDetailsPage;

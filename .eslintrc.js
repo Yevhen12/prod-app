@@ -2,46 +2,49 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
-    jest: true
+    jest: true,
   },
-  extends: ['standard-with-typescript', 'plugin:react/recommended', 'plugin:storybook/recommended'],
+  extends: [
+    'standard-with-typescript',
+    'plugin:react/recommended',
+    'plugin:storybook/recommended',
+  ],
   ignorePatterns: ['cypress', 'babel'],
   overrides: [
     {
       env: {
-        node: true
+        node: true,
       },
-      files: [
-        '.eslintrc.{js,cjs}'
-      ],
+      files: ['.eslintrc.{js,cjs}'],
       parserOptions: {
-        sourceType: 'script'
-      }
-    }
+        sourceType: 'script',
+      },
+    },
   ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: './tsconfig.json'
+    project: './tsconfig.json',
   },
   plugins: [
     'react',
     'react-hooks',
     '@typescript-eslint',
     'prod-proj-plugin',
-    'unused-imports'
+    'unused-imports',
+    'prettier',
   ],
   globals: {
     __PROJECT__: true,
-    __API__: true
+    __API__: true,
   },
   rules: {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
-    'react/jsx-indent': [2, 2],
-    'react/jsx-indent-props': [2, 2],
-    indent: [2, 2],
-    'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
+    'react/jsx-filename-extension': [
+      2,
+      { extensions: ['.js', '.jsx', '.tsx'] },
+    ],
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
     'unused-imports/no-unused-imports': 'error',
@@ -51,11 +54,17 @@ module.exports = {
     'react/jsx-props-no-spreading': 'warn',
     'react/function-component-definition': 'off',
     'no-shadow': 'off',
+    'multiline-ternary': 'off',
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'off',
     'no-underscore-dangle': 'off',
     '@typescript-eslint/consistent-type-imports': 'off',
     allowNullableObject: 0,
+    '@typescript-eslint/space-before-function-paren': 'off',
+    '@typescript-eslint/indent': 'off',
+    '@typescript-eslint/semi': 'off',
+    '@typescript-eslint/comma-dangle': 'off',
+    '@typescript-eslint/member-delimiter-style': 'off',
     '@typescript-eslint/no-unsafe-argument': 'warn',
     '@typescript-eslint/prefer-nullish-coalescing': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
@@ -70,15 +79,15 @@ module.exports = {
       'error',
       {
         alias: '@',
-        ignoreImportPatterns: ['**/StoreProvider']
-      }
+        ignoreImportPatterns: ['**/StoreProvider'],
+      },
     ],
     'prod-proj-plugin/public-api-imports': [
       'error',
       {
         alias: '@',
-        testFiles: ['**/*.test.*', '**/*.story.*', '**/StoryDecorator.tsx']
-      }
-    ]
-  }
-}
+        testFiles: ['**/*.test.*', '**/*.story.*', '**/StoryDecorator.tsx'],
+      },
+    ],
+  },
+};

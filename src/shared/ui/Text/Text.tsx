@@ -1,11 +1,11 @@
-import { FC, memo } from 'react'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import cls from './Text.module.scss'
+import { FC, memo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import cls from './Text.module.scss';
 
 export enum TextTheme {
   PRIMARY = 'primary',
   INVERTED = 'inverted',
-  ERROR = 'error'
+  ERROR = 'error',
 }
 
 export enum TextAlign {
@@ -21,23 +21,23 @@ export enum TextSize {
 }
 
 interface TextProps {
-  className?: string
-  title?: string
-  text?: string
-  theme?: TextTheme
-  align?: TextAlign
-  size?: TextSize
+  className?: string;
+  title?: string;
+  text?: string;
+  theme?: TextTheme;
+  align?: TextAlign;
+  size?: TextSize;
 
-  'data-testid'?: string
+  'data-testid'?: string;
 }
 
-type HeaderTagType = 'h1' | 'h2' | 'h3'
+type HeaderTagType = 'h1' | 'h2' | 'h3';
 
 const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
   [TextSize.S]: 'h3',
   [TextSize.M]: 'h2',
-  [TextSize.L]: 'h1'
-}
+  [TextSize.L]: 'h1',
+};
 
 const Text: FC<TextProps> = memo((props: TextProps) => {
   const {
@@ -47,19 +47,34 @@ const Text: FC<TextProps> = memo((props: TextProps) => {
     theme = TextTheme.PRIMARY,
     align = TextAlign.LEFT,
     size = TextSize.M,
-    'data-testid': dataTestId = 'Text'
-  } = props
+    'data-testid': dataTestId = 'Text',
+  } = props;
 
-  const HeaderTag = mapSizeToHeaderTag[size]
+  const HeaderTag = mapSizeToHeaderTag[size];
 
   return (
-    <div className={classNames(cls.text, {}, [className, cls[theme], cls[align], cls[size]])}>
-      {title && <HeaderTag data-testid={`${dataTestId}.Header`} className={cls.title}>{title}</HeaderTag>}
-      {text && <p className={cls.text} data-testid={`${dataTestId}.Paragraph`}>{text}</p>}
+    <div
+      className={classNames(cls.text, {}, [
+        className,
+        cls[theme],
+        cls[align],
+        cls[size],
+      ])}
+    >
+      {title && (
+        <HeaderTag data-testid={`${dataTestId}.Header`} className={cls.title}>
+          {title}
+        </HeaderTag>
+      )}
+      {text && (
+        <p className={cls.text} data-testid={`${dataTestId}.Paragraph`}>
+          {text}
+        </p>
+      )}
     </div>
-  )
-})
+  );
+});
 
-Text.displayName = 'Text'
+Text.displayName = 'Text';
 
-export default Text
+export default Text;

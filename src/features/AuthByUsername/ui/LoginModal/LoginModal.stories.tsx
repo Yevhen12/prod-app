@@ -1,45 +1,45 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator'
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator'
-import LoginModal from './LoginModal'
-import { Theme } from '@/shared/const/theme'
+import type { Meta, StoryObj } from '@storybook/react';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import LoginModal from './LoginModal';
+import { Theme } from '@/shared/const/theme';
 
 const meta = {
   title: 'features/LoginModal',
   component: LoginModal,
   parameters: {
-    layout: 'centered'
+    layout: 'centered',
   },
   tags: ['autodocs'],
   argTypes: {
-    backgroundColor: { control: 'color' }
-  }
-} as Meta<typeof LoginModal>
+    backgroundColor: { control: 'color' },
+  },
+} as Meta<typeof LoginModal>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    isOpen: true
-  }
-}
+    isOpen: true,
+  },
+};
 Primary.decorators = [
   StoreDecorator({
     loginForm: {
       username: 'sdsdsd',
       password: 'sdfsfs',
       isLoading: false,
-      error: null
-    }
-  })
-]
+      error: null,
+    },
+  }),
+];
 
 export const Dark: Story = {
   args: {
-    isOpen: true
-  }
-}
+    isOpen: true,
+  },
+};
 Dark.decorators = [
   ThemeDecorator(Theme.DARK),
   StoreDecorator({
@@ -47,7 +47,7 @@ Dark.decorators = [
       username: 'sdsdsd',
       password: 'sdfsfs',
       isLoading: false,
-      error: null
-    }
-  })
-]
+      error: null,
+    },
+  }),
+];

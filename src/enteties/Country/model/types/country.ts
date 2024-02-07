@@ -3,5 +3,5 @@ export enum Country {
   UnitedStates = 'United States',
   Australia = 'Australia',
   Poland = 'Poland',
-  England = 'England'
+  England = 'England',
 }

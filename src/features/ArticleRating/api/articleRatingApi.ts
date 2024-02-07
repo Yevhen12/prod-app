@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-invalid-void-type */
-import { rtkApi } from '@/shared/api/rtkApi'
-import { Rating } from '@/enteties/Rating'
+import { rtkApi } from '@/shared/api/rtkApi';
+import { Rating } from '@/enteties/Rating';
 
 interface GetArticleRatingArg {
-  userId: string
-  articleId: string
+  userId: string;
+  articleId: string;
 }
 
 interface RateArticleArg {
-  userId: string
-  articleId: string
-  rate: number
-  feedback?: string
+  userId: string;
+  articleId: string;
+  rate: number;
+  feedback?: string;
 }
 
 export const articleRatingApi = rtkApi.injectEndpoints({
@@ -21,9 +21,9 @@ export const articleRatingApi = rtkApi.injectEndpoints({
         url: '/article-ratings',
         params: {
           userId,
-          articleId
-        }
-      })
+          articleId,
+        },
+      }),
     }),
     rateArticle: build.mutation<void, RateArticleArg>({
       query: ({ userId, articleId, feedback, rate }) => ({
@@ -33,13 +33,13 @@ export const articleRatingApi = rtkApi.injectEndpoints({
           userId,
           articleId,
           feedback,
-          rate
-        }
-      })
-    })
+          rate,
+        },
+      }),
+    }),
   }),
-  overrideExisting: false
-})
+  overrideExisting: false,
+});
 
-export const useGetArticleRating = articleRatingApi.useGetArticleRatingQuery
-export const useRateArticle = articleRatingApi.useRateArticleMutation
+export const useGetArticleRating = articleRatingApi.useGetArticleRatingQuery;
+export const useRateArticle = articleRatingApi.useRateArticleMutation;

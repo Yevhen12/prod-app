@@ -1,9 +1,9 @@
-import { Article } from '@/enteties/Article'
-import i18n from '@/shared/config/i18n/i18n'
-import { createAppAsyncThunk } from '@/shared/lib/createAppAsynkThunk/createAppAsynkThunk'
-import { api } from '@/shared/api/api'
+import { Article } from '@/enteties/Article';
+import i18n from '@/shared/config/i18n/i18n';
+import { createAppAsyncThunk } from '@/shared/lib/createAppAsynkThunk/createAppAsynkThunk';
+import { api } from '@/shared/api/api';
 
-const URL = '/articles'
+const URL = '/articles';
 
 // TODO: NEED TO FIX extra: any
 
@@ -14,16 +14,16 @@ export const fetchArticleRecommendation = createAppAsyncThunk<Article[], void>(
     try {
       const response = await api.get<Article[]>(`${URL}`, {
         params: {
-          _limit: 4
-        }
-      })
+          _limit: 4,
+        },
+      });
 
       if (!response.data) {
-        throw new Error()
+        throw new Error();
       }
-      return response.data
+      return response.data;
     } catch (error: any) {
-      return thunkAPI.rejectWithValue(i18n.t('somethingWentWrong'))
+      return thunkAPI.rejectWithValue(i18n.t('somethingWentWrong'));
     }
-  }
-)
+  },
+);

@@ -1,1 +1,1 @@
-export const BASE_API_URL = __API__
+export const BASE_API_URL = __API__;

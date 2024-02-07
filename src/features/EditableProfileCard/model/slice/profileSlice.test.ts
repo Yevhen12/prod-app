@@ -1,9 +1,9 @@
-import { updateProfileData } from '../services/updateProfileData/updateProfileData'
-import { profileActions, profileReducer } from './profileSlice'
-import { ProfileSchema } from '../types/EditableProfileCardSchema'
-import { ProfileValidateError } from '../consts/profileCardConsts'
-import { Country } from '@/enteties/Country'
-import { Currency } from '@/enteties/Currency'
+import { updateProfileData } from '../services/updateProfileData/updateProfileData';
+import { profileActions, profileReducer } from './profileSlice';
+import { ProfileSchema } from '../types/EditableProfileCardSchema';
+import { ProfileValidateError } from '../consts/profileCardConsts';
+import { Country } from '@/enteties/Country';
+import { Currency } from '@/enteties/Currency';
 
 const defaultData = {
   first: 'Yevhen',
@@ -13,21 +13,24 @@ const defaultData = {
   country: Country.England,
   city: 'Lviv',
   username: 'neylen',
-  avatar: 'https://images.unsplash.com/photo-1694845482698-accfce9310f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60'
-}
+  avatar:
+    'https://images.unsplash.com/photo-1694845482698-accfce9310f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fHx8&auto=format&fit=crop&w=800&q=60',
+};
 
 describe('profileSlice', () => {
   test('setReadonly', () => {
     const state: DeepPartial<ProfileSchema> = {
-      readonly: false
-    }
+      readonly: false,
+    };
 
     const expectedState: DeepPartial<ProfileSchema> = {
-      readonly: true
-    }
+      readonly: true,
+    };
 
-    expect(profileReducer(state as ProfileSchema, profileActions.setReadonly(true))).toEqual(expectedState)
-  })
+    expect(
+      profileReducer(state as ProfileSchema, profileActions.setReadonly(true)),
+    ).toEqual(expectedState);
+  });
 
   test('cancelEdit', () => {
     const state: DeepPartial<ProfileSchema> = {
@@ -35,61 +38,70 @@ describe('profileSlice', () => {
       form: {
         ...defaultData,
         first: 'Yevhen1212121',
-        lastname: 'Lyssdsdsds'
-      }
-    }
+        lastname: 'Lyssdsdsds',
+      },
+    };
 
     const expectedState: DeepPartial<ProfileSchema> = {
       data: { ...defaultData },
       form: { ...defaultData },
       readonly: true,
-      validateErrors: undefined
-    }
+      validateErrors: undefined,
+    };
 
-    expect(profileReducer(state as ProfileSchema, profileActions.cancelEdit())).toEqual(expectedState)
-  })
+    expect(
+      profileReducer(state as ProfileSchema, profileActions.cancelEdit()),
+    ).toEqual(expectedState);
+  });
 
   test('updateProfile', () => {
     const fieldsToChange = {
       first: 'Yevhen1212121',
-      lastname: 'Lyssdsdsds'
-    }
+      lastname: 'Lyssdsdsds',
+    };
     const state: DeepPartial<ProfileSchema> = {
       form: {
-        ...defaultData
-      }
-    }
+        ...defaultData,
+      },
+    };
 
     const expectedState: DeepPartial<ProfileSchema> = {
       form: {
         ...defaultData,
-        ...fieldsToChange
-      }
-    }
+        ...fieldsToChange,
+      },
+    };
 
-    expect(profileReducer(state as ProfileSchema, profileActions.updateProfile(fieldsToChange))).toEqual(expectedState)
-  })
+    expect(
+      profileReducer(
+        state as ProfileSchema,
+        profileActions.updateProfile(fieldsToChange),
+      ),
+    ).toEqual(expectedState);
+  });
 
   test('update profile pending', () => {
     const state: DeepPartial<ProfileSchema> = {
       isLoading: false,
-      validateErrors: [ProfileValidateError.INCORRECT_USER_DATA]
-    }
+      validateErrors: [ProfileValidateError.INCORRECT_USER_DATA],
+    };
 
     const expectedState: DeepPartial<ProfileSchema> = {
       isLoading: true,
-      validateErrors: undefined
-    }
+      validateErrors: undefined,
+    };
 
-    expect(profileReducer(state as ProfileSchema, updateProfileData.pending)).toEqual(expectedState)
-  })
+    expect(
+      profileReducer(state as ProfileSchema, updateProfileData.pending),
+    ).toEqual(expectedState);
+  });
 
   test('update profile fulfilled', () => {
     const state: DeepPartial<ProfileSchema> = {
       form: defaultData,
       data: undefined,
-      isLoading: true
-    }
+      isLoading: true,
+    };
 
     const expectedState: DeepPartial<ProfileSchema> = {
       data: defaultData,
@@ -97,9 +109,11 @@ describe('profileSlice', () => {
       error: undefined,
       validateErrors: undefined,
       readonly: true,
-      form: defaultData
-    }
+      form: defaultData,
+    };
 
-    expect(profileReducer(state as ProfileSchema, updateProfileData.fulfilled)).toEqual(expectedState)
-  })
-})
+    expect(
+      profileReducer(state as ProfileSchema, updateProfileData.fulfilled),
+    ).toEqual(expectedState);
+  });
+});

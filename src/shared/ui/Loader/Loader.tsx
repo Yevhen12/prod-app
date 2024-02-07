@@ -1,9 +1,9 @@
-import { memo } from 'react'
-import { classNames } from '@/shared/lib/classNames/classNames'
-import './Loader.scss'
+import { memo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import './Loader.scss';
 
 interface LoaderProps {
-  className?: string
+  className?: string;
 }
 
 export const Loader: React.FC = memo(({ className }: LoaderProps) => (
@@ -13,6 +13,6 @@ export const Loader: React.FC = memo(({ className }: LoaderProps) => (
     <div />
     <div />
   </div>
-))
+));
 
-Loader.displayName = 'Loader'
+Loader.displayName = 'Loader';
