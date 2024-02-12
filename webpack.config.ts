@@ -22,6 +22,8 @@ module.exports = (env: BuildEnv) => {
   const project = 'frontend' as ProjectType;
   const apiUrl = env?.apiUrl || 'http://localhost:8000';
 
+  // NOTE: deployed on vercel https://prod-project-server-ten.vercel.app/
+
   const config: webpack.Configuration = buildWebpackConfig({
     mode,
     paths,
