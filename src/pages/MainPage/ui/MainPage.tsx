@@ -22,6 +22,7 @@ const MainPage: React.FC = memo(() => {
     <Page data-testid="MainPage">
       {t('main')}
       <Input value={value} onChange={onChange} placeholder="Type text" />
+      <div>This is test text</div>
       <div>twtttd</div>
       <div>twtttd</div>
       <Counter />
