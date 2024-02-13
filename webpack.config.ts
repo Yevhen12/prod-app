@@ -1,10 +1,22 @@
-import { BuildEnv, BuildPaths } from './config/build/types/config';
+import { BuildEnv, BuildMode, BuildPaths } from './config/build/types/config';
 import { ProjectType } from './config/build/types/config';
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
 import path from 'path';
 import webpack from 'webpack';
 import { buildWebpackConfig } from './config/build/buildWebpackConfig';
+
+const getApiUrl = (mode: BuildMode, apiUrl: string) => {
+  if (apiUrl) {
+    return apiUrl;
+  }
+
+  if (mode === 'production') {
+    return '/api';
+  }
+  
+  return 'http://localhost:8000';
+};
 
 module.exports = (env: BuildEnv) => {
   const paths: BuildPaths = {
@@ -20,7 +32,7 @@ module.exports = (env: BuildEnv) => {
   const isDev = mode === 'development';
   const PORT = env?.port || 3000;
   const project = 'frontend' as ProjectType;
-  const apiUrl = env?.apiUrl || 'http://localhost:8000';
+  const apiUrl = getApiUrl(mode, env?.apiUrl);
 
   // NOTE: deployed on vercel https://prod-project-server-ten.vercel.app/
 
