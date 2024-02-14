@@ -31,7 +31,7 @@
     "generate:slice": "node ./scripts/createSlice/index.js"
   },
   "lint-staged": {
-    "**/*.{ts,tsx,js,jsx}": ["eslint"]
+    "**/*.{ts,tsx,js,jsx}": ["eslint", "prettier --list-different"]
   },
   "keywords": [],
   "author": "",

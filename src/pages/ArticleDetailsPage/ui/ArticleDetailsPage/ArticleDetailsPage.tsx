@@ -12,6 +12,8 @@ import { VStack } from '@/shared/ui/Stack';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/ArticleRating';
+import { getFeatureFlag } from '@/shared/features/setGetFeatures';
+import { Counter } from '@/enteties/Counter';
 
 const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
@@ -24,6 +26,10 @@ export interface ArticleDetailsPageProps {
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
+  const isArticleRatingEnabled = getFeatureFlag('isArticleEnabled');
+  const isCounterEnabled = getFeatureFlag('isCounterEnabled');
+  console.log('isArticleRatingEnabled', isArticleRatingEnabled);
+  console.log('isCounterEnabled', isCounterEnabled);
 
   if (!id) {
     return <Page>{t('articleNotFound')}</Page>;
@@ -34,7 +40,8 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
       <Page>
         <VStack gap="16" max>
           <ArticleDetailsPageHeader />
-          <ArticleDetails id={id} />
+          {isCounterEnabled && <Counter />}
+          {isArticleRatingEnabled && <ArticleDetails id={id} />}
           <ArticleRating articleId={id} />
           <ArticleRecommendationsList />
           <ArticleDetailsComments id={id} />
