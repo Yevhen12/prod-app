@@ -13,7 +13,8 @@ import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsLis
 import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/ArticleRating';
 import { getFeatureFlag } from '@/shared/features/setGetFeatures';
-import { Counter } from '@/enteties/Counter';
+import { toggleFeatures } from '@/shared/features/toggleFeatures';
+import Card from '@/shared/ui/Card/Card';
 
 const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
@@ -28,6 +29,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const { id } = useParams<{ id: string }>();
   const isArticleRatingEnabled = getFeatureFlag('isArticleEnabled');
   const isCounterEnabled = getFeatureFlag('isCounterEnabled');
+
   console.log('isArticleRatingEnabled', isArticleRatingEnabled);
   console.log('isCounterEnabled', isCounterEnabled);
 
@@ -35,14 +37,19 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     return <Page>{t('articleNotFound')}</Page>;
   }
 
+  const articleRating = toggleFeatures({
+    name: 'isArticleEnabled',
+    on: () => <ArticleRating articleId={id} />,
+    off: () => <Card>Coming Soon!</Card>,
+  });
+
   return (
     <DynamicModuleLoader reducers={reducers}>
       <Page>
         <VStack gap="16" max>
           <ArticleDetailsPageHeader />
-          {isCounterEnabled && <Counter />}
-          {isArticleRatingEnabled && <ArticleDetails id={id} />}
-          <ArticleRating articleId={id} />
+          <ArticleDetails id={id} />
+          {articleRating}
           <ArticleRecommendationsList />
           <ArticleDetailsComments id={id} />
         </VStack>
