@@ -13,6 +13,7 @@ import {
   useJsonSettingsByKey,
 } from './model/selectors/jsonSettingsSelectors';
 import { saveJsonSettings } from './model/services/saveSettings';
+import { initAuthData } from './model/services/initAuthData';
 
 export {
   userActions,
@@ -29,4 +30,5 @@ export {
   useJsonSettings,
   useJsonSettingsByKey,
   saveJsonSettings,
+  initAuthData,
 };

@@ -1,4 +1,3 @@
-import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { AxiosError } from 'axios';
 import { User, userActions } from '@/enteties/User';
 import i18n from '@/shared/config/i18n/i18n';
@@ -31,7 +30,6 @@ export const loginByUsername = createAppAsyncThunk<User, LoginByUsernameProps>(
       }
       const { password: returnedPassword, ...otherFields } = response.data;
 
-      localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(otherFields));
       thunkAPI.dispatch(userActions.setAuthData(otherFields));
 
       return otherFields;
