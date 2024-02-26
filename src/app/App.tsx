@@ -6,7 +6,11 @@ import React, { Suspense, useEffect } from 'react';
 import { PageLoader } from '@/widgets/PageLoader';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch } from './providers/StoreProvider';
-import { userActions, getUserMounted } from '@/enteties/User';
+import {
+  userActions,
+  getUserMounted,
+  useJsonSettingsByKey,
+} from '@/enteties/User';
 import './styles/index.scss';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
 
@@ -20,6 +24,12 @@ const App: React.FC = () => {
   }, [dispatch]);
 
   const prootectedTheme = theme ?? '';
+
+  const themeFromSettings = useJsonSettingsByKey('theme');
+  const isFirstVisit = useJsonSettingsByKey('isFirstVisit');
+
+  console.log('themeFromSettings', themeFromSettings);
+  console.log('isFirstVisit', isFirstVisit);
 
   return (
     <div id="app" className={classNames('app', {}, [prootectedTheme])}>

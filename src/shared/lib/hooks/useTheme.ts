@@ -1,18 +1,17 @@
 /* eslint-disable indent */
 import { ThemeContext } from '../context/ThemeContext';
-import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localStorage';
 import { Theme } from '@/shared/const/theme';
 import { useContext } from 'react';
 
 interface UseThemeResult {
-  toggleTheme: () => void;
+  toggleTheme: (saveAction?: (theme: Theme) => void) => void;
   theme: Theme | undefined;
 }
 
 export function useTheme(): UseThemeResult {
   const { theme, setTheme } = useContext(ThemeContext);
 
-  const toggleTheme = (): void => {
+  const toggleTheme = (saveAction?: (theme: Theme) => void): void => {
     if (setTheme != null) {
       let newTheme: Theme;
       switch (theme) {
@@ -30,7 +29,7 @@ export function useTheme(): UseThemeResult {
       }
       setTheme(newTheme);
       document.body.className = newTheme;
-      localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+      saveAction?.(newTheme);
     }
   };
 

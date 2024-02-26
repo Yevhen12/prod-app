@@ -8,6 +8,11 @@ import {
   getAllRoles,
 } from './model/selectors/roleSelectors';
 import { getUserMounted } from './model/selectors/getUserMounted/getUserModunted';
+import {
+  useJsonSettings,
+  useJsonSettingsByKey,
+} from './model/selectors/jsonSettingsSelectors';
+import { saveJsonSettings } from './model/services/saveSettings';
 
 export {
   userActions,
@@ -21,4 +26,7 @@ export {
   getIsUserManager,
   getUserMounted,
   getAllRoles,
+  useJsonSettings,
+  useJsonSettingsByKey,
+  saveJsonSettings,
 };
