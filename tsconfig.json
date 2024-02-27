@@ -32,7 +32,8 @@
     "webpack.config.ts",
     "jest.config.ts",
     "./vite.config.ts",
-    "cypress.config.ts"
+    "cypress.config.ts",
+    "ToggleFeatures.tsx"
   ],
   "exclude": ["node_modules", "**/node_modules/*"],
   "files": ["src/index.tsx"]

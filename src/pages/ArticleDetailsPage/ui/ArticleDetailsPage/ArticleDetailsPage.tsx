@@ -13,8 +13,8 @@ import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsLis
 import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/ArticleRating';
 import { getFeatureFlag } from '@/shared/features/setGetFeatures';
-import { toggleFeatures } from '@/shared/features/toggleFeatures';
 import Card from '@/shared/ui/Card/Card';
+import { ToggleFeatures } from '@/shared/features/ToggleFeatures/ToggleFeatures';
 
 const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
@@ -37,19 +37,18 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
     return <Page>{t('articleNotFound')}</Page>;
   }
 
-  const articleRating = toggleFeatures({
-    name: 'isArticleEnabled',
-    on: () => <ArticleRating articleId={id} />,
-    off: () => <Card>Coming Soon!</Card>,
-  });
-
   return (
     <DynamicModuleLoader reducers={reducers}>
       <Page>
         <VStack gap="16" max>
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
-          {articleRating}
+          {/* {articleRating} */}
+          <ToggleFeatures
+            feature="isArticleEnabled"
+            on={<ArticleRating articleId={id} />}
+            off={<Card>Coming Soon!</Card>}
+          />
           <ArticleRecommendationsList />
           <ArticleDetailsComments id={id} />
         </VStack>
