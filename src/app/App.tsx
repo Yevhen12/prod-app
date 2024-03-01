@@ -9,6 +9,8 @@ import { AppDispatch } from './providers/StoreProvider';
 import { getUserMounted, initAuthData } from '@/enteties/User';
 import './styles/index.scss';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
+import { ToggleFeatures } from '@/shared/features/ToggleFeatures/ToggleFeatures';
+import { MainLayout } from '@/shared/layouts';
 
 const App: React.FC = () => {
   const { theme } = useTheme();
@@ -26,15 +28,35 @@ const App: React.FC = () => {
   }
 
   return (
-    <div id="app" className={classNames('app', {}, [prootectedTheme])}>
-      <Suspense fallback={<PageLoader />}>
-        <Navbar />
-        <div className="content-page">
-          <Sidebar />
-          {isMounted ? <AppRouter /> : null}
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      off={
+        <div id="app" className={classNames('app', {}, [prootectedTheme])}>
+          <Suspense fallback={<PageLoader />}>
+            <Navbar />
+            <div className="content-page">
+              <Sidebar />
+              <AppRouter />
+            </div>
+          </Suspense>
         </div>
-      </Suspense>
-    </div>
+      }
+      on={
+        <div
+          id="app"
+          className={classNames('app_redesigned', {}, [prootectedTheme])}
+        >
+          <Suspense fallback={<PageLoader />}>
+            <MainLayout
+              header={<Navbar />}
+              content={<AppRouter />}
+              sidebar={<Sidebar />}
+              toolbar={<div>dsdsdsdsds</div>}
+            />
+          </Suspense>
+        </div>
+      }
+    />
   );
 };
 

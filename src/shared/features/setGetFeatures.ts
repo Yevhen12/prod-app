@@ -13,5 +13,5 @@ export const getFeatureFlags = () => {
 };
 
 export const getFeatureFlag = (flag: keyof FeatureFlags) => {
-  return featureFlags[flag];
+  return featureFlags && featureFlags[flag];
 };
