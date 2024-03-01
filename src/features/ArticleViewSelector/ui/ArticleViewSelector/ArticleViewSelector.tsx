@@ -39,6 +39,8 @@ const ArticleViewSelector: FC<ArticleViewSelectorProps> = ({
           onClick={() => onChangeView?.(viewType.view)}
         >
           <Icon
+            width={16}
+            height={16}
             Svg={viewType.icon}
             className={classNames(
               cls.articleViewSelector,
